@@ -9,20 +9,20 @@ How to use this **UofT ASIC** Docsify template after **Use this template** under
 3. Clone:
 
 ```bash
-git clone https://github.com/uoftasic/{{COURSE_ID}}.git
-cd {{COURSE_ID}}
+git clone https://github.com/uoftasic/ic101.git
+cd ic101
 ```
 
 4. Fill course fields (org is fixed to `uoftasic`):
 
 ```bash
 python3 scripts/init-template.py \
-  --id {{COURSE_ID}} \
-  --title "{{COURSE_TITLE}}" \
-  --description "{{DESCRIPTION}}"
+  --id ic101 \
+  --title "IC101 - Introduction to IC Tools & Workspace" \
+  --description "Learn how to setup IC tools and workspace on your device"
 ```
 
-Details: [TEMPLATE.md](https://github.com/uoftasic/{{COURSE_ID}}/blob/main/TEMPLATE.md).
+Details: [TEMPLATE.md](https://github.com/uoftasic/ic101/blob/main/TEMPLATE.md).
 
 ## 2. Enable GitHub Pages
 
@@ -32,7 +32,7 @@ Details: [TEMPLATE.md](https://github.com/uoftasic/{{COURSE_ID}}/blob/main/TEMPL
 4. Site URL:
 
 ```text
-https://uoftasic.com/{{COURSE_ID}}/
+https://uoftasic.com/ic101/
 ```
 
 No Actions workflow is required for the baseline Docsify site.
@@ -52,7 +52,7 @@ Open [http://localhost:3000](http://localhost:3000).
 3. Prefer relative links: `guide/yosys-basics.md`.
 4. Put figures in `docs/assets/img/`.
 
-Conventions for docs and labs: [CONTRIBUTING.md](https://github.com/uoftasic/{{COURSE_ID}}/blob/main/CONTRIBUTING.md).
+Conventions for docs and labs: [CONTRIBUTING.md](https://github.com/uoftasic/ic101/blob/main/CONTRIBUTING.md).
 
 ## 5. Add a lab
 

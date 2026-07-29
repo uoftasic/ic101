@@ -1,81 +1,39 @@
-# {{COURSE_TITLE}}
+# IC101 — Onboarding onto Tools
 
-{{DESCRIPTION}}
+Set up the containerized open-source toolchain that every later course builds on.
 
-Docsify course / lab template for the **UofT ASIC Team** (`uoftasic`). Published docs live under `./docs`; runnable labs, scripts, notebooks, and data stay in the repo root. Zero build for GitHub Pages — Markdown, MathJax, and images work out of the box.
+Part of the **UofT ASIC Team** education materials. Published at **https://uoftasic.com/ic101/**. Runnable tooling lives in the shared **workspace** repo (not in this course repo).
 
-Org: [github.com/uoftasic](https://github.com/uoftasic)
+## At a glance
 
-## Live docs
+| | |
+|---|---|
+| **Track** | Core (intro) |
+| **Prerequisites** | None |
+| **Tools** | Docker, IIC-OSIC-TOOLS, noVNC |
+| **Shared workspace** | Yes — clone once, reuse every course |
 
-**This template:** https://uoftasic.com/course-template/
+## What you'll do
 
-**Education hub:** https://edu.uoftasic.com/
+1. Understand why we use a containerized EDA toolchain
+2. Install Docker Desktop
+3. Clone **workspace** and launch the IIC-OSIC-TOOLS desktop (noVNC)
+4. Run the smoke test
+5. See where each tool sits in a tapeout flow
 
-After Pages is enabled on a course repo created from this template:
+Start here: **[Getting started](guide/getting-started.md)**.
 
-**https://uoftasic.com/{{COURSE_ID}}/**
+## Quick links
 
-## Use this template
+| What | Where |
+|------|--------|
+| Getting started | [guide/getting-started.md](guide/getting-started.md) |
+| Workspace (tools) | sibling `workspace/` folder locally; GitHub: [uoftasic/workspace](https://github.com/uoftasic/workspace) |
+| Portal hub | [edu.uoftasic.com](https://edu.uoftasic.com/) |
 
-1. On [uoftasic/course-template](https://github.com/uoftasic/course-template), click **Use this template** → create a repo named after the course id (e.g. `dd103`, `serdes-lab`).
-2. Clone and bootstrap:
+## Local preview
 
 ```bash
-python3 scripts/init-template.py \
-  --id {{COURSE_ID}} \
-  --title "{{COURSE_TITLE}}" \
-  --description "{{DESCRIPTION}}"
-```
-
-3. Enable **Settings → Pages → Deploy from a branch → `main` / `/docs`**.
-
-See [TEMPLATE.md](TEMPLATE.md) for the checklist. Org is always `uoftasic` — only course id / title / description are filled in.
-
-## Quick start
-
-```bash
-git clone https://github.com/uoftasic/{{COURSE_ID}}.git
-cd {{COURSE_ID}}
-
-# Docs (requires Node.js)
 npx docsify-cli serve docs
 # → http://localhost:3000
-
-# Sample script
-python3 scripts/hello.py
-
-# Sample lab
-python3 labs/lab-01/src/main.py
 ```
-
-Tool-heavy courses that need IIC-OSIC-TOOLS / SKY130 should document the team workbench setup in-course rather than bundling Docker in every repo.
-
-## Layout
-
-| Path | On Pages? | Purpose |
-|------|-----------|---------|
-| `docs/` | **Yes** | Human-facing Docsify site |
-| `docs/labs/` | Yes | Lab *writeups* (procedure, theory) |
-| `labs/` | No | Runnable packages (HDL, Python, data, graders) |
-| `scripts/` | No | Team utilities / automation |
-| `notebooks/` | No | Exploratory / assignment notebooks |
-| `data/`, `figures/` | No | Shared datasets / source figures |
-
-## GitHub Pages
-
-| Setting | Value |
-|---------|--------|
-| Source | Deploy from a branch |
-| Branch | `main` |
-| Folder | `/docs` |
-
-No Actions deploy step is required for the baseline Docsify site.
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## License
-
-[MIT](LICENSE) — Copyright UofT ASIC Team / `uoftasic`

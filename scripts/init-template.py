@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Replace course placeholders after creating a repo from the UofT ASIC template.
 
-Fills {{COURSE_ID}}, {{COURSE_TITLE}}, and {{DESCRIPTION}} only.
+Fills ic101, IC101 - Introduction to IC Tools & Workspace, and Learn how to setup IC tools and workspace on your device only.
 Does not scaffold or remove docs pages — keep the published site barebones.
 """
 

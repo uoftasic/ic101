@@ -1,13 +1,13 @@
 # Scripts
 
-Utilities for **{{COURSE_TITLE}}** under the UofT ASIC org (`uoftasic`).
+Utilities for **IC101 - Introduction to IC Tools & Workspace** under the UofT ASIC org (`uoftasic`).
 
 ## Entry points
 
 | Script | Purpose |
 |--------|---------|
 | `hello.py` | Smoke-check that Python runs in this clone |
-| `init-template.py` | Fill `{{COURSE_ID}}` / title / description after using the template |
+| `init-template.py` | Fill `ic101` / title / description after using the template |
 
 ## Usage
 

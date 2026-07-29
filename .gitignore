@@ -25,3 +25,8 @@ venv/
 # Build artifacts (if any local tools)
 site/
 _book/
+
+# Node artifacts (npx testing is technically optional)
+node_modules/
+package-lock.json
+package.json
