@@ -1,8 +1,13 @@
 - [Home](README.md)
 - **Guide**
   - [Getting started](guide/getting-started.md)
-- **Labs**
-  - [Lab 01 overview](labs/lab-01-overview.md)
+  - [Why containers](guide/why-containers.md)
+  - [Install Docker](guide/install-docker.md)
+  - [Launch noVNC](guide/launch-novnc.md)
+  - [Smoke test](guide/smoke-test.md)
+  - [Tapeout flow](guide/tapeout-flow.md)
+- **Reference**
+  - [Troubleshooting](reference/troubleshooting.md)
 - **Repo**
-  - [Scripts](https://github.com/uoftasic/{{COURSE_ID}}/tree/main/scripts)
-  - [Lab packages](https://github.com/uoftasic/{{COURSE_ID}}/tree/main/labs)
+  - [Scripts](https://github.com/uoftasic/ic101/tree/main/scripts)
+  - [Lab packages](https://github.com/uoftasic/ic101/tree/main/labs)

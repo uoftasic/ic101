@@ -1,33 +1,35 @@
-# {{COURSE_TITLE}}
+# IC101 — Onboarding onto Tools
 
-{{DESCRIPTION}}
+Set up the containerized open-source toolchain that every later course builds on.
 
-Part of the **UofT ASIC Team** education materials. This site is the published documentation; runnable labs and scripts live in the [GitHub repo](https://github.com/uoftasic/{{COURSE_ID}}) (not under `docs/`).
+Part of the **UofT ASIC Team** education materials. Published at **https://uoftasic.com/ic101/**. Runnable tooling lives in the shared **workspace** repo (not in this course repo).
 
-Education hub: [edu.uoftasic.com](https://edu.uoftasic.com/).
+## At a glance
+
+| | |
+|---|---|
+| **Track** | Core (intro) |
+| **Prerequisites** | None |
+| **Tools** | Docker, IIC-OSIC-TOOLS, noVNC |
+| **Shared workspace** | Yes — clone once, reuse every course |
+
+## What you'll do
+
+1. Understand why we use a containerized EDA toolchain
+2. Install Docker Desktop
+3. Clone **workspace** and launch the IIC-OSIC-TOOLS desktop (noVNC)
+4. Run the smoke test
+5. See where each tool sits in a tapeout flow
+
+Start here: **[Getting started](guide/getting-started.md)**.
 
 ## Quick links
 
 | What | Where |
 |------|--------|
 | Getting started | [guide/getting-started.md](guide/getting-started.md) |
-| Lab 01 writeup | [labs/lab-01-overview.md](labs/lab-01-overview.md) |
-| Lab packages | [labs/](https://github.com/uoftasic/{{COURSE_ID}}/tree/main/labs) |
-| Scripts | [scripts/](https://github.com/uoftasic/{{COURSE_ID}}/tree/main/scripts) |
-
-## Math
-
-Inline: $E = mc^2$. Display:
-
-$$
-\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0 \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t}
-$$
-
-## Figures
-
-Images used in docs live under `docs/assets/img/`:
-
-![Sample figure](assets/img/sample-figure.png)
+| Workspace (tools) | sibling `workspace/` folder locally; GitHub: [uoftasic/workspace](https://github.com/uoftasic/workspace) |
+| Portal hub | [edu.uoftasic.com](https://edu.uoftasic.com/) |
 
 ## Local preview
 
