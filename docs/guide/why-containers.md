@@ -25,4 +25,4 @@ Default login for the noVNC session uses password `abc123` (overridable via `VNC
 - Not a substitute for ECE curriculum
 - Not a per-course Docker image — **one workspace for every tool-heavy course**
 
-Next: [Install Docker](install-docker.md).
+Next: [Install Docker](guide/install-docker.md).

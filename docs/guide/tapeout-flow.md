@@ -51,5 +51,5 @@ FPGAs (Quartus, etc.) appear in early digital courses as a parallel path before 
 ## What to do next
 
 - Browse [edu.uoftasic.com](https://edu.uoftasic.com/) and pick Analog or Digital
-- Re-run the [smoke test](smoke-test.md) if you update Docker tags or the PDK pin
-- When stuck: [Troubleshooting](../reference/troubleshooting.md)
+- Re-run the [smoke test](guide/smoke-test.md) if you update Docker tags or the PDK pin
+- When stuck: [Troubleshooting](reference/troubleshooting.md)

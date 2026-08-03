@@ -65,4 +65,4 @@ Then run `start_vnc` again. Your files under the workspace folder persist on the
 - [ ] Browser desktop loads and accepts the VNC password
 - [ ] You can open a terminal inside the desktop
 
-Next: [Smoke test](smoke-test.md).
+Next: [Smoke test](guide/smoke-test.md).
