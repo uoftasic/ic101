@@ -15,11 +15,12 @@ Part of the **UofT ASIC Team** education materials. Published at **https://uofta
 
 ## What you'll do
 
-1. Understand why we use a containerized EDA toolchain
-2. Install Docker Desktop
-3. Clone **workspace** and launch the IIC-OSIC-TOOLS desktop (noVNC)
-4. Run the smoke test
-5. See where each tool sits in a tapeout flow
+1. Set up a terminal and install git (if you don't have them already)
+2. Understand why we use a containerized EDA toolchain
+3. Install Docker Desktop
+4. Clone **workspace** and launch the IIC-OSIC-TOOLS desktop (noVNC)
+5. Run the smoke test
+6. See where each tool sits in a tapeout flow
 
 Start here: **[Getting started](guide/getting-started.md)**.
 

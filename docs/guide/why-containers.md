@@ -1,5 +1,7 @@
 # Why a containerized toolchain
 
+A **container** is a self-contained bundle of software that runs the same way on every computer — Windows, macOS, or Linux — without you installing each program separately. Think of it as one pre-built package containing an entire toolchain, ready to run.
+
 Open-source ASIC flows bundle dozens of tools (schematic capture, SPICE, layout, DRC/LVS, synthesis, P&R). Installing each natively on Windows, macOS, and Linux is fragile: versions drift, PDKs disagree, and “works on my machine” becomes the course.
 
 ## What we standardize

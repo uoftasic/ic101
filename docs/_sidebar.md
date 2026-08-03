@@ -1,6 +1,7 @@
 - [Home](README.md)
 - **Guide**
   - [Getting started](guide/getting-started.md)
+  - [Prerequisites](guide/prerequisites.md)
   - [Why containers](guide/why-containers.md)
   - [Install Docker](guide/install-docker.md)
   - [Launch noVNC](guide/launch-novnc.md)
