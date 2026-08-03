@@ -23,7 +23,7 @@ You can also run `./scripts/add_module.sh ad101` on the **host** from your works
 
 ## What the smoke test checks
 
-The script confirms these commands exist on `PATH`, that the PDK is present, and that module helpers work:
+The script confirms these commands exist on your **`PATH`** (the list of folders your shell searches when you type a command name), that the **PDK** (Process Design Kit — the set of files describing how a specific chip fab's manufacturing process behaves, so tools can simulate and check designs against it) is present, and that module helpers work:
 
 | Check | Role |
 |-------|------|

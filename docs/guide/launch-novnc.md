@@ -1,17 +1,30 @@
 # Launch the IIC-OSIC-TOOLS desktop (noVNC)
 
-This step clones the shared **workspace** and starts the containerized EDA desktop in your browser.
+This step downloads (clones) the shared **workspace** repo onto your
+computer, then starts the containerized EDA desktop in your browser.
 
 ## 1. Clone the workspace
+
+**Cloning** means using git to copy a repo from GitHub onto your computer.
+Open a terminal (see [Prerequisites](guide/prerequisites.md) if you get
+`git: command not found`) and run:
 
 ```bash
 git clone https://github.com/uoftasic/workspace.git
 cd workspace
 ```
 
+The first command creates a new folder named `workspace` containing the
+team's scripts and configuration. The second command moves your terminal
+into that folder — every command below assumes you're still inside it.
+
 (Locally we call the folder `workspace`.)
 
 ## 2. Start noVNC
+
+This command downloads the container image described in
+[Why containers](guide/why-containers.md) (if you don't have it yet) and
+starts it.
 
 **macOS / Linux:**
 
@@ -19,7 +32,8 @@ cd workspace
 ./scripts/start_vnc.sh
 ```
 
-**Windows:** double-click `scripts/start_vnc.bat`, or from a shell:
+**Windows:** double-click `scripts/start_vnc.bat` in File Explorer, or from
+a terminal:
 
 ```bat
 scripts\start_vnc.bat
@@ -31,6 +45,9 @@ The script will:
 2. Run the container with your workspace mounted at `/foss/designs`
 3. Expose the desktop on **http://localhost/** (port `80` by default; override with `HOST_PORT`)
 
+The first run can take several minutes while the image downloads — this is
+normal. Wait for the script to finish before opening the browser.
+
 Useful overrides:
 
 ```bash
@@ -41,8 +58,13 @@ VNC_PW='your-password' HOST_PORT=8080 ./scripts/start_vnc.sh
 ## 3. Open the desktop
 
 1. Browse to **http://localhost/** (or `http://localhost:<HOST_PORT>/`)
+
+   > [Screenshot: noVNC password prompt in the browser]
+
 2. Password: **`abc123`** unless you set `VNC_PW`
 3. You should see a Linux desktop suitable for XSchem, Magic, terminals, etc.
+
+   > [Screenshot: the loaded noVNC Linux desktop]
 
 Copy/paste tip: use the clipboard control in the noVNC sidebar, or **Ctrl+Shift+V** to paste into the VM.
 

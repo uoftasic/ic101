@@ -1,6 +1,6 @@
 # Where each tool sits in the tapeout flow
 
-A mental map of the tools you just verified — not a full design course.
+A mental map of the tools you just verified — not a full design course. **Tapeout** is the point where a finished chip design is sent off to be manufactured; **GDSII** is the file format that describes the final layout sent to the fab.
 
 ## Analog / mixed-signal path
 
