@@ -50,4 +50,4 @@ The first `start_vnc` run **pulls** `hpretl/iic-osic-tools:<tag>` (currently `20
 - [ ] `docker run --rm hello-world` prints a success message
 - [ ] Docker has enough disk/RAM for a multi-GB image
 
-Next: [Launch noVNC](launch-novnc.md).
+Next: [Launch noVNC](guide/launch-novnc.md).
