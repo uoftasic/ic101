@@ -1,72 +1,37 @@
 # Getting started
 
-How to use this **UofT ASIC** Docsify template after **Use this template** under [`uoftasic`](https://github.com/uoftasic).
+IC101 is the entry point for the UofT ASIC Internal Education Initiative. There are **no course prerequisites** — you need a laptop with roughly **20 GB free** and permission to install Docker Desktop.
 
-## 1. Create the course repo
+## Path through this course
 
-1. Open [uoftasic/course-template](https://github.com/uoftasic/course-template) → **Use this template**.
-2. Name the new repo after the course id (e.g. `dd103`, `ic101`).
-3. Clone:
+| Step | Guide | Outcome |
+|------|--------|---------|
+| 1 | [Why containers](guide/why-containers.md) | Know why we ship one Docker image instead of native installs |
+| 2 | [Install Docker](guide/install-docker.md) | Docker Desktop running on your OS |
+| 3 | [Launch noVNC](guide/launch-novnc.md) | Browser EDA desktop from the **workspace** |
+| 4 | [Smoke test](guide/smoke-test.md) | Confirm tools + SKY130 PDK resolve |
+| 5 | [Tapeout flow](guide/tapeout-flow.md) | Map tools to RTL → GDSII / analog flow |
 
-```bash
-git clone https://github.com/uoftasic/ic101.git
-cd ic101
-```
+## The workspace (not this repo)
 
-4. Fill course fields (org is fixed to `uoftasic`):
-
-```bash
-python3 scripts/init-template.py \
-  --id ic101 \
-  --title "IC101 - Introduction to IC Tools & Workspace" \
-  --description "Learn how to setup IC tools and workspace on your device"
-```
-
-Details: [TEMPLATE.md](https://github.com/uoftasic/ic101/blob/main/TEMPLATE.md).
-
-## 2. Enable GitHub Pages
-
-1. Push to `main`.
-2. **Settings → Pages → Build and deployment**
-3. Source: **Deploy from a branch** → `main` / `/docs`
-4. Site URL:
-
-```text
-https://uoftasic.com/ic101/
-```
-
-No Actions workflow is required for the baseline Docsify site.
-
-## 3. Preview docs locally
+This `ic101` repo is **docs**. The Docker scripts, PDK pin, and in-container helpers live in the shared **workspace**:
 
 ```bash
-npx docsify-cli serve docs
+# Clone into a folder named workspace (local name we use on the team)
+git clone https://github.com/uoftasic/workspace.git
+cd workspace
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+| Path in workspace | Purpose |
+|-------------------|---------|
+| `scripts/start_vnc.sh` / `.bat` | Launch IIC-OSIC-TOOLS with noVNC |
+| `scripts/smoke_test.sh` | Health-check tools inside the container |
+| `common/.designinit` | Environment + SKY130 setup |
+| `modules/ic101_setup/` | Scratch space for this course |
+| `pdk/` | Pinned PDK version |
 
-## 4. Add a documentation page
+Later courses add their own folders under `modules/` (in the container: `mod add <course>` after sourcing `.designinit`). You keep the same clone.
 
-1. Create kebab-case Markdown under `docs/` (e.g. `docs/guide/yosys-basics.md`).
-2. Link it from `docs/_sidebar.md`.
-3. Prefer relative links: `guide/yosys-basics.md`.
-4. Put figures in `docs/assets/img/`.
+## After IC101
 
-Conventions for docs and labs: [CONTRIBUTING.md](https://github.com/uoftasic/ic101/blob/main/CONTRIBUTING.md).
-
-## 5. Add a lab
-
-1. Create `labs/<lab-id>/` with `README.md`, `src/`, `data/`, …
-2. Add `docs/labs/<lab-id>-overview.md` and a sidebar entry.
-3. Link the Docsify writeup from `labs/<lab-id>/README.md`.
-
-**Separation:** `docs/labs/` = theory / procedure. `labs/` = HDL, Python, data (not published by Pages).
-
-For LibreLane / SKY130 / IIC-OSIC-TOOLS workflows, follow the course-specific workbench instructions (do not bundle Docker in every course repo).
-
-## 6. Smoke checks
-
-```bash
-python3 scripts/hello.py
-python3 labs/lab-01/src/main.py
-```
+Pick a track from the [portal](https://edu.uoftasic.com/): Analog (AD101…) or Digital (DD101…). Tool-heavy courses reuse this workspace; early web-sim courses do not need Docker again until their labs say so.
