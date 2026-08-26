@@ -59,12 +59,16 @@ VNC_PW='your-password' HOST_PORT=8080 ./scripts/start_vnc.sh
 
 1. Browse to **http://localhost/** (or `http://localhost:<HOST_PORT>/`)
 
-   > [Screenshot: noVNC password prompt in the browser]
+   ![The noVNC password prompt](../assets/img/novnc-password-prompt.png)
+   *The address bar says `localhost` and nothing else. If you see a different port, you
+   started the container with a different `HOST_PORT`.*
 
 2. Password: **`abc123`** unless you set `VNC_PW`
 3. You should see a Linux desktop suitable for XSchem, Magic, terminals, etc.
 
-   > [Screenshot: the loaded noVNC Linux desktop]
+   ![The workbench desktop, loaded](../assets/img/novnc-desktop.png)
+   *The desktop, running inside the browser tab. `Connected to ...` in the top bar means
+   the VNC session is live — this is the machine every later course runs on.*
 
 Copy/paste tip: use the clipboard control in the noVNC sidebar, or **Ctrl+Shift+V** to paste into the VM.
 

@@ -23,8 +23,6 @@ before anything else in this course will work.
 3. Wait until the Docker icon in the menu bar stops animating and its status
    reads **Engine running** (click the icon to check).
 
-   > [Screenshot: Docker Desktop menu bar icon showing "Engine running"]
-
 4. Open a terminal (see [Prerequisites](guide/prerequisites.md) if you're not sure
    how) and run:
 
@@ -36,8 +34,6 @@ docker run --rm hello-world
 You should see version info, then a paragraph starting with
 `Hello from Docker!`. That message is your confirmation everything works —
 if you see it, move on to the next page.
-
-> [Screenshot: terminal showing the "Hello from Docker!" success message]
 
 Apple Silicon (M1/M2/M3) works; the IIC image is multi-arch. In Docker
 Desktop, go to **Settings → Resources** and allocate at least **4 GB RAM**.
@@ -55,8 +51,6 @@ Desktop, go to **Settings → Resources** and allocate at least **4 GB RAM**.
 3. Open Docker Desktop and wait for it to say **Engine running** in the
    bottom-left corner.
 
-   > [Screenshot: Docker Desktop window showing "Engine running" status]
-
 4. Open **Windows Terminal** (or PowerShell) and run:
 
 ```bat
@@ -65,8 +59,6 @@ docker run --rm hello-world
 ```
 
 You should see version info, then a `Hello from Docker!` message.
-
-> [Screenshot: Windows Terminal showing the "Hello from Docker!" success message]
 
 If `hello-world` fails, fix Docker before continuing — every later step
 depends on it. Check [Troubleshooting](reference/troubleshooting.md).

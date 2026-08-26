@@ -20,7 +20,8 @@ Once it's open you'll see a prompt (often ending in `$` or `>`) where you can
 type. When a guide says "run this command," it means: click into the
 terminal window and type (or paste) the command, then press Enter.
 
-> [Screenshot: a terminal window open with a shell prompt visible]
+![A terminal at a shell prompt](../assets/img/terminal-prompt.png)
+*A shell prompt, waiting. The `$` is where you type — you do not type the `$` itself.*
 
 ## What is git?
 
