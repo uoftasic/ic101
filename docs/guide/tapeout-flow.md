@@ -37,7 +37,9 @@ SystemVerilog RTL → Yosys (synthesis)
 | **Verilator** / **cocotb** | Pre-silicon verification (later courses) |
 | **LibreLane** | Automated RTL-to-GDSII (DD103 and friends) |
 
-FPGAs (Quartus, etc.) appear in early digital courses as a parallel path before the open ASIC flow.
+FPGAs appear in early digital courses as a parallel path before the open ASIC flow — DD102 puts a
+design onto a real board with the open toolchain (Yosys, nextpnr, IceStorm) that is already in this
+image, so there is no vendor install to do.
 
 ## Shared infrastructure
 
