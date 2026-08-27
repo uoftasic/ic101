@@ -118,12 +118,28 @@ default `2026.04`).
 
 **Symptom:** The smoke test reports the SKY130 PDK as missing.
 
-**Why:** The PDK is fetched separately from the container image and may not
-have run yet in this container.
+**Why:** Not because the PDK is absent — SKY130 ships inside the image at
+`/foss/pdks/sky130A`. The image *starts on a different PDK* (`ihp-sg13g2`), so
+`PDKPATH` and the ngspice and KLayout search paths all point somewhere else.
 
-**Fix:** Inside the container, install/fetch the PDK as the smoke script
-suggests (often `sak-pdk sky130A`), then re-run
-`/foss/designs/scripts/smoke_test.sh`.
+**Fix:** Source the workspace environment, which switches every one of those
+variables over to SKY130, then re-run the smoke test:
+
+```bash
+. /foss/designs/.designinit
+/foss/designs/scripts/smoke_test.sh
+```
+
+If you ever need to switch by hand, the image's own switcher is
+`sak-pdk-script.sh`, and it must be **sourced** — run as a plain command it
+prints the settings and changes nothing in your shell, which looks very much
+like it worked:
+
+```bash
+. sak-pdk-script.sh sky130A
+```
+
+(Its own usage message calls it `sak-pdk`. There is no such command on `PATH`.)
 
 ## Copy/paste between host and noVNC
 
