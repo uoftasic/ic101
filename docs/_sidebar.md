@@ -11,4 +11,3 @@
   - [Troubleshooting](reference/troubleshooting.md)
 - **Repo**
   - [Scripts](https://github.com/uoftasic/ic101/tree/main/scripts)
-  - [Lab packages](https://github.com/uoftasic/ic101/tree/main/labs)

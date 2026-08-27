@@ -31,6 +31,7 @@ Start here: **[Getting started](guide/getting-started.md)**.
 | Getting started | [guide/getting-started.md](guide/getting-started.md) |
 | Workspace (tools) | sibling `workspace/` folder locally; GitHub: [uoftasic/workspace](https://github.com/uoftasic/workspace) |
 | Portal hub | [edu.uoftasic.com](https://edu.uoftasic.com/) |
+| After this course | [AD101](https://uoftasic.com/ad101/) starts the analog track · [DD101](https://uoftasic.com/dd101/) starts the digital track |
 
 ## Local preview
 

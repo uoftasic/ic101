@@ -47,6 +47,6 @@ Then re-run the smoke test.
 
 ## After a pass
 
-You are ready for any track that uses the workspace. Keep the clone; later courses add more `modules/` folders (`mod add <course>`).
+You are ready for either track. Keep the clone; later courses add more `modules/` folders (`mod add <course>`) — [**AD101**](https://uoftasic.com/ad101/) starts the analog track and [**DD101**](https://uoftasic.com/dd101/) starts the digital one.
 
 Next: [Where each tool sits in the tapeout flow](guide/tapeout-flow.md).
