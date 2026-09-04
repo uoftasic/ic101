@@ -52,6 +52,19 @@ image, so there is no vendor install to do.
 
 ## What to do next
 
-- Browse [edu.uoftasic.com](https://edu.uoftasic.com/) and pick Analog or Digital
+**Pick a track.** Both start here, both assume the workbench you just built, and you can do
+them in either order — or both.
+
+| Track | Start with | What you do first |
+|---|---|---|
+| **Analog** | [**AD101** — Signals & Systems](https://uoftasic.com/ad101/) | Waveforms, spectra and Bode plots, before any circuit |
+| **Digital** | [**DD101** — Intro to Digital Logic](https://uoftasic.com/dd101/) | Logic from first principles, down to gates |
+
+Each track then runs on in order — AD101 → AD102 → AD103 → AD104, and DD101 → DD102 → DD103 →
+DD104 — and every course links to the next one at the end.
+
+Also worth keeping to hand:
+
 - Re-run the [smoke test](guide/smoke-test.md) if you update Docker tags or the PDK pin
 - When stuck: [Troubleshooting](reference/troubleshooting.md)
+- Every course, in one place: [edu.uoftasic.com](https://edu.uoftasic.com/)
