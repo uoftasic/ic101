@@ -112,7 +112,7 @@ container after the script exits.
 Then confirm the workspace is mounted (`ls /foss/designs/scripts` should
 list files) and re-run `/foss/designs/scripts/smoke_test.sh`. If tools are
 still missing, re-pull the image tag the scripts expect (`DOCKER_TAG`,
-default `2026.04`).
+default `2026.08`).
 
 ## Smoke test: `sky130A` missing
 

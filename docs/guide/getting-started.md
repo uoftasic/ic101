@@ -1,6 +1,6 @@
 # Getting started
 
-IC101 is the entry point for the UofT ASIC Internal Education Initiative. There are **no prior courses required** — you need a laptop with roughly **20 GB free** and permission to install software (Docker Desktop, and git if you don't already have it). Never used a terminal before? Start at step 1 below; it walks you through it.
+IC101 is the entry point for the UofT ASIC Internal Education Initiative. There are **no prior courses required** — you need a laptop with roughly **15 GB free** and permission to install software (Docker Desktop, and git if you don't already have it). Never used a terminal before? Start at step 1 below; it walks you through it.
 
 ## Path through this course
 
