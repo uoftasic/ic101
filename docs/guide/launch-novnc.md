@@ -41,7 +41,7 @@ scripts\start_vnc.bat
 
 The script will:
 
-1. Pull `hpretl/iic-osic-tools:2026.04` (override with `DOCKER_TAG` if needed)
+1. Pull `hpretl/iic-osic-tools:2026.08` (override with `DOCKER_TAG` if needed)
 2. Run the container with your workspace mounted at `/foss/designs`
 3. Expose the desktop on **http://localhost/** (port `80` by default; override with `HOST_PORT`)
 
