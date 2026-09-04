@@ -6,7 +6,7 @@ before anything else in this course will work.
 
 ## Requirements
 
-- Roughly **20 GB free** disk (image + PDK + room to work)
+- Roughly **15 GB free** disk (image + PDK + room to work)
 - Ability to install Docker Desktop (or Docker Engine on Linux) — on a
   school- or work-managed laptop, this may require admin/IT permission
 - On Windows: WSL2 backend recommended (Docker Desktop default). **WSL2**
@@ -88,7 +88,7 @@ You should see version info, then a `Hello from Docker!` message.
 ## Disk and first pull
 
 The first `start_vnc` run **pulls** `hpretl/iic-osic-tools:<tag>` (currently
-`2026.04` in the workspace scripts). "Pulling" means downloading the
+`2026.08` in the workspace scripts). "Pulling" means downloading the
 container image — it's several GB, so use a stable network connection and
 expect it to take a few minutes. You can confirm tags on the
 [IIC-OSIC-TOOLS releases](https://github.com/iic-jku/IIC-OSIC-TOOLS/releases)
