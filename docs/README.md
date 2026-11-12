@@ -1,41 +1,46 @@
 # IC101 — Onboarding onto Tools
 
-Set up the containerized open-source toolchain that every later course builds on.
+Set up the containerized open-source toolchain that every later course builds on. By the end, a
+Linux desktop with the team's chip design (EDA) tools runs in a browser tab on your laptop, and a
+smoke test has confirmed that the tools and the SKY130 PDK, the process files they design
+against, work.
 
-Part of the **UofT ASIC Team** education materials. Published at **https://uoftasic.com/ic101/**. Runnable tooling lives in the shared **workspace** repo (not in this course repo).
+Part of the UofT ASIC Team education materials, published at <https://uoftasic.com/ic101/>. The
+runnable tooling lives in the shared [`workspace`](https://github.com/uoftasic/workspace) repo,
+not in this course repo.
 
 ## At a glance
 
 | | |
 |---|---|
 | **Track** | Core (intro) |
-| **Prerequisites** | None |
-| **Tools** | Docker, IIC-OSIC-TOOLS, noVNC |
-| **Shared workspace** | Yes — clone once, reuse every course |
+| **Who it's for** | Everyone starting the UofT ASIC courses. IC101 comes before both the analog and the digital track. |
+| **Prerequisites** | None. Lab 01 starts from opening a terminal. |
+| **Tools** | git, Docker, IIC-OSIC-TOOLS (the container image with the EDA tools), noVNC (shows the container's desktop in your browser) |
+| **Time** | About 2–3 hours, much of it waiting for installs and the first image download |
+| **Machine** | A laptop with roughly 15 GB free and permission to install software |
+| **Shared workspace** | Yes. You clone it once and reuse it in every course that uses the tools. |
 
-## What you'll do
+## Course path
 
-1. Set up a terminal and install git (if you don't have them already)
-2. Understand why we use a containerized EDA toolchain
-3. Install Docker Desktop
-4. Clone **workspace** and launch the IIC-OSIC-TOOLS desktop (noVNC)
-5. Run the smoke test
-6. See where each tool sits in a tapeout flow
+Work down this table in order. A *Read* row is guide pages: explanations, with nothing to run. A
+*Do* row is one lab, where all the hands-on steps are. Each lab's "Before you start" section
+lists the pages it expects you to have read.
 
-Start here: **[Getting started](guide/getting-started.md)**.
+| # | | Pages | Time |
+|---|---|---|---|
+| 1 | Read | [Getting started](guide/getting-started.md) · [Terminal and git](guide/prerequisites.md) | 10 min |
+| 2 | Do | [Lab 01: Terminal and git](labs/lab-01-terminal-and-git-overview.md). Open a terminal, install git, check `git --version`. | 15 min |
+| 3 | Read | [Why a containerized toolchain](guide/why-containers.md) · [What Docker needs](guide/install-docker.md) | 10 min |
+| 4 | Do | [Lab 02: Install Docker](labs/lab-02-install-docker-overview.md). Install Docker and run `hello-world`. | 30 min–1 h |
+| 5 | Read | [The workbench desktop](guide/launch-novnc.md) · [What the smoke test checks](guide/smoke-test.md) | 15 min |
+| 6 | Do | [Lab 03: Launch the workbench](labs/lab-03-launch-the-workbench-overview.md). Clone `workspace`, open the desktop in your browser, pass the smoke test. | 30 min–1 h |
+| 7 | Read | [Where each tool sits in the tapeout flow](guide/tapeout-flow.md) | 10 min |
 
-## Quick links
+When a step fails, look it up in [Troubleshooting](reference/troubleshooting.md).
 
-| What | Where |
-|------|--------|
-| Getting started | [guide/getting-started.md](guide/getting-started.md) |
-| Workspace (tools) | sibling `workspace/` folder locally; GitHub: [uoftasic/workspace](https://github.com/uoftasic/workspace) |
-| Portal hub | [edu.uoftasic.com](https://edu.uoftasic.com/) |
-| After this course | [AD101](https://uoftasic.com/ad101/) starts the analog track · [DD101](https://uoftasic.com/dd101/) starts the digital track |
+## After IC101
 
-## Local preview
-
-```bash
-npx docsify-cli serve docs
-# → http://localhost:3000
-```
+[AD101](https://uoftasic.com/ad101/) starts the analog track and
+[DD101](https://uoftasic.com/dd101/) starts the digital track. Every course is listed on the
+portal at [edu.uoftasic.com](https://edu.uoftasic.com/).
