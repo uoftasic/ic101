@@ -18,9 +18,11 @@ Time: about 15 minutes, less if git is already installed.
    |----|-----|----------------|
    | macOS | Terminal | Press `Cmd+Space`, type `Terminal`, press Enter |
    | Windows | Windows Terminal (or PowerShell) | Press the Windows key, type `Terminal` (or `PowerShell`), press Enter |
-   | Linux | Varies by distro, for example GNOME Terminal or Konsole | Press the Super (Windows) key, type `Terminal`, press Enter |
+   | Linux | Varies by Linux distribution (distro), for example GNOME Terminal or Konsole | Press the Super (Windows) key, type `Terminal`, press Enter |
 
 2. Click into the window so that what you type goes there.
+3. When a step in a lab says "Run:", type or paste the command shown under it into the terminal,
+   then press Enter.
 
 You should see a window with a prompt, often ending in `$` or `>`, waiting for you to type.
 
@@ -45,8 +47,8 @@ Follow the steps for your OS.
 
 1. Download and run the installer from [git-scm.com](https://git-scm.com/download/win).
 2. Accept the default options during the install. They're fine for this course.
-3. Close any terminal you already had open, and open a new **Windows Terminal** window. A terminal
-   that was open during the install won't find git.
+3. Close any terminal you already had open, and open a new Windows Terminal or PowerShell window.
+   A terminal that was open during the install won't find git.
 4. Run:
 
    ```bat
@@ -66,8 +68,8 @@ Follow the steps for your OS.
    Enter. If your distro doesn't use `apt`, use its package manager instead, for example `dnf` on
    Fedora or `pacman` on Arch.
 
-You should see `git --version` print a version number, in a line like `git version 2.34.1`. Your
-number may differ. If you see `command not found` (on Windows, `'git' is not recognized...`), see
+On every OS, you should see `git --version` print a version number, in a line like
+`git version 2.34.1`. Your number may differ. If you see `command not found` (on Windows, `'git' is not recognized...`), see
 [Troubleshooting](reference/troubleshooting.md#git-command-not-found).
 
 ## Finishing
