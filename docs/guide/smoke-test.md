@@ -11,14 +11,17 @@ and what a failure usually means.
   "resolves" when typing its name finds it on the `PATH`.
 - A **PDK** (process design kit) is the set of files that describe how one chip fab's
   manufacturing process behaves, so tools can simulate and check designs against it. The courses
-  use SKY130, an open PDK.
+  use SKY130, an open PDK. The tools call it `sky130A`, and its files are in
+  `/foss/pdks/sky130A` inside the container (`$PDK_ROOT` is `/foss/pdks`).
 
 ## The environment file
 
-`/foss/designs/common/.designinit` sets up the shell for the courses: it loads the environment,
-points the PDK paths at SKY130, and defines the `mod` command. Lab 03 has you load it with
-`. /foss/designs/common/.designinit` before running the smoke test. The leading `.` means
-"run this file in my current shell", so its settings stay in the terminal you're using.
+Inside the container, your `workspace` folder is `/foss/designs`. The file
+`/foss/designs/common/.designinit` sets up the shell for the courses: it sets the environment
+variables and `PATH` entries the tools read, points the PDK paths at SKY130, and defines the
+`mod` command. Lab 03 has you load it with `. /foss/designs/common/.designinit` before running
+the smoke test. The leading `.` means "run this file in my current shell", so its settings stay
+in the terminal you're using.
 
 You'll also see `. /foss/designs/.designinit`, without `common/`, in the smoke test's own messages
 and on the [Troubleshooting](reference/troubleshooting.md) page. That file only loads
@@ -34,9 +37,10 @@ and on the [Troubleshooting](reference/troubleshooting.md) page. That file only 
 | `netgen` | LVS (netlist comparison) |
 | `yosys` | RTL synthesis |
 | `sky130A` under `$PDK_ROOT` | The SKY130 PDK is present and is the one in use |
-| `mod`, `add_module.sh` and `ic101_setup` | Course module helpers |
+| `mod`, `add_module.sh`, `ic101_setup` | The course module helpers work: `mod` is defined, `add_module.sh` is present, and `mod` lists and enters this course's `ic101_setup` folder |
 
-A pass is a column of `OK` lines that ends with `=== All checks passed ===`.
+A pass is a column of `OK` lines, plus an ngspice version line and a `--- module helpers ---`
+heading, ending with `=== All checks passed ===`.
 
 ## When the PDK check fails
 
