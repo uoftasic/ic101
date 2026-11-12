@@ -23,10 +23,6 @@ variables and `PATH` entries the tools read, points the PDK paths at SKY130, and
 the smoke test. The leading `.` means "run this file in my current shell", so its settings stay
 in the terminal you're using.
 
-You'll also see `. /foss/designs/.designinit`, without `common/`, in the smoke test's own messages
-and on the [Troubleshooting](reference/troubleshooting.md) page. That file only loads
-`common/.designinit`, so both commands do the same thing.
-
 ## The checks
 
 | Check | Role |
