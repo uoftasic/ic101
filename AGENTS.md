@@ -7,8 +7,9 @@ Optimize for **clear student learning paths**, not template maintenance. Prefer 
 ## Goals
 
 - Teach IC development skills: RTL (SystemVerilog/Verilog), simulation, synthesis, FPGA bring-up, and/or open ASIC flows (e.g. Yosys, LibreLane, SKY130) as the course requires.
-- Keep each lab **self-contained**: prerequisites → objectives → short theory → procedure → expected results → links to code.
-- Separate **what students read** (`docs/`) from **what they run** (`labs/`, `scripts/`, `notebooks/`).
+- Keep each lab **self-contained**: what you'll build → before you start → time → numbered parts with "You should see" checks → finishing.
+- Separate **reading** from **doing**. Guide pages (`docs/guide/`) explain; lab writeups (`docs/labs/`) hold every step a student performs. Runnable files live in `labs/`, `scripts/` and `notebooks/`, or, for IC101, in the shared `workspace` repo.
+- Keep the **Course path** table on `docs/README.md` (alternating Read and Do rows, with times) and `docs/_sidebar.md` in the same order.
 - Never publish grades, solution keys, or PII under `docs/`. Put keys in `labs/**/solutions/` and gitignore them on student forks when policy requires.
 
 ## Layout (do not fight this)
@@ -16,10 +17,10 @@ Optimize for **clear student learning paths**, not template maintenance. Prefer 
 | Path | Published? | Put here |
 |------|------------|----------|
 | `docs/` | Yes | Guides, lab writeups, figures for the site |
-| `docs/guide/` | Yes | Conceptual notes (flows, tools, theory) |
+| `docs/guide/` | Yes | Conceptual notes (flows, tools, theory); reading only |
 | `docs/labs/` | Yes | Lab writeups only (`lab-NN-*-overview.md`) |
 | `docs/assets/img/` | Yes | Small diagrams / waveforms for docs |
-| `labs/<lab-id>/` | No | HDL, Python, testbenches, local data, graders |
+| `labs/<lab-id>/` | No | HDL, Python, testbenches, local data, graders (IC101 has none: its labs run the `workspace` repo's scripts) |
 | `scripts/` | No | Course utilities / automation |
 | `notebooks/` | No | Exploratory or assignment notebooks |
 | `data/`, `figures/` | No | Shared datasets / source figures |
@@ -30,23 +31,24 @@ Site wiring: `docs/index.html`, `docs/_sidebar.md`, `docs/_navbar.md`. Math: `$i
 
 Lab IDs: `lab-NN-short-name` (e.g. `lab-02-counter-sv`).
 
-1. Create `labs/<lab-id>/` with at least:
-   - `README.md` — points at the Docsify writeup and how to run
-   - `src/` — HDL / Python / entrypoints
-   - `data/` — small inputs (large binaries → Git LFS or external)
+1. Create `labs/<lab-id>/` with at least (skip this when the lab only runs `workspace` scripts, as IC101's labs do):
+   - `README.md`: link to the Docsify writeup, how to run, the make targets (if any) and the file list. No teaching that repeats the writeup.
+   - `src/`: HDL / Python / entrypoints
+   - `data/`: small inputs (large binaries → Git LFS or external)
    - `requirements.txt` or tool notes when needed
-2. Add `docs/labs/<lab-id>-overview.md` with: Prerequisites, Objectives, Theory (short), Procedure, Expected results, Links.
-3. Link the writeup from `docs/_sidebar.md` (and `_navbar.md` only if it belongs in top nav).
+2. Add `docs/labs/<lab-id>-overview.md` with: what you'll build or measure (2–3 lines); Before you start (guide pages to read, setup); a time estimate; numbered parts, each with numbered steps and a closing "You should see …" check; Finishing (how to tell you're done, what to keep). Put each question at the step where it comes up.
+3. Add a Do row to the Course path table in `docs/README.md` and link the writeup from `docs/_sidebar.md` in the same position (and `_navbar.md` only if it belongs in top nav).
 4. Cross-link: writeup → GitHub `labs/<lab-id>/`; package README → `docs/labs/<lab-id>-overview.md`.
 
-**Writeups teach; packages execute.** Do not dump long HDL into Docsify pages — reference files under `labs/`.
+Do not paste long HDL into Docsify pages. Reference the files under `labs/` instead.
 
 ## Adding a guide page
 
 1. Add kebab-case Markdown under `docs/guide/` (e.g. `yosys-synth.md`).
-2. Link from `docs/_sidebar.md`.
-3. Images under `docs/assets/img/` with paths relative to `docs/`.
-4. Prefer relative Docsify links between pages; use GitHub URLs for `labs/` and `scripts/`.
+2. Add it to a Read row of the Course path table in `docs/README.md`, and link it from `docs/_sidebar.md` in the same position.
+3. Keep it reading only. When it needs the student to run something, put the steps in the matching lab writeup and leave a one-line pointer on the guide page.
+4. Images under `docs/assets/img/` with paths relative to `docs/`.
+5. Prefer relative Docsify links between pages; use GitHub URLs for `labs/` and `scripts/`.
 
 ## Pedagogy checklist (use when authoring)
 
@@ -61,8 +63,8 @@ Lab IDs: `lab-NN-short-name` (e.g. `lab-02-counter-sv`).
 ## Tooling norms
 
 - Python helpers and graders: under `labs/<id>/src/` or `scripts/`; list entry points in the nearest `README.md`.
-- SystemVerilog/Verilog: under `labs/<id>/src/` (or `rtl/`, `tb/` if you split — stay consistent within the course).
-- Heavy outputs (GDS, large FSDB/VCD, PDK caches): local `results/` or LFS — never under `docs/`.
+- SystemVerilog/Verilog: under `labs/<id>/src/` (or `rtl/` and `tb/` if you split them; stay consistent within the course).
+- Heavy outputs (GDS, large FSDB/VCD, PDK caches): local `results/` or LFS, never under `docs/`.
 - Preview docs locally: `npx docsify-cli serve docs` → http://localhost:3000
 
 ## What not to do
@@ -76,4 +78,4 @@ Lab IDs: `lab-NN-short-name` (e.g. `lab-02-counter-sv`).
 
 - Repo conventions: `CONTRIBUTING.md`
 - Bootstrap tokens / Pages checklist: `TEMPLATE.md`
-- Sample lab shape: `labs/lab-01/` + `docs/labs/lab-01-overview.md`
+- Sample lab shape: `docs/labs/lab-03-launch-the-workbench-overview.md`
