@@ -19,7 +19,7 @@ not in this course repo.
 | **Prerequisites** | None. Lab 01 starts from opening a terminal. |
 | **Tools** | git, Docker, IIC-OSIC-TOOLS (the container image with the EDA tools), noVNC (shows the container's desktop in your browser) |
 | **Time** | About 2–3 hours, much of it waiting for installs and the first image download |
-| **Machine** | A laptop with roughly 15 GB of free disk space and permission to install software. On a Mac, you give Docker Desktop at least 4 GB of RAM in its settings (Lab 02, Part 1). |
+| **Machine** | A laptop with roughly 15 GB of free disk space and permission to install software, and a stable network connection: the toolchain image is several GB. On a Mac, you give Docker Desktop at least 4 GB of RAM in its settings (Lab 02, Part 1). |
 | **Shared workspace** | The `workspace` repo. You clone it once, in Lab 03, and reuse it in every course that uses the tools. |
 
 ## Course path

@@ -69,7 +69,7 @@ Follow the steps for your OS.
    Fedora or `pacman` on Arch.
 
 On every OS, you should see `git --version` print a version number, in a line like
-`git version 2.34.1`. Your number may differ. If you see `command not found` (on Windows, `'git' is not recognized...`), see
+`git version 2.34.1`. Your number may differ, and some systems add more text after it. If you see `command not found` (on Windows, `'git' is not recognized...`), see
 [Troubleshooting](reference/troubleshooting.md#git-command-not-found).
 
 ## Finishing
