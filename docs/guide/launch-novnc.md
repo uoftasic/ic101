@@ -18,9 +18,9 @@ every later course. These are the parts IC101 uses:
 | `scripts/smoke_test.sh` | Health-check the tools inside the container |
 | `common/.designinit` | Environment and SKY130 setup |
 | `modules/ic101_setup/` | Scratch space for this course |
-| `pdk/` | The pinned PDK version (`volare.lock`). The PDK itself ships inside the image, at `/foss/pdks/sky130A`. |
+| `pdk/` | `volare.lock`, which records the PDK version the team uses. The PDK itself ships inside the image, at `/foss/pdks/sky130A`. |
 
-Later courses add their own folders under `modules/`, using the `mod` command described in
+Later courses add their own folders under `modules/` with `mod add <course>`, described in
 [What the smoke test checks](guide/smoke-test.md#course-modules-and-mod).
 
 ## What `start_vnc` does

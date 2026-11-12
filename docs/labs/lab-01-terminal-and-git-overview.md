@@ -36,8 +36,9 @@ Follow the steps for your OS.
    git --version
    ```
 
-2. If git isn't installed yet, macOS offers to install the **Xcode Command Line Tools** instead.
-   Accept the prompt and wait for the install to finish.
+   If it prints a version number, git is already installed and you can skip to Finishing.
+2. If git isn't installed yet, macOS prompts you to install the **Xcode Command Line Tools**,
+   which include git. Accept the prompt and wait for the install to finish.
 3. Run `git --version` again.
 
 ### Windows
@@ -61,8 +62,9 @@ Follow the steps for your OS.
    git --version
    ```
 
-   If your distro doesn't use `apt`, use its package manager instead, for example `dnf` on Fedora
-   or `pacman` on Arch.
+   `sudo` asks for your password. Nothing appears on screen while you type it; type it and press
+   Enter. If your distro doesn't use `apt`, use its package manager instead, for example `dnf` on
+   Fedora or `pacman` on Arch.
 
 You should see `git --version` print a version number, in a line like `git version 2.34.1`. Your
 number may differ. If you see `command not found` (on Windows, `'git' is not recognized...`), see
