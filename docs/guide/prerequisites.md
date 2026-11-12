@@ -1,75 +1,35 @@
-# Prerequisites: terminal + git
+# Terminal and git
 
-Before you touch Docker or any EDA tool, you need two things every later step
-assumes you already have: a way to type commands, and **git**. This page is
-the whole of what you need to know about both — just enough to get through
-this course, not a full tutorial.
+Every later step in IC101 assumes two things: a way to type commands, and git. This page covers
+just enough of both to get you through this course. It isn't a full tutorial. You'll open a
+terminal and install git in [Lab 01](labs/lab-01-terminal-and-git-overview.md).
 
-## What is a terminal?
+## The terminal
 
-A terminal (also called a "shell" or "command line") is a text window where
-you type commands instead of clicking buttons. Every OS ships one:
+A **terminal** (also called a shell, or the command line) is a text window where you type
+commands instead of clicking buttons. Every operating system ships one:
 
-| OS | App name | How to open it |
-|----|----------|-----------------|
-| macOS | **Terminal** | Press `Cmd+Space`, type `Terminal`, press Enter |
-| Windows | **Windows Terminal** (or PowerShell) | Press the Windows key, type `Terminal` (or `PowerShell`), press Enter |
-| Linux | Varies by distro (e.g. **GNOME Terminal**, **Konsole**) | Press the "Super"/Windows key, type `Terminal`, press Enter |
+| OS | Terminal app |
+|----|--------------|
+| macOS | Terminal |
+| Windows | Windows Terminal, or PowerShell |
+| Linux | Varies by distro, for example GNOME Terminal or Konsole |
 
-Once it's open you'll see a prompt (often ending in `$` or `>`) where you can
-type. When a guide says "run this command," it means: click into the
-terminal window and type (or paste) the command, then press Enter.
+When the terminal opens, it shows a **prompt**, often ending in `$` or `>`, and waits for you to
+type. When a page in this course says "run this command", it means: click into the terminal
+window, type or paste the command, and press Enter.
 
 ![A terminal at a shell prompt](../assets/img/terminal-prompt.png)
-*A shell prompt, waiting. The `$` is where you type — you do not type the `$` itself.*
+*A shell prompt, waiting for a command. The `$` marks where you type. Don't type the `$` itself.*
 
-## What is git?
+## Git
 
-**Git** is a tool for downloading and syncing a folder of files (called a
-**repository**, or "repo") from a site like GitHub onto your computer. In
-this course, git's only job is running one command — `git clone` — to copy
-the team's shared **workspace** repo onto your machine. You will not need to
-learn git beyond that for IC101.
+**Git** is a tool for downloading and syncing a folder of files from a site like GitHub onto
+your computer. That folder is called a **repository**, or **repo**. Copying a repo onto your
+computer for the first time is called **cloning** it.
 
-## Install git
+In IC101, git has one job. In Lab 03 you run one command, `git clone`, to copy the team's shared
+`workspace` repo onto your laptop. You don't need to learn any more git than that for this
+course.
 
-### macOS
-
-Open a terminal and run:
-
-```bash
-git --version
-```
-
-If git isn't installed yet, macOS will offer to install the **Xcode Command
-Line Tools** — accept that prompt and wait for it to finish, then run
-`git --version` again.
-
-### Windows
-
-1. Download and run the installer from [git-scm.com](https://git-scm.com/download/win).
-2. Accept the default options during install (they're fine for this course).
-3. Open **Windows Terminal** and run:
-
-```bat
-git --version
-```
-
-### Linux
-
-Open a terminal and run:
-
-```bash
-sudo apt update && sudo apt install -y git
-git --version
-```
-
-(Use your distro's package manager if it isn't `apt` — e.g. `dnf` on
-Fedora, `pacman` on Arch.)
-
-## Checklist
-
-- [ ] I can open a terminal on my computer
-- [ ] `git --version` prints a version number (not "command not found")
-
-Next: [Why containers](guide/why-containers.md).
+Next: [Lab 01: Terminal and git](labs/lab-01-terminal-and-git-overview.md).

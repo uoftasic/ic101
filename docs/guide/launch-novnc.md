@@ -1,94 +1,74 @@
-# Launch the IIC-OSIC-TOOLS desktop (noVNC)
+# The workbench desktop (noVNC)
 
-This step downloads (clones) the shared **workspace** repo onto your
-computer, then starts the containerized EDA desktop in your browser.
+> To launch the desktop, follow [Lab 03](labs/lab-03-launch-the-workbench-overview.md), Parts 1–3.
+> This page explains what those steps do.
 
-## 1. Clone the workspace
+The workbench is the [IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS) container, the
+toolchain image maintained by IIC-JKU. A script from the team's `workspace` repo starts it, and
+**noVNC** shows its Linux desktop in your browser.
 
-**Cloning** means using git to copy a repo from GitHub onto your computer.
-Open a terminal (see [Prerequisites](guide/prerequisites.md) if you get
-`git: command not found`) and run:
+## The workspace repo
 
-```bash
-git clone https://github.com/uoftasic/workspace.git
-cd workspace
-```
+You clone the `workspace` repo once, into a folder named `workspace`, and keep that clone for
+every later course. These are the parts IC101 uses:
 
-The first command creates a new folder named `workspace` containing the
-team's scripts and configuration. The second command moves your terminal
-into that folder — every command below assumes you're still inside it.
+| Path in `workspace` | Purpose |
+|---------------------|---------|
+| `scripts/start_vnc.sh` / `.bat` | Launch IIC-OSIC-TOOLS with noVNC |
+| `scripts/smoke_test.sh` | Health-check the tools inside the container |
+| `common/.designinit` | Environment and SKY130 setup |
+| `modules/ic101_setup/` | Scratch space for this course |
+| `pdk/` | The pinned PDK version (`volare.lock`). The PDK itself ships inside the image, at `/foss/pdks/sky130A`. |
 
-(Locally we call the folder `workspace`.)
+Later courses add their own folders under `modules/`, using the `mod` command described in
+[What the smoke test checks](guide/smoke-test.md#course-modules-and-mod).
 
-## 2. Start noVNC
+## What `start_vnc` does
 
-This command downloads the container image described in
-[Why containers](guide/why-containers.md) (if you don't have it yet) and
-starts it.
+`start_vnc.sh` (macOS and Linux) and `start_vnc.bat` (Windows) do the same three things:
 
-**macOS / Linux:**
+1. Pull `hpretl/iic-osic-tools:2026.08`. The first run downloads several GB and can take several
+   minutes. Later runs reuse the copy already on your computer.
+2. Run the container, named `asic-edu-osic`, with your `workspace` folder mounted at
+   `/foss/designs`. Anything you save under `/foss/designs` is a file in your `workspace` folder
+   on your laptop, so it survives when the container is stopped or removed.
+3. Expose the desktop at <http://localhost/>, on port 80 by default.
 
-```bash
-./scripts/start_vnc.sh
-```
+Stopping the container is one command, `docker rm -f asic-edu-osic`, run on your laptop. Running
+`start_vnc` again brings it back. Lab 03, Part 5 has you try it.
 
-**Windows:** double-click `scripts/start_vnc.bat` in File Explorer, or from
-a terminal:
+## Settings you can change
 
-```bat
-scripts\start_vnc.bat
-```
+The script reads these environment variables. You don't need any of them for Lab 03.
 
-The script will:
+| Variable | Default | What it changes |
+|----------|---------|-----------------|
+| `HOST_PORT` | `80` | The port on your laptop. With `HOST_PORT=8080` the desktop is at `http://localhost:8080/`. Use it when something else already has port 80. |
+| `VNC_PW` | `abc123` | The desktop password |
+| `VNC_RESOLUTION` | `1280x800` | The desktop size, for example `1920x1080` |
+| `DOCKER_TAG` | `2026.08` | Which image tag to pull |
 
-1. Pull `hpretl/iic-osic-tools:2026.08` (override with `DOCKER_TAG` if needed)
-2. Run the container with your workspace mounted at `/foss/designs`
-3. Expose the desktop on **http://localhost/** (port `80` by default; override with `HOST_PORT`)
-
-The first run can take several minutes while the image downloads — this is
-normal. Wait for the script to finish before opening the browser.
-
-Useful overrides:
+On macOS and Linux you set them in front of the command, for example:
 
 ```bash
 VNC_RESOLUTION=1920x1080 ./scripts/start_vnc.sh
 VNC_PW='your-password' HOST_PORT=8080 ./scripts/start_vnc.sh
 ```
 
-## 3. Open the desktop
+## The desktop in your browser
 
-1. Browse to **http://localhost/** (or `http://localhost:<HOST_PORT>/`)
+noVNC serves a full Linux desktop in Chrome, Firefox or Edge. The password is `abc123` unless you
+set `VNC_PW`. From the desktop you open terminals, XSchem, Magic and the other tools, without installing any
+EDA package on your own operating system.
 
-   ![The noVNC password prompt](../assets/img/novnc-password-prompt.png)
-   *The address bar says `localhost` and nothing else. If you see a different port, you
-   started the container with a different `HOST_PORT`.*
+Pasting from your laptop into the desktop needs a different key: plain `Ctrl+V` doesn't paste
+there. Press **Ctrl+Shift+V** to paste into the desktop, or use the clipboard icon in the noVNC
+sidebar.
 
-2. Password: **`abc123`** unless you set `VNC_PW`
-3. You should see a Linux desktop suitable for XSchem, Magic, terminals, etc.
+## X11 instead of noVNC
 
-   ![The workbench desktop, loaded](../assets/img/novnc-desktop.png)
-   *The desktop, running inside the browser tab. `Connected to ...` in the top bar means
-   the VNC session is live — this is the machine every later course runs on.*
+On Linux, or on macOS with XQuartz, `./scripts/start_x.sh` shows the tools in windows on your own
+desktop over X11, which can be faster than streaming a whole desktop to the browser. IC101 uses
+noVNC so that everyone has the same interface.
 
-Copy/paste tip: use the clipboard control in the noVNC sidebar, or **Ctrl+Shift+V** to paste into the VM.
-
-## 4. Optional: local X11 instead of noVNC
-
-On Linux (or macOS with XQuartz), `./scripts/start_x.sh` can be faster than streaming the desktop. Prefer noVNC for the standard IC101 path so everyone shares the same UI.
-
-## 5. Stop / restart
-
-```bash
-docker rm -f asic-edu-osic   # default container name from start_vnc
-```
-
-Then run `start_vnc` again. Your files under the workspace folder persist on the host.
-
-## Checklist
-
-- [ ] Workspace cloned into a `workspace` directory
-- [ ] `start_vnc` completed without Docker errors
-- [ ] Browser desktop loads and accepts the VNC password
-- [ ] You can open a terminal inside the desktop
-
-Next: [Smoke test](guide/smoke-test.md).
+Next: [What the smoke test checks](guide/smoke-test.md).
