@@ -1,9 +1,9 @@
 # What the smoke test checks
 
-The **smoke test** is a script in the workspace, `scripts/smoke_test.sh`, that checks the EDA tools
-and the SKY130 PDK resolve inside the container. You'll run it in
-[Lab 03](labs/lab-03-launch-the-workbench-overview.md), Part 4. This page explains what it checks
-and what a failure usually means.
+The **smoke test** is a script in the workspace, `scripts/smoke_test.sh`. It checks that the EDA
+tools and the SKY130 PDK resolve inside the container. You'll run it in
+[Lab 03, Part 4](labs/lab-03-launch-the-workbench-overview.md#part-4-run-the-smoke-test). This
+page explains what it checks and what a failure usually means.
 
 ## Two terms
 
