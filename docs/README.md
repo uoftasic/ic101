@@ -1,9 +1,10 @@
 # IC101 — Onboarding onto Tools
 
 Set up the containerized open-source toolchain that every later course builds on. By the end, a
-Linux desktop with the team's chip design (EDA) tools runs in a browser tab on your laptop, and a
-smoke test has confirmed that the tools and the SKY130 PDK, the process files they design
-against, work.
+Linux desktop with the team's chip design (EDA) tools runs in a browser tab on your laptop. The
+course calls this setup the workbench. A short check script, the smoke test, then confirms that
+the tools and the SKY130 PDK work. The PDK (process design kit) is the set of files that describe
+the manufacturing process the tools design against.
 
 Part of the UofT ASIC Team education materials, published at <https://uoftasic.com/ic101/>. The
 runnable tooling lives in the shared [`workspace`](https://github.com/uoftasic/workspace) repo,
@@ -18,14 +19,14 @@ not in this course repo.
 | **Prerequisites** | None. Lab 01 starts from opening a terminal. |
 | **Tools** | git, Docker, IIC-OSIC-TOOLS (the container image with the EDA tools), noVNC (shows the container's desktop in your browser) |
 | **Time** | About 2–3 hours, much of it waiting for installs and the first image download |
-| **Machine** | A laptop with roughly 15 GB free and permission to install software. On a Mac, Docker needs at least 4 GB of RAM. |
+| **Machine** | A laptop with roughly 15 GB of free disk space and permission to install software. On a Mac, you give Docker Desktop at least 4 GB of RAM in its settings (Lab 02, Part 1). |
 | **Shared workspace** | The `workspace` repo. You clone it once, in Lab 03, and reuse it in every course that uses the tools. |
 
 ## Course path
 
-Work down this table in order. A *Read* row is guide pages: explanations, with nothing to run. A
-*Do* row is one lab, where all the hands-on steps are. Each lab's "Before you start" section
-lists the pages it expects you to have read.
+Work down this table in order; the course ends with row 7. A *Read* row is guide pages:
+explanations, with nothing to run. A *Do* row is one lab, where all the hands-on steps are. Each
+lab's "Before you start" section lists the pages it expects you to have read.
 
 | # | | Pages | Time |
 |---|---|---|---|
