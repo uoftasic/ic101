@@ -1,103 +1,48 @@
-# Install Docker Desktop
+# What Docker needs
 
 **Docker** is the program that downloads and runs the container described in
-[Why containers](guide/why-containers.md). You need Docker installed and running
-before anything else in this course will work.
+[Why a containerized toolchain](guide/why-containers.md). Nothing else in this course works
+until Docker is installed and running. You'll install it in
+[Lab 02](labs/lab-02-install-docker-overview.md). This page explains what the installer asks of
+your computer, and why.
 
-## Requirements
+## Disk, memory and permission
 
-- Roughly **15 GB free** disk (image + PDK + room to work)
-- Ability to install Docker Desktop (or Docker Engine on Linux) — on a
-  school- or work-managed laptop, this may require admin/IT permission
-- On Windows: WSL2 backend recommended (Docker Desktop default). **WSL2**
-  is a compatibility layer that lets Windows run a lightweight Linux
-  environment behind the scenes — Docker needs it and will offer to set it
-  up for you.
+- Roughly 15 GB of free disk: the image, the PDK, and room to work.
+- Permission to install Docker Desktop, or Docker Engine on Linux. On a school- or work-managed
+  laptop this may need admin or IT permission.
+- On a Mac, Docker Desktop needs at least 4 GB of RAM, which you set under
+  **Settings → Resources**. Apple Silicon Macs (M1/M2/M3) work, because the IIC-OSIC-TOOLS image
+  is multi-arch.
 
-## Per OS
+## Windows: WSL2 and virtualization
 
-### macOS
+**WSL2** is a compatibility layer that lets Windows run a lightweight Linux environment behind the
+scenes. Docker Desktop needs it, uses it by default, and offers to set it up for you. Keep that
+default: the installer's **Use WSL2 instead of Hyper-V** option stays checked.
 
-1. Download [Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/).
-2. Open the downloaded file and drag Docker into Applications, then launch it.
-3. Wait until the Docker icon in the menu bar stops animating and its status
-   reads **Engine running** (click the icon to check).
+Docker also needs your processor's virtualization support switched on in the BIOS/UEFI setup, the
+settings screen your computer shows before Windows starts. The setting is usually called
+Virtualization, Intel VT-x or AMD-V. If it's off, Docker shows a window asking you to enable it,
+and Lab 02 walks you through it.
 
-4. Open a terminal (see [Prerequisites](guide/prerequisites.md) if you're not sure
-   how) and run:
+## Linux: the docker group
 
-```bash
-docker version
-docker run --rm hello-world
-```
+On Linux, your user has to be in the `docker` group to talk to Docker without `sudo`. Without it,
+`docker` commands fail with `permission denied`. A group change only applies after you log out
+and back in. Terminals that were already open don't pick it up.
 
-You should see version info, then a paragraph starting with
-`Hello from Docker!`. That message is your confirmation everything works —
-if you see it, move on to the next page.
+## Pulling the image
 
-Apple Silicon (M1/M2/M3) works; the IIC image is multi-arch. In Docker
-Desktop, go to **Settings → Resources** and allocate at least **4 GB RAM**.
+**Pulling** an image means downloading it. The first time you start the workbench in Lab 03, the
+launch script pulls `hpretl/iic-osic-tools:<tag>`, where the tag is currently `2026.08` in the
+workspace scripts. The image is several GB, so use a stable network connection and expect it to
+take a few minutes. The [IIC-OSIC-TOOLS releases](https://github.com/iic-jku/IIC-OSIC-TOOLS/releases)
+page lists the tags.
 
-### Windows
+## The hello-world check
 
-1. Install [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/).
-   During setup, keep the default **"Use WSL2 instead of Hyper-V"** option
-   checked.
-2. If a window asks you to enable virtualization in BIOS/UEFI: restart your
-   computer, enter BIOS/UEFI setup (usually by pressing `F2`, `Del`, or
-   `Esc` right after powering on — the exact key is shown briefly on
-   screen), find a setting called **Virtualization** / **Intel VT-x** /
-   **AMD-V**, and enable it. Save and exit to boot back into Windows.
-3. Open Docker Desktop and wait for it to say **Engine running** in the
-   bottom-left corner.
+Lab 02 ends with `docker run --rm hello-world`. When Docker is working, that command prints a
+message starting with `Hello from Docker!`.
 
-4. Open **Windows Terminal** (or PowerShell) and run:
-
-```bat
-docker version
-docker run --rm hello-world
-```
-
-You should see version info, then a `Hello from Docker!` message.
-
-If `hello-world` fails, fix Docker before continuing — every later step
-depends on it. Check [Troubleshooting](reference/troubleshooting.md).
-
-### Linux
-
-1. Install Docker Engine or Docker Desktop for your distro (see your
-   distro's package manager or [docs.docker.com](https://docs.docker.com/engine/install/)).
-2. Add your user to the `docker` group so you don't need `sudo` for every
-   command:
-
-```bash
-sudo usermod -aG docker $USER
-```
-
-3. **Log out and log back in** (or restart) for the group change to take
-   effect — it will not apply to your current terminal session.
-4. Verify:
-
-```bash
-docker version
-docker run --rm hello-world
-```
-
-You should see version info, then a `Hello from Docker!` message.
-
-## Disk and first pull
-
-The first `start_vnc` run **pulls** `hpretl/iic-osic-tools:<tag>` (currently
-`2026.08` in the workspace scripts). "Pulling" means downloading the
-container image — it's several GB, so use a stable network connection and
-expect it to take a few minutes. You can confirm tags on the
-[IIC-OSIC-TOOLS releases](https://github.com/iic-jku/IIC-OSIC-TOOLS/releases)
-page.
-
-## Checklist
-
-- [ ] `docker version` works without errors
-- [ ] `docker run --rm hello-world` prints a `Hello from Docker!` message
-- [ ] Docker has enough disk/RAM for a multi-GB image
-
-Next: [Launch noVNC](guide/launch-novnc.md).
+Next: [Lab 02: Install Docker](labs/lab-02-install-docker-overview.md).

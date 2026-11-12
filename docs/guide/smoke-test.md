@@ -1,52 +1,65 @@
-# Run the smoke test
+# What the smoke test checks
 
-With the noVNC desktop open, verify that the EDA tools and SKY130 PDK resolve inside the container.
+The **smoke test** is a script in the workspace, `scripts/smoke_test.sh`, that checks the EDA tools
+and the SKY130 PDK resolve inside the container. You'll run it in
+[Lab 03](labs/lab-03-launch-the-workbench-overview.md), Part 4. This page explains what it checks
+and what a failure usually means.
 
-## In the container terminal
+## Two terms
 
-```bash
-. /foss/designs/common/.designinit     # load environment + PDK paths + mod
-/foss/designs/scripts/smoke_test.sh    # health-check tools + module helpers
-mod                                    # list course modules (optional)
-```
+- Your **`PATH`** is the list of folders your shell searches when you type a command name. A tool
+  "resolves" when typing its name finds it on the `PATH`.
+- A **PDK** (process design kit) is the set of files that describe how one chip fab's
+  manufacturing process behaves, so tools can simulate and check designs against it. The courses
+  use SKY130, an open PDK.
 
-`mod ic101_setup` jumps into this course’s scratch folder under `/foss/designs/modules/ic101_setup`.
+## The environment file
 
-For a later course (for example AD101), after sourcing `.designinit`:
+`/foss/designs/common/.designinit` sets up the shell for the courses: it loads the environment,
+points the PDK paths at SKY130, and defines the `mod` command. Lab 03 has you load it with
+`. /foss/designs/common/.designinit` before running the smoke test. The leading `.` means
+"run this file in my current shell", so its settings stay in the terminal you're using.
 
-```bash
-mod add ad101    # clones github.com/uoftasic/ad101 into modules/ad101
-mod ad101        # if it is already cloned
-```
+You'll also see `. /foss/designs/.designinit`, without `common/`, in the smoke test's own messages
+and on the [Troubleshooting](reference/troubleshooting.md) page. That file only loads
+`common/.designinit`, so both commands do the same thing.
 
-You can also run `./scripts/add_module.sh ad101` on the **host** from your workspace clone — same folder, bind-mounted into the container.
-
-## What the smoke test checks
-
-The script confirms these commands exist on your **`PATH`** (the list of folders your shell searches when you type a command name), that the **PDK** (Process Design Kit — the set of files describing how a specific chip fab's manufacturing process behaves, so tools can simulate and check designs against it) is present, and that module helpers work:
+## The checks
 
 | Check | Role |
 |-------|------|
 | `ngspice` | Circuit simulation |
 | `xschem` | Schematic capture |
 | `magic` | Layout |
-| `netgen` | LVS / netlist comparison |
+| `netgen` | LVS (netlist comparison) |
 | `yosys` | RTL synthesis |
-| `sky130A` under `$PDK_ROOT` | SKY130 PDK |
-| `mod` + `ic101_setup` | Course module navigation |
+| `sky130A` under `$PDK_ROOT` | The SKY130 PDK is present and is the one in use |
+| `mod`, `add_module.sh` and `ic101_setup` | Course module helpers |
 
-Success looks like lines of `OK  …` and a final **All checks passed**.
+A pass is a column of `OK` lines that ends with `=== All checks passed ===`.
 
-If the PDK line fails, the cause is almost never a missing PDK — SKY130 ships inside the image at `/foss/pdks/sky130A`. It is that the image starts on a *different* PDK (`ihp-sg13g2`), so the tools are looking in the wrong place. Fix it by sourcing the workspace environment, which selects SKY130 for everything:
+## When the PDK check fails
 
-```bash
-. /foss/designs/.designinit
-```
+The cause is almost never a missing PDK. SKY130 ships inside the image at `/foss/pdks/sky130A`.
+The image starts on a different PDK, `ihp-sg13g2`, so the tools look in the wrong place until
+the workspace environment switches everything over to SKY130. Loading `.designinit` does that
+switch. [Troubleshooting](reference/troubleshooting.md#smoke-test-pdk-is-not-sky130a) has the
+exact messages and the fix.
 
-Then re-run the smoke test.
+## Course modules and `mod`
 
-## After a pass
+Each course keeps its files in a folder under `modules/` in your workspace, which the container
+sees as `/foss/designs/modules/`. After you load `.designinit`, the `mod` command moves between
+them:
 
-You are ready for either track. Keep the clone; later courses add more `modules/` folders (`mod add <course>`) — [**AD101**](https://uoftasic.com/ad101/) starts the analog track and [**DD101**](https://uoftasic.com/dd101/) starts the digital one.
+| Command | What it does |
+|---------|--------------|
+| `mod` | List the course modules |
+| `mod ic101_setup` | Go to this course's scratch folder, `/foss/designs/modules/ic101_setup` |
+| `mod add ad101` | Clone `github.com/uoftasic/ad101` into `modules/ad101` (a later course) |
+| `mod ad101` | Go to `modules/ad101`, once it's cloned |
 
-Next: [Where each tool sits in the tapeout flow](guide/tapeout-flow.md).
+On your laptop, `./scripts/add_module.sh ad101`, run from your `workspace` clone, does the same
+as `mod add ad101`. It's the same folder, mounted into the container.
+
+Next: [Lab 03: Launch the workbench](labs/lab-03-launch-the-workbench-overview.md).

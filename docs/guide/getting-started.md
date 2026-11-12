@@ -1,38 +1,49 @@
 # Getting started
 
-IC101 is the entry point for the UofT ASIC Internal Education Initiative. There are **no prior courses required** — you need a laptop with roughly **15 GB free** and permission to install software (Docker Desktop, and git if you don't already have it). Never used a terminal before? Start at step 1 below; it walks you through it.
+IC101 is the first course in the UofT ASIC Internal Education Initiative, and it has no
+prerequisites. By the end of it, the team's open-source EDA toolchain runs in a browser tab on
+your own laptop, and a smoke test has confirmed that the tools and the SKY130 PDK work. Every
+later course that uses tools starts from this setup.
 
-## Path through this course
+## What you need
 
-| Step | Guide | Outcome |
-|------|--------|---------|
-| 1 | [Prerequisites](guide/prerequisites.md) | A terminal you can use, and git installed |
-| 2 | [Why containers](guide/why-containers.md) | Know why we ship one Docker image instead of native installs |
-| 3 | [Install Docker](guide/install-docker.md) | Docker Desktop running on your OS |
-| 4 | [Launch noVNC](guide/launch-novnc.md) | Browser EDA desktop from the **workspace** |
-| 5 | [Smoke test](guide/smoke-test.md) | Confirm tools + SKY130 PDK resolve |
-| 6 | [Tapeout flow](guide/tapeout-flow.md) | Map tools to RTL → GDSII / analog flow |
+- A laptop with roughly 15 GB of free disk space.
+- Permission to install software: Docker Desktop, and git if you don't already have it. On a
+  school- or work-managed laptop this may need admin or IT permission.
+- A stable network connection. The toolchain image is several GB.
 
-## The workspace (not this repo)
+You don't need to have used a terminal before. [Lab 01](labs/lab-01-terminal-and-git-overview.md)
+starts by opening one.
 
-This `ic101` repo is **docs**. The Docker scripts, PDK pin, and in-container helpers live in the shared **workspace**:
+## What you'll set up
 
-```bash
-# Clone into a folder named workspace (local name we use on the team)
-git clone https://github.com/uoftasic/workspace.git
-cd workspace
-```
+The setup has three layers, and each lab adds one:
 
-| Path in workspace | Purpose |
-|-------------------|---------|
-| `scripts/start_vnc.sh` / `.bat` | Launch IIC-OSIC-TOOLS with noVNC |
-| `scripts/smoke_test.sh` | Health-check tools inside the container |
-| `common/.designinit` | Environment + SKY130 setup |
-| `modules/ic101_setup/` | Scratch space for this course |
-| `pdk/` | Pinned PDK version |
+1. git (Lab 01), to copy the team's `workspace` repo onto your laptop.
+2. Docker (Lab 02), to download and run the toolchain container.
+3. The workspace (Lab 03). Its launch script starts the IIC-OSIC-TOOLS container with your
+   `workspace` folder mounted inside it, and shows the container's Linux desktop in your
+   browser.
 
-Later courses add their own folders under `modules/` (in the container: `mod add <course>` after sourcing `.designinit`). You keep the same clone.
+[Why a containerized toolchain](guide/why-containers.md) explains why the team ships the tools
+this way instead of asking you to install each one.
 
-## After IC101
+## This repo and the workspace repo
 
-Pick a track from the [portal](https://edu.uoftasic.com/): Analog (AD101…) or Digital (DD101…). Tool-heavy courses reuse this workspace; early web-sim courses do not need Docker again until their labs say so.
+This `ic101` repo holds only the course pages you're reading. The Docker scripts, the PDK pin and
+the in-container helpers live in a separate, shared repo called
+[`workspace`](https://github.com/uoftasic/workspace). You clone it once in Lab 03 and keep the
+same clone for every later course.
+
+## How the course works
+
+The [home page](README.md) has a Course path table. Work down it in order:
+
+- A **Read** row is one or two guide pages: concepts and explanations, with nothing to run.
+- A **Do** row is one lab. Labs hold every hands-on step, in numbered parts, and each part ends
+  with a "You should see" check so you know it worked before you move on.
+
+When a step fails, look it up in [Troubleshooting](reference/troubleshooting.md). It's organized
+by the error you see.
+
+Next: [Terminal and git](guide/prerequisites.md).
