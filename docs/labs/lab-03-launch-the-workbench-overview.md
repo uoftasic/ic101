@@ -68,8 +68,8 @@ failures are in [Troubleshooting](reference/troubleshooting.md).
    port in Part 2.
 
    ![The noVNC password prompt](../assets/img/novnc-password-prompt.png)
-   *The address bar shows plain `localhost`, because this container uses the default port 80. If
-   you started it with `HOST_PORT=8080`, you'd see `localhost:8080` instead.*
+   *The address bar shows plain `localhost`, the default port 80. With `HOST_PORT=8080` it would
+   show `localhost:8080`.*
 
 2. Enter the password `abc123`, unless you set `VNC_PW`.
 
@@ -96,6 +96,9 @@ Every command in this part runs in a terminal inside the noVNC desktop, not on y
    ```bash
    . /foss/designs/common/.designinit
    ```
+
+   The `.` and the space after it are part of the command: they load the file into this
+   terminal.
 
    You should see:
 
@@ -129,9 +132,9 @@ Every command in this part runs in a terminal inside the noVNC desktop, not on y
    === All checks passed ===
    ```
 
-   The indented `ngspice-47` line is the ngspice version. If any line says `FAIL` or `WARN`, look
-   it up in [Troubleshooting](reference/troubleshooting.md): "Smoke test: tool or helper not
-   found" or "Smoke test: PDK is not sky130A".
+   The indented `ngspice-47` line is the ngspice version. If any line says `FAIL` or `WARN`, see
+   [Smoke test: tool or helper not found](reference/troubleshooting.md#smoke-test-tool-or-helper-not-found)
+   or [Smoke test: PDK is not sky130A](reference/troubleshooting.md#smoke-test-pdk-is-not-sky130a).
 
 4. List the course modules. `mod` only exists in a terminal where you've loaded `.designinit`,
    so in a new terminal, repeat step 2 first:
@@ -158,8 +161,8 @@ Every command in this part runs in a terminal inside the noVNC desktop, not on y
    docker rm -f asic-edu-osic
    ```
 
-2. Start the container again with `start_vnc`, as in Part 2. This time the image is already on
-   your computer.
+2. From inside your `workspace` folder, start the container again with `start_vnc`, as in
+   Part 2. This time the image is already on your computer.
 3. Reload <http://localhost/> (or your `HOST_PORT` address) and enter the password.
 
 You should see the desktop again. Files under your `workspace` folder (`/foss/designs` inside the

@@ -13,13 +13,13 @@ not in this course repo.
 
 | | |
 |---|---|
-| **Track** | Core (intro) |
-| **Who it's for** | Everyone starting the UofT ASIC courses. IC101 comes before both the analog and the digital track. |
+| **Track** | Core (intro). IC101 comes before both the analog and the digital track. |
+| **Who it's for** | Everyone starting the UofT ASIC courses |
 | **Prerequisites** | None. Lab 01 starts from opening a terminal. |
 | **Tools** | git, Docker, IIC-OSIC-TOOLS (the container image with the EDA tools), noVNC (shows the container's desktop in your browser) |
 | **Time** | About 2–3 hours, much of it waiting for installs and the first image download |
-| **Machine** | A laptop with roughly 15 GB free and permission to install software |
-| **Shared workspace** | Yes. You clone it once and reuse it in every course that uses the tools. |
+| **Machine** | A laptop with roughly 15 GB free and permission to install software. On a Mac, Docker needs at least 4 GB of RAM. |
+| **Shared workspace** | The `workspace` repo. You clone it once, in Lab 03, and reuse it in every course that uses the tools. |
 
 ## Course path
 
