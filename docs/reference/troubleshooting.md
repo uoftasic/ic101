@@ -1,57 +1,53 @@
 # Troubleshooting
 
-Common setup issues for IC101 / the shared workspace. Each entry shows what
-you'll see, why it happens, and exactly what to do about it.
+Common setup problems in IC101 and the shared workspace. Each entry gives the symptom, the cause,
+and the fix.
 
-## "I don't know how to open a terminal"
+## I don't know how to open a terminal
 
-**Symptom:** A guide says "run this command" and you're not sure where to
-type it.
+**Symptom:** A page says "run this command" and you're not sure where to type it.
 
-**Why:** Every guide from [Install Docker](guide/install-docker.md) onward
-assumes you have a terminal window open.
+**Cause:** Every lab assumes you have a terminal window open.
 
-**Fix:** See [Prerequisites](guide/prerequisites.md) — it has per-OS steps
-for opening a terminal, right at the top of the page.
+**Fix:** [Lab 01, Part 1](labs/lab-01-terminal-and-git-overview.md#part-1-open-a-terminal) has the
+steps for each OS.
 
-## `git: command not found` (or `'git' is not recognized...` on Windows)
+## git: command not found
 
-**Symptom:** Running `git clone ...` prints an error instead of downloading
-anything.
+**Symptom:** Running `git clone ...` prints `git: command not found` (on Windows,
+`'git' is not recognized...`) instead of downloading anything.
 
-**Why:** git isn't installed yet, or (on Windows) you need to open a new
-terminal window after installing it.
+**Cause:** git isn't installed yet, or, on Windows, the terminal was already open when you
+installed it.
 
-**Fix:** Follow the git install steps in [Prerequisites](guide/prerequisites.md),
-then open a **new** terminal window and try again — an already-open
-terminal won't pick up a program you just installed.
+**Fix:** Follow [Lab 01, Part 2](labs/lab-01-terminal-and-git-overview.md#part-2-install-git), then
+open a new terminal window and try again. A terminal that was already open won't pick up a program
+you just installed.
 
-## Docker won't start or `hello-world` fails
+## Docker won't start or hello-world fails
 
-**Symptom:** Docker Desktop never shows **Engine running**, or
-`docker run --rm hello-world` errors out instead of printing
-`Hello from Docker!`.
+**Symptom:** Docker Desktop never shows **Engine running**, or `docker run --rm hello-world`
+prints an error instead of `Hello from Docker!`.
 
-**Why:** Docker itself isn't fully started yet, or a one-time OS setting
-(WSL2 on Windows, group membership on Linux) hasn't been applied.
+**Cause:** Docker hasn't finished starting, or a one-time OS setting hasn't been applied: WSL2 on
+Windows, or `docker` group membership on Linux.
 
 **Fix:**
 
-- Confirm Docker Desktop shows **Engine running** before running any
-  `docker` command — give it a minute after opening it.
-- On Windows, ensure WSL2 is installed and selected as the Docker backend
-  (see [Install Docker](guide/install-docker.md)).
-- On Linux, check your user is in the `docker` group (run `groups` and look
-  for `docker` in the output) and log out/back in after adding it.
-- Free up disk space; large image pulls fail quietly on a full disk.
+- Wait until Docker Desktop shows **Engine running** before you run any `docker` command. Give it
+  a minute after you open it.
+- On Windows, make sure WSL2 is installed and selected as Docker's backend. See
+  [What Docker needs](guide/install-docker.md#windows-wsl2-and-virtualization).
+- On Linux, check that your user is in the `docker` group: run `groups` and look for `docker` in
+  the output. If you just added it, log out and back in.
+- Free up disk space. Large image pulls fail without a clear error when the disk is full.
 
-## `permission denied` running a `docker` command (Linux)
+## permission denied on a docker command (Linux)
 
-**Symptom:** A `docker` command fails with a message containing
-`permission denied` instead of running.
+**Symptom:** A `docker` command fails with a message containing `permission denied`.
 
-**Why:** Your Linux user isn't in the `docker` group yet, so you don't have
-permission to talk to Docker without `sudo`.
+**Cause:** Your Linux user isn't in the `docker` group yet, so it can't talk to Docker without
+`sudo`.
 
 **Fix:**
 
@@ -59,19 +55,18 @@ permission to talk to Docker without `sudo`.
 sudo usermod -aG docker $USER
 ```
 
-Then **log out and log back in** (group changes don't apply to an
-already-open terminal) and try the command again.
+Then log out and log back in (group changes don't apply to a terminal that's already open), and
+run the command again.
 
 ## Port 80 already in use
 
-**Symptom:** `start_vnc` fails, or the browser refuses to load
-`http://localhost/`, because something else on your computer is already
-using port 80.
+**Symptom:** `start_vnc` fails, or the browser won't load `http://localhost/`, because another
+program on your computer is already using port 80.
 
-**Why:** Only one program can listen on a given port at a time — something
-else (often another local web server) got there first.
+**Cause:** Only one program can listen on a port at a time. Something else, often another local
+web server, got there first.
 
-**Fix:** Start with another host port:
+**Fix:** Start the workbench on a different host port:
 
 ```bash
 HOST_PORT=8080 ./scripts/start_vnc.sh
@@ -79,29 +74,28 @@ HOST_PORT=8080 ./scripts/start_vnc.sh
 
 Then open `http://localhost:8080/`.
 
-## Container starts but browser page is blank
+## Container starts but the browser page is blank
 
-**Symptom:** `start_vnc` finishes without errors, but `http://localhost/`
-shows a blank or unreachable page.
+**Symptom:** `start_vnc` finishes without errors, but `http://localhost/` shows a blank page or
+won't connect.
 
-**Why:** The desktop takes a little time to finish starting inside the
-container after the script exits.
+**Cause:** The desktop takes a little longer to start inside the container than the script takes
+to exit.
 
 **Fix:**
 
-- Wait ~30–60s after first pull/start for services to come up, then reload.
-- Check `docker ps` for a container named `asic-edu-osic`.
-- Inspect logs: `docker logs asic-edu-osic`.
-- Confirm you're using the port you actually set (default `80`, or your
-  `HOST_PORT`).
+- Wait about 30–60 s after the first pull or start for the services to come up, then reload.
+- Run `docker ps` and check for a container named `asic-edu-osic`.
+- Read its logs: `docker logs asic-edu-osic`.
+- Check that you're using the port you actually set: `80` by default, or your `HOST_PORT`.
 
-## Smoke test: tool not found
+## Smoke test: tool or helper not found
 
-**Symptom:** `smoke_test.sh` reports a missing command (e.g. `ngspice`,
-`magic`) instead of `OK`.
+**Symptom:** `smoke_test.sh` prints `FAIL` for a command (for example `ngspice` or `magic`) or for
+one of the module helper lines (`mod`, `add_module.sh`, `ic101_setup`) instead of `OK`.
 
-**Why:** The shared environment variables and PATH entries from
-`.designinit` haven't been loaded into this terminal session yet.
+**Cause:** The environment variables, `PATH` entries and `mod` command from `.designinit` haven't
+been loaded into this terminal, or the workspace isn't mounted at `/foss/designs`.
 
 **Fix:**
 
@@ -109,50 +103,52 @@ container after the script exits.
 . /foss/designs/common/.designinit
 ```
 
-Then confirm the workspace is mounted (`ls /foss/designs/scripts` should
-list files) and re-run `/foss/designs/scripts/smoke_test.sh`. If tools are
-still missing, re-pull the image tag the scripts expect (`DOCKER_TAG`,
-default `2026.08`).
+Then check that the workspace is mounted (`ls /foss/designs/scripts` should list files) and run
+`/foss/designs/scripts/smoke_test.sh` again. If tools are still missing, re-pull the image tag the
+scripts expect (`DOCKER_TAG`, default `2026.08`).
 
-## Smoke test: `sky130A` missing
+## Smoke test: PDK is not sky130A
 
-**Symptom:** The smoke test reports the SKY130 PDK as missing.
+**Symptom:** The smoke test's PDK line starts with `FAIL  PDK is` or `FAIL  PDKPATH is`. Or the
+checks pass, but one line reads `WARN  your shell started on PDK ...`.
 
-**Why:** Not because the PDK is absent — SKY130 ships inside the image at
-`/foss/pdks/sky130A`. The image *starts on a different PDK* (`ihp-sg13g2`), so
-`PDKPATH` and the ngspice and KLayout search paths all point somewhere else.
+**Cause:** Not a missing PDK. SKY130 ships inside the image at `/foss/pdks/sky130A`, but the image
+starts on a different PDK, `ihp-sg13g2`, so `PDKPATH` and the ngspice and KLayout search paths all
+point somewhere else. The `WARN` means the smoke test fixed its own environment, but tools you
+start from that terminal will still use the wrong PDK.
 
-**Fix:** Source the workspace environment, which switches every one of those
-variables over to SKY130, then re-run the smoke test:
+**Fix:** Load the workspace environment, which switches all of those variables over to SKY130,
+then run the smoke test again:
 
 ```bash
 . /foss/designs/.designinit
 /foss/designs/scripts/smoke_test.sh
 ```
 
-If you ever need to switch by hand, the image's own switcher is
-`sak-pdk-script.sh`, and it must be **sourced** — run as a plain command it
-prints the settings and changes nothing in your shell, which looks very much
-like it worked:
+`/foss/designs/.designinit` only loads `/foss/designs/common/.designinit`, so either path works.
+
+To switch PDK by hand, the image's own switcher is `sak-pdk-script.sh`, and you must **source**
+it. Run as a plain command, it prints the settings and changes nothing in your shell, which looks
+a lot like it worked:
 
 ```bash
 . sak-pdk-script.sh sky130A
 ```
 
-(Its own usage message calls it `sak-pdk`. There is no such command on `PATH`.)
+Its usage message calls it `sak-pdk`, but there's no command by that name on the `PATH`.
 
-## Copy/paste between host and noVNC
+## Copy and paste into noVNC
 
-**Symptom:** `Ctrl+V` on your host keyboard doesn't paste into the noVNC
-desktop.
+**Symptom:** `Ctrl+V` on your laptop's keyboard doesn't paste into the noVNC desktop.
 
-**Why:** noVNC streams a remote desktop over the browser — your host
-clipboard isn't automatically shared with it.
+**Cause:** noVNC streams a remote desktop into the browser, and your laptop's clipboard isn't
+shared with it automatically.
 
-**Fix:** Use the noVNC clipboard panel (in the sidebar), or press
-**Ctrl+Shift+V** to paste into the VM instead of the usual `Ctrl+V`.
+**Fix:** Press **Ctrl+Shift+V** instead of `Ctrl+V` to paste into the desktop, or use the
+clipboard icon in the noVNC sidebar.
 
 ## Still stuck
 
-Ask on the team Discord and include: OS, Docker version, exact command, and
-the failing log snippet (no secrets).
+Ask on the [team Discord](https://discord.gg/hrJnP5UsGz). Include your OS, your Docker version,
+the exact command you ran, and the part of the log that shows the error. Leave out passwords and
+other secrets.
