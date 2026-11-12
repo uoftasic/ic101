@@ -71,7 +71,7 @@ failures are in [Troubleshooting](reference/troubleshooting.md).
    *The address bar shows plain `localhost`, the default port 80. With `HOST_PORT=8080` it would
    show `localhost:8080`.*
 
-2. Enter the password `abc123`, unless you set `VNC_PW`.
+2. Enter the password the script printed: `abc123`, unless you changed it with `VNC_PW`.
 
 You should see a Linux desktop with a column of icons down the left, including **Terminal**,
 **XSchem** and **Magic**.
@@ -86,6 +86,7 @@ If the page is blank or won't load, wait 30–60 s and reload. If it's still bla
 ## Part 4: Run the smoke test
 
 Every command in this part runs in a terminal inside the noVNC desktop, not on your laptop.
+Inside the container, your `workspace` folder is `/foss/designs`.
 
 1. Open **Terminal** from the icons on the left of the desktop. To paste a command from this page
    into it, press **Ctrl+Shift+V**, or use the clipboard icon in the noVNC sidebar. Plain
@@ -155,7 +156,11 @@ Every command in this part runs in a terminal inside the noVNC desktop, not on y
 
 ## Part 5: Stop and restart the container
 
-1. In a terminal on your laptop (not the desktop), run:
+Files under your `workspace` folder (`/foss/designs` inside the container) live on your laptop,
+so removing the container doesn't touch them.
+
+1. In a terminal on your laptop (not the desktop), stop and remove the container. The launch
+   script named it `asic-edu-osic`:
 
    ```bash
    docker rm -f asic-edu-osic
@@ -165,8 +170,7 @@ Every command in this part runs in a terminal inside the noVNC desktop, not on y
    Part 2. This time the image is already on your computer.
 3. Reload <http://localhost/> (or your `HOST_PORT` address) and enter the password.
 
-You should see the desktop again. Files under your `workspace` folder (`/foss/designs` inside the
-container) live on your laptop, so removing the container doesn't touch them.
+You should see the desktop again.
 
 ## Finishing
 
