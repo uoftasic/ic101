@@ -64,7 +64,9 @@ after you log back in: you should see `docker` in the list.
 You should see version information from `docker version`, with a `Client` section and a `Server`
 section. Then `hello-world` prints a paragraph starting with `Hello from Docker!`. That message
 means Docker works. If the `Server` section is missing or shows an error, the Docker engine isn't
-running yet: wait for **Engine running** and try again.
+running yet: wait for **Engine running** and try again. On Linux, an error that mentions
+`permission denied` means the `docker` group change from Part 1 hasn't applied yet, so log out
+and back in.
 
 If `hello-world` fails, fix Docker before you go on, because every later step depends on it. Start
 with [Troubleshooting](reference/troubleshooting.md#docker-wont-start-or-hello-world-fails).

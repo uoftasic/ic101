@@ -1,7 +1,8 @@
 # The workbench desktop (noVNC)
 
 > To launch the desktop, follow [Lab 03](labs/lab-03-launch-the-workbench-overview.md), Parts 1–3.
-> This page explains what those steps do.
+> This page explains what those steps do. If the page is blank or port 80 is taken, see
+> [Troubleshooting](reference/troubleshooting.md).
 
 The workbench is the [IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS) container, the
 toolchain image maintained by IIC-JKU. A script from the team's `workspace` repo starts it, and
