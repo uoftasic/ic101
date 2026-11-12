@@ -34,8 +34,8 @@ Later courses add their own folders under `modules/` with `mod add <course>`, de
    on your laptop, so it survives when the container is stopped or removed.
 3. Expose the desktop at <http://localhost/>, on port 80 by default.
 
-Stopping the container is one command, `docker rm -f asic-edu-osic`, run on your laptop. Running
-`start_vnc` again brings it back. Lab 03, Part 5 has you try it.
+`docker rm -f asic-edu-osic`, run on your laptop, stops and removes the container, and
+`start_vnc` brings it back. You'll try it in Lab 03, Part 5.
 
 ## Settings you can change
 
@@ -48,12 +48,8 @@ The script reads these environment variables. You don't need any of them for Lab
 | `VNC_RESOLUTION` | `1280x800` | The desktop size, for example `1920x1080` |
 | `DOCKER_TAG` | `2026.08` | Which image tag to pull |
 
-On macOS and Linux you set them in front of the command, for example:
-
-```bash
-VNC_RESOLUTION=1920x1080 ./scripts/start_vnc.sh
-VNC_PW='your-password' HOST_PORT=8080 ./scripts/start_vnc.sh
-```
+On macOS and Linux you set them in front of the command, as in
+`VNC_PW='your-password' HOST_PORT=8080 ./scripts/start_vnc.sh`.
 
 ## The desktop in your browser
 
