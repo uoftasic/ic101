@@ -29,14 +29,14 @@ Only these three are fillable:
 | Docs pages | kebab-case `.md` under `docs/` |
 | Lab IDs | `lab-NN-short-name` |
 | Adding a doc page | add `.md` under `docs/`, link in `docs/_sidebar.md` |
-| Adding a lab | `labs/<id>/` + `docs/labs/<id>-overview.md` + sidebar entry |
+| Adding a lab | `labs/<id>/` (if the lab has files to run) + `docs/labs/<id>-overview.md` + a row in the Course path table on `docs/README.md` + sidebar entry in the same order |
 | Binaries | small images in `docs/assets/`; large data → Git LFS or external |
 
 ## Docs vs labs
 
-- **`docs/`** — published site. Lab *writeups* in `docs/labs/`.
-- **`labs/`** — runnable HDL / Python / data. Each `labs/<id>/README.md` links to its Docsify writeup.
-- **`scripts/`** — utilities; list entry points in `scripts/README.md`.
+- **`docs/`**: the published site. Guide pages in `docs/guide/` are reading only; every hands-on step lives in a lab *writeup* in `docs/labs/`.
+- **`labs/`**: runnable HDL / Python / data. Each `labs/<id>/README.md` links to its Docsify writeup. IC101 has no lab packages; its labs run the shared `workspace` repo's scripts.
+- **`scripts/`**: utilities; list entry points in `scripts/README.md`.
 
 Do not put grades, solution keys, or PII under `docs/`. Prefer `labs/**/solutions/` and gitignore them on student forks when needed.
 

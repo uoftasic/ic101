@@ -2,7 +2,9 @@
 
 Set up the containerized open-source toolchain that every later course builds on.
 
-Part of the **UofT ASIC Team** education materials. Published at **https://uoftasic.com/ic101/**. Runnable tooling lives in the shared **workspace** repo (not in this course repo).
+Part of the UofT ASIC Team education materials, published at <https://uoftasic.com/ic101/>. The
+runnable tooling lives in the shared [`workspace`](https://github.com/uoftasic/workspace) repo,
+not in this course repo.
 
 ## At a glance
 
@@ -10,25 +12,28 @@ Part of the **UofT ASIC Team** education materials. Published at **https://uofta
 |---|---|
 | **Track** | Core (intro) |
 | **Prerequisites** | None |
-| **Tools** | Docker, IIC-OSIC-TOOLS, noVNC |
-| **Shared workspace** | Yes — clone once, reuse every course |
+| **Tools** | git, Docker, IIC-OSIC-TOOLS, noVNC |
+| **Shared workspace** | Yes: clone it once, reuse it in every course |
 
 ## What you'll do
 
-1. Understand why we use a containerized EDA toolchain
-2. Install Docker Desktop
-3. Clone **workspace** and launch the IIC-OSIC-TOOLS desktop (noVNC)
-4. Run the smoke test
-5. See where each tool sits in a tapeout flow
+1. Open a terminal and install git (Lab 01)
+2. Learn why the team uses a containerized EDA toolchain, and install Docker (Lab 02)
+3. Clone `workspace`, open the IIC-OSIC-TOOLS desktop in your browser with noVNC, and run the
+   smoke test (Lab 03)
+4. See where each tool sits in a tapeout flow
 
-Start here: **[Getting started](guide/getting-started.md)**.
+The course home page, [`docs/README.md`](docs/README.md), has a numbered Course path that
+alternates guide pages (`docs/guide/`, reading only) with labs (`docs/labs/`, where all the
+hands-on steps are). `docs/_sidebar.md` lists the pages in the same order. IC101's labs have no
+packages under `labs/`: everything they run comes from the `workspace` repo.
 
 ## Quick links
 
 | What | Where |
-|------|--------|
-| Getting started | [guide/getting-started.md](guide/getting-started.md) |
-| Workspace (tools) | sibling `workspace/` folder locally; GitHub: [uoftasic/workspace](https://github.com/uoftasic/workspace) |
+|------|-------|
+| Course home and Course path | [docs/README.md](docs/README.md) |
+| Workspace (tools) | a sibling `workspace/` folder locally; GitHub: [uoftasic/workspace](https://github.com/uoftasic/workspace) |
 | Portal hub | [edu.uoftasic.com](https://edu.uoftasic.com/) |
 
 ## Local preview

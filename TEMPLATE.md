@@ -33,7 +33,7 @@ Dry run: add `--dry-run`.
 - [ ] Pushed to `main`
 - [ ] Pages: **Settings → Pages → `main` / `/docs`**
 - [ ] Live: `https://uoftasic.com/<course-id>/` (org Pages; hub: https://edu.uoftasic.com/)
-- [ ] Sidebar navigates Home → Getting started → Lab 01
+- [ ] Sidebar follows the Course path on the home page: Home → Getting started → … → Lab 01
 - [ ] Math + sample figure render on the home page
 - [ ] (Maintainers of this template) **Settings → Template repository** enabled
 

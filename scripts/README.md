@@ -6,7 +6,6 @@ Utilities for **IC101 - Introduction to IC Tools & Workspace** under the UofT AS
 
 | Script | Purpose |
 |--------|---------|
-| `hello.py` | Smoke-check that Python runs in this clone |
 | `init-template.py` | Fill `ic101` / title / description after using the template |
 | `check_docs_links.py` | Validate Docsify page/image link conventions under `docs/` |
 
@@ -14,7 +13,6 @@ Utilities for **IC101 - Introduction to IC Tools & Workspace** under the UofT AS
 
 ```bash
 # From repo root
-python3 scripts/hello.py
 python3 scripts/check_docs_links.py
 
 python3 scripts/init-template.py \
