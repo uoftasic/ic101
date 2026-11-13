@@ -1,18 +1,31 @@
 # Lab 03: Launch the workbench
 
 You'll clone the team's `workspace` repo, start the IIC-OSIC-TOOLS container, open its desktop in
-your browser, and run the smoke test. When the smoke test prints `=== All checks passed ===`, your
+your browser, and run the smoke test. Then you'll restart the container and check which of your
+files survived. When the smoke test prints `=== All checks passed ===` after that restart, your
 setup is ready for every later course.
+
+Other courses link here for their workbench setup. If one sent you, do this whole lab, then go
+back to that course.
 
 ## Before you start
 
-- Finish [Lab 02](labs/lab-02-install-docker-overview.md): `docker run --rm hello-world` prints
-  `Hello from Docker!`.
+- You need git and Docker on your laptop. In a terminal there, run:
+
+  ```bash
+  git --version
+  docker run --rm hello-world
+  ```
+
+  The first should print a version number, and the second a paragraph starting with
+  `Hello from Docker!`. If git is missing, do [Lab 01](labs/lab-01-terminal-and-git-overview.md)
+  first. If Docker isn't installed, do [Lab 02](labs/lab-02-install-docker-overview.md). If it's
+  installed but the command fails, check that Docker Desktop shows **Engine running**, then see
+  [Troubleshooting](reference/troubleshooting.md#docker-wont-start-or-hello-world-fails).
 - Read [The workbench desktop](guide/launch-novnc.md) and
   [What the smoke test checks](guide/smoke-test.md).
-- Make sure Docker is running: Docker Desktop shows **Engine running**, or, on Linux with Docker
-  Engine, `docker run --rm hello-world` still works.
-- Use a stable network connection. The first launch downloads an image of several GB.
+- Have roughly 15 GB of free disk and a stable network connection. The first launch downloads an
+  image of several GB.
 
 Time: 30 minutes to 1 hour, most of it waiting for the first download.
 
@@ -27,8 +40,8 @@ Time: 30 minutes to 1 hour, most of it waiting for the first download.
    ```
 
    The first command creates a folder named `workspace` that holds the team's scripts and
-   configuration. The second moves your terminal into that folder. Run every command in Parts 2
-   and 5 from inside it.
+   configuration. The second moves your terminal into that folder. Run the laptop commands in
+   Parts 2 and 5 from inside it.
 
 You should see git print `Cloning into 'workspace'...` and finish without an error. If you get
 `git: command not found`, go back to [Lab 01](labs/lab-01-terminal-and-git-overview.md).
@@ -108,6 +121,10 @@ Inside the container, your `workspace` folder is `/foss/designs`.
              run 'mod' to list course modules, or 'mod <name>' to enter one.
    ```
 
+   A new terminal on the desktop loads this file by itself, so you may already have seen these
+   two lines when the terminal opened. Running it again does no harm. It's also the fix if a
+   terminal ever says `bash: mod: command not found`.
+
 3. Run the smoke test:
 
    ```bash
@@ -137,8 +154,7 @@ Inside the container, your `workspace` folder is `/foss/designs`.
    [Smoke test: tool or helper not found](reference/troubleshooting.md#smoke-test-tool-or-helper-not-found)
    or [Smoke test: PDK is not sky130A](reference/troubleshooting.md#smoke-test-pdk-is-not-sky130a).
 
-4. List the course modules. `mod` only exists in a terminal where you've loaded `.designinit`,
-   so in a new terminal, repeat step 2 first:
+4. List the course modules:
 
    ```bash
    mod
@@ -154,36 +170,80 @@ Inside the container, your `workspace` folder is `/foss/designs`.
 
    You should see `cwd: /foss/designs/modules/ic101_setup`.
 
-## Part 5: Stop and restart the container
+## Part 5: Restart the container
 
-Files under your `workspace` folder (`/foss/designs` inside the container) live on your laptop,
-so removing the container doesn't touch them.
+Steps 4 and 5 are how you'll start the workbench at the beginning of every later session.
+Before you restart it, save two test files and predict which one a restart keeps.
 
-1. In a terminal on your laptop (not the desktop), stop and remove the container. The launch
+1. In the desktop terminal, save one file in your workspace and one in the container's `/tmp`
+   folder:
+
+   ```bash
+   echo "saved in the workspace" > /foss/designs/modules/ic101_setup/restart-test.txt
+   echo "saved in the container" > /tmp/restart-test.txt
+   ```
+
+2. Write down which of the two files you expect to find after you remove the container and start
+   a new one.
+3. In a terminal on your laptop (not the desktop), stop and remove the container. The launch
    script named it `asic-edu-osic`:
 
    ```bash
    docker rm -f asic-edu-osic
    ```
 
-2. From inside your `workspace` folder, start the container again with `start_vnc`, as in
+   It prints the name, `asic-edu-osic`, when the container is gone.
+4. From inside your `workspace` folder, start the container again with `start_vnc`, as in
    Part 2. This time the image is already on your computer.
-3. Reload <http://localhost/> (or your `HOST_PORT` address) and enter the password.
+5. Reload <http://localhost/> (or your `HOST_PORT` address), enter the password, and open
+   **Terminal** from the icons on the left.
+6. Look for both files:
 
-You should see the desktop again.
+   ```bash
+   cat /foss/designs/modules/ic101_setup/restart-test.txt
+   cat /tmp/restart-test.txt
+   ```
+
+7. Run the smoke test again:
+
+   ```bash
+   /foss/designs/scripts/smoke_test.sh
+   ```
+
+You should see the workspace file's text, then an error for the `/tmp` file:
+
+```text
+saved in the workspace
+cat: /tmp/restart-test.txt: No such file or directory
+```
+
+The smoke test should end with `=== All checks passed ===`, as in Part 4. Compare the `cat`
+output with what you wrote down in step 2.
+
+<details>
+<summary>Answer</summary>
+
+`/foss/designs` is your `workspace` folder on your laptop, mounted into the container, so the
+first file is on your own disk and survives. `/tmp` exists only inside the container, and
+`docker rm -f` deleted the container with everything in it. `start_vnc` also removes any old
+`asic-edu-osic` container before it starts a new one, so the same happens every time you launch
+the workbench. Keep your course work under `/foss/designs`.
+
+</details>
+
+You can leave `restart-test.txt` where it is: `ic101_setup` is this course's scratch folder.
 
 ## Finishing
 
-You're done when:
+You're done when, after the restart in Part 5, the smoke test ends with
+`=== All checks passed ===` in a desktop terminal and `restart-test.txt` is still in
+`ic101_setup`.
 
-- [ ] the workspace is cloned into a folder named `workspace`
-- [ ] `start_vnc` finishes without Docker errors
-- [ ] the browser desktop loads and accepts the password
-- [ ] you can open a terminal inside the desktop
-- [ ] `smoke_test.sh` ends with `=== All checks passed ===`
-- [ ] `mod ic101_setup` prints `cwd: /foss/designs/modules/ic101_setup`
-- [ ] you've stopped the container with `docker rm -f asic-edu-osic` and started it again
+### Submit
 
-There's nothing to submit. Keep the `workspace` clone: every later course that uses the tools runs
-in it. To finish the course, read
-[Where each tool sits in the tapeout flow](guide/tapeout-flow.md).
+Nothing to submit. Keep the `workspace` clone: every later course that uses the tools runs in it.
+
+Next on the Course path: read [Where each tool sits in the tapeout flow](guide/tapeout-flow.md).
+If another course sent you here, go back to that course's Lab 01. Courses that use the tools add
+their own files to your workspace with `mod add <course>`, which
+[What the smoke test checks](guide/smoke-test.md#course-modules-and-mod) describes.
