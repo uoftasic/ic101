@@ -1,7 +1,7 @@
 # Troubleshooting
 
-Common setup problems in IC101 and the shared workspace. Each entry gives the symptom, the cause,
-and the fix.
+Common setup problems in IC101 and the shared workspace, including loading a later course with
+the workspace's `mod` command. Each entry gives the symptom, the cause, and the fix.
 
 ## I don't know how to open a terminal
 
@@ -89,6 +89,42 @@ to exit.
 - Read its logs: `docker logs asic-edu-osic`.
 - Check that you're using the port you actually set: `80` by default, or your `HOST_PORT`.
 
+## .designinit: No such file or directory
+
+**Symptom:** Loading the environment with `. /foss/designs/common/.designinit` prints
+`bash: /foss/designs/common/.designinit: No such file or directory`.
+
+**Cause:** Your `workspace` folder isn't mounted at `/foss/designs`, so the container only has an
+empty folder there. This happens when the container wasn't started with `start_vnc` from your
+`workspace` clone, for example when it was started with a plain `docker run` of the
+`hpretl/iic-osic-tools` image.
+
+**Fix:**
+
+1. In the desktop terminal, run `ls /foss/designs/`. With the workspace mounted, it lists
+   `common`, `modules` and `scripts`, among others. If it lists nothing, the workspace isn't
+   mounted.
+2. If you haven't cloned the `workspace` repo yet, do
+   [Lab 03](labs/lab-03-launch-the-workbench-overview.md) from the start. If you have, start the
+   workbench again from your clone, as in
+   [Lab 03, Part 2](labs/lab-03-launch-the-workbench-overview.md#part-2-start-the-container):
+   `./scripts/start_vnc.sh` on macOS or Linux, `scripts\start_vnc.bat` on Windows.
+
+## mod: command not found
+
+**Symptom:** A `mod` command prints `bash: mod: command not found`.
+
+**Cause:** This terminal hasn't loaded `/foss/designs/common/.designinit`, which defines `mod`.
+
+**Fix:** Load it, then run your `mod` command again:
+
+```bash
+. /foss/designs/common/.designinit
+```
+
+If that prints `No such file or directory`, see
+[.designinit: No such file or directory](reference/troubleshooting.md#designinit-no-such-file-or-directory).
+
 ## Smoke test: tool or helper not found
 
 **Symptom:** `smoke_test.sh` prints `FAIL` for a command (for example `ngspice` or `magic`) or for
@@ -104,8 +140,10 @@ been loaded into this terminal, or the workspace isn't mounted at `/foss/designs
 ```
 
 Then check that the workspace is mounted (`ls /foss/designs/scripts` should list files) and run
-`/foss/designs/scripts/smoke_test.sh` again. If tools are still missing, re-pull the image tag the
-scripts expect (`DOCKER_TAG`, default `2026.08`).
+`/foss/designs/scripts/smoke_test.sh` again. If the folder is empty or missing, see
+[.designinit: No such file or directory](reference/troubleshooting.md#designinit-no-such-file-or-directory).
+If tools are still missing, re-pull the image tag the scripts expect (`DOCKER_TAG`, default
+`2026.08`).
 
 ## Smoke test: PDK is not sky130A
 
@@ -136,6 +174,37 @@ a lot like it worked:
 ```
 
 Its usage message calls it `sak-pdk`, but there's no command by that name on the `PATH`.
+
+## mod: no such module
+
+**Symptom:** `mod <course>` prints `mod: no such module: <course>`, then `Available modules:` and
+the modules you do have.
+
+**Cause:** There's no folder for that course under `/foss/designs/modules/` yet. Usually you ran
+`mod <course>` before `mod add <course>`, or the name is misspelled.
+
+**Fix:** Check the name against the list it printed. If the course isn't there, add it with
+`mod add <course>`, using the name your course's Lab 01 gives. `mod add` clones the course and
+moves you into its folder. After that, `mod <course>` works.
+
+## mod add asks for a GitHub username
+
+**Symptom:** `mod add <course>` stops at `Username for 'https://github.com':` and waits. Or it
+fails with `fatal: could not read Username for 'https://github.com'`, followed by
+`add_module: clone failed for <course>`.
+
+**Cause:** GitHub didn't let git read `github.com/uoftasic/<course>` without logging in. `mod add`
+is meant to work without a login, so either the course name is misspelled or that course's repo
+isn't published yet.
+
+**Fix:**
+
+- Don't type a username or password. If git is waiting at the prompt, press **Ctrl+C** to stop
+  it. That leaves nothing behind, so you can run `mod add` again.
+- Check the spelling of the course name and run `mod add <course>` again.
+- If the name is right, open `https://github.com/uoftasic/<course>` in your browser. A 404 page
+  there means the repo isn't published yet. Whether or not you see a 404, ask on the
+  [team Discord](https://discord.gg/hrJnP5UsGz): only the course team can fix it.
 
 ## Copy and paste into noVNC
 
