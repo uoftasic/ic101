@@ -49,7 +49,9 @@ Time: 30 minutes to 1 hour, most of it waiting for the first download.
    and 5 from inside `workspace`, and later courses start the workbench from it too.
 
 You should see git print `Cloning into 'workspace'...` and finish without an error. If you get
-`git: command not found`, go back to [Lab 01](labs/lab-01-terminal-and-git-overview.md).
+`git: command not found`, go back to [Lab 01](labs/lab-01-terminal-and-git-overview.md). If git
+says `fatal: destination path 'workspace' already exists`, you've cloned it in this folder before:
+run `cd workspace` and use that clone.
 
 ## Part 2: Start the container
 
@@ -220,15 +222,15 @@ one a restart keeps.
    /foss/designs/scripts/smoke_test.sh
    ```
 
-You should see the workspace file's text, then an error for the `/tmp` file:
+In step 6 you should see the workspace file's text, then an error for the `/tmp` file:
 
 ```text
 saved in the workspace
 cat: /tmp/restart-test.txt: No such file or directory
 ```
 
-The smoke test should end with `=== All checks passed ===`, as in Part 4. Compare the `cat`
-output with what you wrote down in step 2.
+In step 7, the smoke test should end with `=== All checks passed ===`, as in Part 4. Compare the
+`cat` output with what you wrote down in step 2.
 
 <details>
 <summary>Answer</summary>
