@@ -20,8 +20,11 @@ back to that course.
   The first should print a version number, and the second a paragraph starting with
   `Hello from Docker!`. If git is missing, do [Lab 01](labs/lab-01-terminal-and-git-overview.md)
   first. If Docker isn't installed, do [Lab 02](labs/lab-02-install-docker-overview.md). If it's
-  installed but the command fails, check that Docker Desktop shows **Engine running**, then see
+  installed but the command fails, wait until Docker Desktop shows **Engine running** and try
+  again. If it still fails, see
   [Troubleshooting](reference/troubleshooting.md#docker-wont-start-or-hello-world-fails).
+- On a Mac, give Docker Desktop at least 4 GB of RAM under **Settings → Resources**
+  ([Lab 02](labs/lab-02-install-docker-overview.md), Part 1).
 - Read [The workbench desktop](guide/launch-novnc.md) and
   [What the smoke test checks](guide/smoke-test.md).
 - Have roughly 15 GB of free disk and a stable network connection. The first launch downloads an
@@ -40,8 +43,9 @@ Time: 30 minutes to 1 hour, most of it waiting for the first download.
    ```
 
    The first command creates a folder named `workspace` that holds the team's scripts and
-   configuration. The second moves your terminal into that folder. Run the laptop commands in
-   Parts 2 and 5 from inside it.
+   configuration, inside the folder your terminal is in. The second moves your terminal into
+   `workspace`. Note where it is: you run the laptop commands in Parts 2 and 5 from inside it, and
+   later courses start the workbench from it too.
 
 You should see git print `Cloning into 'workspace'...` and finish without an error. If you get
 `git: command not found`, go back to [Lab 01](labs/lab-01-terminal-and-git-overview.md).
@@ -56,7 +60,7 @@ You should see git print `Cloning into 'workspace'...` and finish without an err
    ./scripts/start_vnc.sh
    ```
 
-   On Windows, run it from a terminal:
+   On Windows, run it from Windows Terminal or PowerShell:
 
    ```bat
    scripts\start_vnc.bat
@@ -84,7 +88,8 @@ failures are in [Troubleshooting](reference/troubleshooting.md).
    *The address bar shows plain `localhost`, the default port 80. With `HOST_PORT=8080` it would
    show `localhost:8080`.*
 
-2. Enter the password the script printed: `abc123`, unless you changed it with `VNC_PW`.
+2. Enter the password the script printed: `abc123`, unless you changed it with `VNC_PW`
+   ([Settings you can change](guide/launch-novnc.md#settings-you-can-change)).
 
 You should see a Linux desktop with a column of icons down the left, including **Terminal**,
 **XSchem** and **Magic**.
@@ -111,8 +116,9 @@ Inside the container, your `workspace` folder is `/foss/designs`.
    . /foss/designs/common/.designinit
    ```
 
-   The `.` and the space after it are part of the command: they load the file into this
-   terminal.
+   `.designinit` points the tools at the SKY130 PDK and defines the `mod` command you'll use in
+   steps 4 and 5. The `.` and the space after it are part of the command: they load the file into
+   this terminal.
 
    You should see:
 
@@ -162,7 +168,7 @@ Inside the container, your `workspace` folder is `/foss/designs`.
 
    You should see `Available modules:` and, under it, `ic101_setup`.
 
-5. Go to this course's scratch folder:
+5. Go to IC101's scratch folder:
 
    ```bash
    mod ic101_setup
@@ -172,8 +178,9 @@ Inside the container, your `workspace` folder is `/foss/designs`.
 
 ## Part 5: Restart the container
 
-Steps 4 and 5 are how you'll start the workbench at the beginning of every later session.
-Before you restart it, save two test files and predict which one a restart keeps.
+Step 3 below is how you stop the workbench, and steps 4 and 5 are how you start it again at the
+beginning of every later session. Before you restart it, save two test files and predict which
+one a restart keeps.
 
 1. In the desktop terminal, save one file in your workspace and one in the container's `/tmp`
    folder:
@@ -193,8 +200,9 @@ Before you restart it, save two test files and predict which one a restart keeps
    ```
 
    It prints the name, `asic-edu-osic`, when the container is gone.
-4. From inside your `workspace` folder, start the container again with `start_vnc`, as in
-   Part 2. This time the image is already on your computer.
+4. From inside your `workspace` folder, start the container again as in Part 2:
+   `./scripts/start_vnc.sh` on macOS or Linux, `scripts\start_vnc.bat` on Windows. This time the
+   image is already on your computer.
 5. Reload <http://localhost/> (or your `HOST_PORT` address), enter the password, and open
    **Terminal** from the icons on the left.
 6. Look for both files:
@@ -225,13 +233,14 @@ output with what you wrote down in step 2.
 
 `/foss/designs` is your `workspace` folder on your laptop, mounted into the container, so the
 first file is on your own disk and survives. `/tmp` exists only inside the container, and
-`docker rm -f` deleted the container with everything in it. `start_vnc` also removes any old
-`asic-edu-osic` container before it starts a new one, so the same happens every time you launch
-the workbench. Keep your course work under `/foss/designs`.
+`docker rm -f` deleted the container with everything in it.
 
 </details>
 
-You can leave `restart-test.txt` where it is: `ic101_setup` is this course's scratch folder.
+Keep your course work under `/foss/designs`. `start_vnc` removes any old `asic-edu-osic`
+container before it starts a new one, so every launch gives you a fresh container, and anything
+saved outside `/foss/designs` is lost. You can leave
+`restart-test.txt` where it is: `ic101_setup` is IC101's scratch folder.
 
 ## Finishing
 
@@ -244,6 +253,6 @@ You're done when, after the restart in Part 5, the smoke test ends with
 Nothing to submit. Keep the `workspace` clone: every later course that uses the tools runs in it.
 
 Next on the Course path: read [Where each tool sits in the tapeout flow](guide/tapeout-flow.md).
-If another course sent you here, go back to that course's Lab 01. Courses that use the tools add
-their own files to your workspace with `mod add <course>`, which
+If another course sent you here, go back to the page that sent you. Courses that use the tools
+add their own files to your workspace with `mod add <course>`, which
 [What the smoke test checks](guide/smoke-test.md#course-modules-and-mod) describes.
