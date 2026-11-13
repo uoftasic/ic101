@@ -20,8 +20,9 @@ back to that course.
   The first should print a version number, and the second a paragraph starting with
   `Hello from Docker!`. If git is missing, do [Lab 01](labs/lab-01-terminal-and-git-overview.md)
   first. If Docker isn't installed, do [Lab 02](labs/lab-02-install-docker-overview.md). If it's
-  installed but the command fails, wait until Docker Desktop shows **Engine running** and try
-  again. If it still fails, see
+  installed but the command fails, Docker may still be starting: wait until Docker Desktop shows
+  **Engine running** and try again. If it still fails, or you run Docker Engine on Linux without
+  Docker Desktop, see
   [Troubleshooting](reference/troubleshooting.md#docker-wont-start-or-hello-world-fails).
 - On a Mac, give Docker Desktop at least 4 GB of RAM under **Settings → Resources**
   ([Lab 02](labs/lab-02-install-docker-overview.md), Part 1).
@@ -44,8 +45,8 @@ Time: 30 minutes to 1 hour, most of it waiting for the first download.
 
    The first command creates a folder named `workspace` that holds the team's scripts and
    configuration, inside the folder your terminal is in. The second moves your terminal into
-   `workspace`. Note where it is: you run the laptop commands in Parts 2 and 5 from inside it, and
-   later courses start the workbench from it too.
+   `workspace`. Remember which folder you ran this in: you run the laptop commands in Parts 2
+   and 5 from inside `workspace`, and later courses start the workbench from it too.
 
 You should see git print `Cloning into 'workspace'...` and finish without an error. If you get
 `git: command not found`, go back to [Lab 01](labs/lab-01-terminal-and-git-overview.md).
@@ -204,7 +205,8 @@ one a restart keeps.
    `./scripts/start_vnc.sh` on macOS or Linux, `scripts\start_vnc.bat` on Windows. This time the
    image is already on your computer.
 5. Reload <http://localhost/> (or your `HOST_PORT` address), enter the password, and open
-   **Terminal** from the icons on the left.
+   **Terminal** from the icons on the left. If the page is blank, wait 30–60 s and reload, as in
+   Part 3.
 6. Look for both files:
 
    ```bash
@@ -238,8 +240,8 @@ first file is on your own disk and survives. `/tmp` exists only inside the conta
 </details>
 
 Keep your course work under `/foss/designs`. `start_vnc` removes any old `asic-edu-osic`
-container before it starts a new one, so every launch gives you a fresh container, and anything
-saved outside `/foss/designs` is lost. You can leave
+container before it starts a new one, so even without step 3, every launch gives you a fresh
+container and anything saved outside `/foss/designs` is lost. You can leave
 `restart-test.txt` where it is: `ic101_setup` is IC101's scratch folder.
 
 ## Finishing
