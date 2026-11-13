@@ -62,23 +62,24 @@ after you log back in: you should see `docker` in the list.
    ```
 
 You should see version information from `docker version`, with a `Client` section and a `Server`
-section. Then `hello-world` prints a paragraph starting with `Hello from Docker!`. That message
-means Docker works. If the `Server` section is missing or shows an error, the Docker engine isn't
-running yet: wait for **Engine running** and try again. On Linux, an error that mentions
-`permission denied` means the `docker` group change from Part 1 hasn't applied yet, so log out
-and back in.
+section. Then `hello-world` prints a paragraph starting with `Hello from Docker!`. If the `Server`
+section is missing or shows an error, the Docker engine isn't running yet: wait for
+**Engine running** and try again. On Linux, an error that mentions `permission denied` means the
+`docker` group change from Part 1 hasn't applied yet, so log out and back in.
 
 If `hello-world` fails, fix Docker before you go on, because every later step depends on it. Start
 with [Troubleshooting](reference/troubleshooting.md#docker-wont-start-or-hello-world-fails).
 
 ## Finishing
 
-You're done when:
+You're done when `docker run --rm hello-world` prints `Hello from Docker!` on your own computer,
+and Docker has room for a multi-GB image: roughly 15 GB of free disk, and on a Mac at least 4 GB
+of RAM.
 
-- [ ] `docker version` runs without errors
-- [ ] `docker run --rm hello-world` prints a `Hello from Docker!` message
-- [ ] Docker has room for a multi-GB image: roughly 15 GB of free disk, and at least 4 GB of RAM
-  on a Mac
+### Submit
 
-There's nothing to submit. Next, read [The workbench desktop](guide/launch-novnc.md) and
-[What the smoke test checks](guide/smoke-test.md).
+Nothing to submit.
+
+Next on the Course path: read [The workbench desktop](guide/launch-novnc.md) and
+[What the smoke test checks](guide/smoke-test.md), then do
+[Lab 03: Launch the workbench](labs/lab-03-launch-the-workbench-overview.md).

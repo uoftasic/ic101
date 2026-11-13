@@ -69,14 +69,19 @@ Follow the steps for your OS.
    Fedora or `pacman` on Arch.
 
 On every OS, you should see `git --version` print a version number, in a line like
-`git version 2.34.1`. Your number may differ, and some systems add more text after it. If you see `command not found` (on Windows, `'git' is not recognized...`), see
+`git version 2.34.1`. Your number may differ, and some systems add more text after it. If you see
+`command not found` (on Windows, `'git' is not recognized...`), see
 [Troubleshooting](reference/troubleshooting.md#git-command-not-found).
 
 ## Finishing
 
-You're done when:
+You're done when `git --version` prints a version number, not `command not found`, in a terminal
+on your own computer.
 
-- [ ] you can open a terminal on your computer
-- [ ] `git --version` prints a version number, not `command not found`
+### Submit
 
-There's nothing to submit. Next, read [Why a containerized toolchain](guide/why-containers.md).
+Nothing to submit.
+
+Next on the Course path: read [Why a containerized toolchain](guide/why-containers.md) and
+[What Docker needs](guide/install-docker.md), then do
+[Lab 02: Install Docker](labs/lab-02-install-docker-overview.md).
