@@ -30,6 +30,9 @@ Only these three are fillable:
 | Lab IDs | `lab-NN-short-name` |
 | Adding a doc page | add `.md` under `docs/`, link in `docs/_sidebar.md` |
 | Adding a lab | `labs/<id>/` (if the lab has files to run) + `docs/labs/<id>-overview.md` + a row in the Course path table on `docs/README.md` + sidebar entry in the same order |
+| Course path table | Columns `# \| \| What \| Time`. Read and Do in plain text. A Do row is `[Lab 01: Title](labs/<id>-overview.md)` followed by one sentence on what you'll do. Row times add up to the course total on the home page |
+| Lab titles | `# Lab 01: Title` on the writeup, and the same text in the sidebar and the Course path |
+| End of a lab writeup | `## Finishing` (one "You're done when" line about the student's own work), `### Questions` if any (each with a collapsed answer or a pointer to its step), `### Submit` (or "Nothing to submit."), then `## Going further (optional)` if any, then a "Next on the Course path" line |
 | Binaries | small images in `docs/assets/`; large data → Git LFS or external |
 
 ## Docs vs labs
