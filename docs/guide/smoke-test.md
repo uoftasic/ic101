@@ -62,4 +62,17 @@ them:
 On your laptop, `./scripts/add_module.sh ad101`, run from your `workspace` clone, does the same
 as `mod add ad101`. It's the same folder, mounted into the container.
 
+`mod add <course>` prints the address it clones from and git's own `Cloning into ...` line. When
+the clone works, it ends with:
+
+```text
+OK  module ready: /foss/designs/modules/<course>
+    run: mod <course>
+cwd: /foss/designs/modules/<course>
+```
+
+The `cwd:` line means `mod add` has already moved you into the new folder. If it stops and asks
+for a GitHub username instead, see
+[Troubleshooting](reference/troubleshooting.md#mod-add-asks-for-a-github-username).
+
 Next: [Lab 03: Launch the workbench](labs/lab-03-launch-the-workbench-overview.md).
