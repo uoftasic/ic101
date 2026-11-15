@@ -1,32 +1,33 @@
 # IC101 — Onboarding onto Tools
 
-Set up the containerized open-source toolchain that every later course builds on. By the end, a
-Linux desktop with the team's chip design (EDA) tools runs in a browser tab on your laptop. The
-course calls this setup the workbench. A short check script, the smoke test, then confirms that
-the tools and the SKY130 PDK work. The PDK (process design kit) is the set of files that describe
-the manufacturing process the tools design against.
+In IC101 you set up the containerized open-source toolchain that every later course builds on. By
+the end you'll have a Linux desktop with the team's chip design (EDA) tools running in a browser
+tab on your laptop, a setup the course calls the workbench. A short check script called
+the smoke test then confirms that the tools and the SKY130 PDK work. The PDK (process design kit)
+is the set of files that describes the manufacturing process the tools design against.
 
-Part of the UofT ASIC Team education materials, published at <https://uoftasic.com/ic101/>. The
-runnable tooling lives in the shared [`workspace`](https://github.com/uoftasic/workspace) repo,
-not in this course repo.
+IC101 is part of the UofT ASIC Team education materials, published at
+<https://uoftasic.com/ic101/>. The runnable tooling lives in the shared
+[`workspace`](https://github.com/uoftasic/workspace) repo rather than in this course repo.
 
 ## At a glance
 
 | | |
 |---|---|
-| **Track** | Core (intro). IC101 comes before both the analog and the digital track. |
+| **Track** | Core (intro): IC101 comes before both the analog and the digital track. |
 | **Who it's for** | Everyone starting the UofT ASIC courses |
-| **Prerequisites** | None. Lab 01 starts from opening a terminal. |
+| **Prerequisites** | None; Lab 01 starts from opening a terminal. |
 | **Tools** | git, Docker, IIC-OSIC-TOOLS (the container image with the EDA tools), noVNC (shows the container's desktop in your browser) |
 | **Time** | About 2–3 hours, much of it waiting for installs and the first image download |
-| **Machine** | A laptop with roughly 15 GB of free disk space and permission to install software, and a stable network connection: the toolchain image is several GB. On a Mac, you give Docker Desktop at least 4 GB of RAM in its settings (Lab 02, Part 1). |
-| **Shared workspace** | The `workspace` repo. You clone it once, in Lab 03, and reuse it in every course that uses the tools. |
+| **Machine** | A laptop with roughly 15 GB of free disk space and permission to install software, and a stable network connection, because the toolchain image is several GB. On a Mac you'll also give Docker Desktop at least 4 GB of RAM in its settings (Lab 02, Part 1). |
+| **Shared workspace** | The `workspace` repo, which you clone once in Lab 03 and reuse in every course that uses the tools. |
 
 ## Course path
 
-Work down this table in order; the course ends with row 7. A Read row is guide pages:
-explanations, with nothing to run. A Do row is one lab, where all the hands-on steps are. Each
-lab's "Before you start" section lists the pages it expects you to have read.
+Work down this table in order; the course ends with row 7. A Read row points you to guide pages,
+which explain things and have nothing to run. A Do row is one lab, and every hands-on step in the
+course is in a lab. Each lab's "Before you start" section lists the pages it expects you to have
+read.
 
 | # | | What | Time |
 |---|---|---|---|
@@ -38,10 +39,10 @@ lab's "Before you start" section lists the pages it expects you to have read.
 | 6 | Do | [Lab 03: Launch the workbench](labs/lab-03-launch-the-workbench-overview.md). Clone `workspace`, open the desktop in your browser, pass the smoke test, then restart the container and check which of your files survived. | 30 min–1 h |
 | 7 | Read | [Where each tool sits in the tapeout flow](guide/tapeout-flow.md) | 10 min |
 
-When a step fails, look it up in [Troubleshooting](reference/troubleshooting.md).
+If a step fails, look it up in [Troubleshooting](reference/troubleshooting.md).
 
 ## After IC101
 
 [AD101](https://uoftasic.com/ad101/) starts the analog track and
-[DD101](https://uoftasic.com/dd101/) starts the digital track. Every course is listed on the
-portal at [edu.uoftasic.com](https://edu.uoftasic.com/).
+[DD101](https://uoftasic.com/dd101/) starts the digital track. You'll find every course listed on
+the portal at [edu.uoftasic.com](https://edu.uoftasic.com/).
