@@ -1,8 +1,10 @@
 # Where each tool sits in the tapeout flow
 
-This page is a map of the tools you just checked. The design work itself comes in later
-courses. **Tapeout** is the point where a finished chip design is sent off to be manufactured.
-**GDSII** is the file format that describes the final layout sent to the fab.
+The smoke test you just passed checked a list of tools, and this page shows where each of them
+fits on the way from an idea to a chip. You won't use them to design anything in IC101; the
+design work itself comes in later courses. Both flows below end at **tapeout**, the point where a
+finished chip design is sent off to be manufactured. What you send to the fab is a **GDSII**
+file, the format that describes the final layout.
 
 ## Analog and mixed-signal flow
 
@@ -39,23 +41,24 @@ SystemVerilog RTL → Yosys (synthesis)
 | Verilator / cocotb | Pre-silicon verification (later courses) |
 | LibreLane | Automated RTL-to-GDSII (DD103 and later) |
 
-Early digital courses also use FPGAs, as a path alongside the open ASIC flow. DD102 puts a design
-onto a real board with the open FPGA toolchain (Yosys, nextpnr, IceStorm). That toolchain is
-already in this image, so there's no vendor software to install.
+The early digital courses also use FPGAs, as a second path alongside the open ASIC flow. In DD102
+you put a design onto a real board with the open FPGA toolchain (Yosys, nextpnr and IceStorm).
+That toolchain is already in the workbench image, so you won't have any vendor software to
+install.
 
 ## Shared infrastructure
 
 | Piece | Role |
 |-------|------|
-| Docker + IIC-OSIC-TOOLS | One environment with all the tools above |
-| SKY130 PDK | Process design kit for the open SKY130 process |
-| noVNC | Browser access to the desktop |
-| `workspace` `modules/` | Per-course files, mounted into the container |
+| Docker + IIC-OSIC-TOOLS | One environment that holds all the tools above |
+| SKY130 PDK | The process design kit for the open SKY130 process |
+| noVNC | Lets you reach the workbench desktop from a browser |
+| `workspace` `modules/` | Each course's files, mounted into the container |
 
 ## Pick a track
 
-You've finished IC101. Both tracks start here and both assume the workbench you just built. You
-can take them in either order, or both.
+This is the end of IC101. Both tracks start from here, and both assume the workbench you've just
+built. You can take them in either order, or take both.
 
 | Track | Start with | What you do first |
 |---|---|---|
@@ -63,12 +66,13 @@ can take them in either order, or both.
 | Digital | [DD101: Intro to Digital Logic](https://uoftasic.com/dd101/) | Logic from first principles, down to gates |
 
 Each track then runs in order, AD101 → AD102 → AD103 → AD104 and DD101 → DD102 → DD103 → DD104,
-and every course links to the next one at the end. Courses that use the tools reuse this
-workspace. Early courses that run in a web browser don't need Docker until their labs say so.
+and the end of every course links to the next one. Every course that uses the tools reuses this
+workspace. Some early courses run in a web browser instead, and for those you won't need Docker
+until their labs say so.
 
-Keep these to hand:
+A few links are worth keeping to hand:
 
-- Re-run the smoke test ([Lab 03, Part 4](../labs/lab-03-launch-the-workbench-overview.md#part-4-run-the-smoke-test))
-  if you change the Docker tag or the PDK pin.
-- When something breaks: [Troubleshooting](../reference/troubleshooting.md).
-- Every course, in one place: [edu.uoftasic.com](https://edu.uoftasic.com/).
+- If you change the Docker tag or the PDK pin, run the smoke test again
+  ([Lab 03, Part 4](../labs/lab-03-launch-the-workbench-overview.md#part-4-run-the-smoke-test)).
+- When something breaks, start with [Troubleshooting](../reference/troubleshooting.md).
+- Every course is listed in one place, at [edu.uoftasic.com](https://edu.uoftasic.com/).
