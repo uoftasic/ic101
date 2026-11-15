@@ -3,17 +3,10 @@
 The rows and the down arrows sit where the text sketch on tapeout-flow.md had them:
 the first down arrow leaves the SystemVerilog RTL box, the second the LibreLane box.
 """
-import schemdraw.backends.svgtext as svgtext
 import schemdraw.elements as elm
 import schemdraw.flow as flow
 
 from circuit_style import drawing, save
-
-# schemdraw 0.23 sizes text by parsing it as XML, so a bare "&" (in "P&R") stops the
-# script with a ParseError. Escape it for the size estimate only; the drawing itself
-# still prints "&".
-_text_size = svgtext.text_approx_size
-svgtext.text_approx_size = lambda text, *a, **k: _text_size(text.replace("&", "&amp;"), *a, **k)
 
 H = 1.1      # box height
 GAP = 0.9    # arrow between two boxes in a row
