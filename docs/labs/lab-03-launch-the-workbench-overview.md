@@ -5,8 +5,8 @@ your browser, and run the smoke test. Then you'll restart the container and chec
 files survived. When the smoke test prints `=== All checks passed ===` after that restart, your
 setup is ready for every later course.
 
-Other courses link here for their workbench setup. If one sent you, do this whole lab, then go
-back to that course.
+Other courses link here for their workbench setup, so if one of them sent you, do this whole lab
+and then go back to that course.
 
 ## Before you start
 
@@ -28,8 +28,8 @@ back to that course.
   ([Lab 02](../labs/lab-02-install-docker-overview.md), Part 1).
 - Read [The workbench desktop](../guide/launch-novnc.md) and
   [What the smoke test checks](../guide/smoke-test.md).
-- Have roughly 15 GB of free disk and a stable network connection. The first launch downloads an
-  image of several GB.
+- Have roughly 15 GB of free disk and a stable network connection, because the first launch
+  downloads an image that is several GB in size.
 
 Time: 30 minutes to 1 hour, most of it waiting for the first download.
 
@@ -43,15 +43,15 @@ Time: 30 minutes to 1 hour, most of it waiting for the first download.
    cd workspace
    ```
 
-   The first command creates a folder named `workspace` that holds the team's scripts and
-   configuration, inside the folder your terminal is in. The second moves your terminal into
-   `workspace`. Remember which folder you ran this in: you run the laptop commands in Parts 2
-   and 5 from inside `workspace`, and later courses start the workbench from it too.
+   The first command creates a folder named `workspace` inside the folder your terminal is in,
+   and puts the team's scripts and configuration in it. The second moves your terminal into
+   `workspace`. Remember which folder you ran this in, because you'll run the laptop commands in
+   Parts 2 and 5 from inside `workspace`, and later courses start the workbench from it too.
 
 You should see git print `Cloning into 'workspace'...` and finish without an error. If you get
 `git: command not found`, go back to [Lab 01](../labs/lab-01-terminal-and-git-overview.md). If git
-says `fatal: destination path 'workspace' already exists`, you've cloned it in this folder before:
-run `cd workspace` and use that clone.
+says `fatal: destination path 'workspace' already exists`, you've already cloned it in this folder,
+so run `cd workspace` and use that clone.
 
 ## Part 2: Start the container
 
@@ -88,8 +88,8 @@ failures are in [Troubleshooting](../reference/troubleshooting.md).
    port in Part 2.
 
    ![The noVNC password prompt](../assets/img/novnc-password-prompt.png)
-   *The address bar shows plain `localhost`, the default port 80. With `HOST_PORT=8080` it would
-   show `localhost:8080`.*
+   *The address bar shows plain `localhost`, which means the default port, 80. With
+   `HOST_PORT=8080` it would show `localhost:8080`.*
 
 2. Enter the password the script printed: `abc123`, unless you changed it with `VNC_PW`
    ([Settings you can change](../guide/launch-novnc.md#settings-you-can-change)).
@@ -99,7 +99,7 @@ You should see a Linux desktop with a column of icons down the left, including *
 
 ![The workbench desktop, loaded](../assets/img/novnc-desktop.png)
 *The desktop, running inside the browser tab. `Connected to ...` in the top bar means the VNC
-session is live. This is the machine every later course runs on.*
+session is live. This is the machine that every later course runs on.*
 
 If the page is blank or won't load, wait 30–60 s and reload. If it's still blank, see
 [Troubleshooting](../reference/troubleshooting.md#container-starts-but-the-browser-page-is-blank).
@@ -120,8 +120,8 @@ Inside the container, your `workspace` folder is `/foss/designs`.
    ```
 
    `.designinit` points the tools at the SKY130 PDK and defines the `mod` command you'll use in
-   steps 4 and 5. The `.` and the space after it are part of the command: they load the file into
-   this terminal.
+   steps 4 and 5. The `.` and the space after it are part of the command, because the `.` is
+   what loads the file into this terminal.
 
    You should see:
 
@@ -131,7 +131,7 @@ Inside the container, your `workspace` folder is `/foss/designs`.
    ```
 
    A new terminal on the desktop loads this file by itself, so you may already have seen these
-   two lines when the terminal opened. Running it again does no harm. It's also the fix if a
+   two lines when the terminal opened. Running it again does no harm, and it's also the fix if a
    terminal ever says `bash: mod: command not found`.
 
 3. Run the smoke test:
@@ -182,8 +182,8 @@ Inside the container, your `workspace` folder is `/foss/designs`.
 ## Part 5: Restart the container
 
 Step 3 below is how you stop the workbench, and steps 4 and 5 are how you start it again at the
-beginning of every later session. Before you restart it, save two test files and predict which
-one a restart keeps.
+beginning of every later session. Before you restart it, you'll save two test files and predict
+which of them the restart keeps.
 
 1. In the desktop terminal, save one file in your workspace and one in the container's `/tmp`
    folder:
@@ -205,7 +205,7 @@ one a restart keeps.
    It prints the name, `asic-edu-osic`, when the container is gone.
 4. From inside your `workspace` folder, start the container again as in Part 2:
    `./scripts/start_vnc.sh` on macOS or Linux, `scripts\start_vnc.bat` on Windows. This time the
-   image is already on your computer.
+   image is already on your computer, so there's nothing to download.
 5. Reload <http://localhost/> (or your `HOST_PORT` address), enter the password, and open
    **Terminal** from the icons on the left. If the page is blank, wait 30–60 s and reload, as in
    Part 3.
@@ -241,10 +241,10 @@ first file is on your own disk and survives. `/tmp` exists only inside the conta
 
 </details>
 
-Keep your course work under `/foss/designs`. `start_vnc` removes any old `asic-edu-osic`
-container before it starts a new one, so even without step 3, every launch gives you a fresh
-container and anything saved outside `/foss/designs` is lost. You can leave
-`restart-test.txt` where it is: `ic101_setup` is IC101's scratch folder.
+Keep your course work under `/foss/designs`. Even if you skip step 3, `start_vnc` removes any old
+`asic-edu-osic` container before it starts a new one, so every launch gives you a fresh container
+and anything you saved outside `/foss/designs` is lost. You can leave `restart-test.txt` where it
+is, since `ic101_setup` is IC101's scratch folder.
 
 ## Finishing
 
@@ -254,7 +254,8 @@ You're done when, after the restart in Part 5, the smoke test ends with
 
 ### Submit
 
-Nothing to submit. Keep the `workspace` clone: every later course that uses the tools runs in it.
+Nothing to submit. Keep the `workspace` clone, though, because every later course that uses the
+tools runs in it.
 
 Next on the Course path: read [Where each tool sits in the tapeout flow](../guide/tapeout-flow.md).
 If another course sent you here, go back to the page that sent you. Courses that use the tools
