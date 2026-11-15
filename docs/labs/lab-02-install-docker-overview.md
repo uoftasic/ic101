@@ -78,8 +78,8 @@ depends on it. Start with the
 ## Finishing
 
 You're done when `docker run --rm hello-world` prints `Hello from Docker!` on your own computer,
-and Docker has enough room for an image several gigabytes in size, which means roughly 15 GB of
-free disk and, on a Mac, at least 4 GB of RAM.
+you have roughly 15 GB of free disk for an image several gigabytes in size, and, on a Mac, Docker
+Desktop has at least 4 GB of RAM.
 
 ### Submit
 

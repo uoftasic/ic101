@@ -23,8 +23,8 @@ The setup has three layers, and each lab adds one:
 1. git (Lab 01), to copy the team's `workspace` repo onto your laptop.
 2. Docker (Lab 02), to download and run the toolchain container.
 3. The `workspace` repo (Lab 03), whose launch script starts the IIC-OSIC-TOOLS container with
-   your `workspace` folder mounted inside it and then shows the container's Linux desktop in
-   your browser.
+   your `workspace` folder mounted inside it, so that you can open the container's Linux desktop
+   in your browser.
 
 [Why a containerized toolchain](../guide/why-containers.md) explains why the team ships the tools
 this way instead of asking you to install each one.

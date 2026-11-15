@@ -99,7 +99,7 @@ You should see a Linux desktop with a column of icons down the left, including *
 
 ![The workbench desktop, loaded](../assets/img/novnc-desktop.png)
 *The desktop, running inside the browser tab. `Connected to ...` in the top bar means the VNC
-session is live. This is the machine that every later course runs on.*
+session is live. Every later course that uses the tools runs on this machine.*
 
 If the page is blank or won't load, wait 30–60 s and reload. If it's still blank, see
 [Troubleshooting](../reference/troubleshooting.md#container-starts-but-the-browser-page-is-blank).

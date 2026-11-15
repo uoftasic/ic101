@@ -21,8 +21,8 @@ you through opening one, with steps for each OS.
 installed it.
 
 **Fix:** Follow [Lab 01, Part 2](../labs/lab-01-terminal-and-git-overview.md#part-2-install-git), then
-open a new terminal window and try again. You need the new window because a terminal that was
-already open won't pick up a program you installed after it started.
+open a new terminal window and try again. On Windows you need the new window, because a terminal
+that was already open won't pick up a program you installed after it started.
 
 ## Docker won't start or hello-world fails
 
@@ -172,15 +172,15 @@ All `/foss/designs/.designinit` does is load `/foss/designs/common/.designinit`,
 either path.
 
 If you want to switch PDK by hand, the image has its own switcher, `sak-pdk-script.sh`, and you
-must **source** it. If you run it as a plain command instead, it prints the settings but changes
-nothing in your shell, which looks a lot like it worked:
+must **source** it, with a leading `.`:
 
 ```bash
 . sak-pdk-script.sh sky130A
 ```
 
-Its usage message calls it `sak-pdk`, but there's no command by that name on the `PATH`, so type
-the full `sak-pdk-script.sh`.
+If you run it as a plain command instead, it prints the settings but changes nothing in your
+shell, which looks a lot like it worked. Its usage message calls it `sak-pdk`, but there's no
+command by that name on the `PATH`, so type the full `sak-pdk-script.sh`.
 
 ## mod: no such module
 

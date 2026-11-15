@@ -42,7 +42,7 @@ SystemVerilog RTL → Yosys (synthesis)
 | LibreLane | Automated RTL-to-GDSII (DD103 and later) |
 
 The early digital courses also use FPGAs, as a second path alongside the open ASIC flow. In DD102
-you put a design onto a real board with the open FPGA toolchain (Yosys, nextpnr and IceStorm).
+you take a design through the open FPGA toolchain (Yosys, nextpnr and IceStorm).
 That toolchain is already in the workbench image, so you won't have any vendor software to
 install.
 

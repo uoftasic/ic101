@@ -4,9 +4,10 @@
 > This page explains what those steps do. If the desktop page is blank or port 80 is taken, see
 > [Troubleshooting](../reference/troubleshooting.md).
 
-The workbench is the [IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS) container, a
-toolchain image maintained by IIC-JKU. You start it with a script from the team's `workspace`
-repo, and **noVNC** shows the container's Linux desktop in your browser.
+The workbench is a container started from
+[IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS), a toolchain image that IIC-JKU
+maintains. You start it with a script from the team's `workspace` repo, and **noVNC** shows the
+container's Linux desktop in your browser.
 
 ## The workspace repo
 
@@ -40,7 +41,8 @@ Running `docker rm -f asic-edu-osic` on your laptop stops and removes the contai
 
 ## Settings you can change
 
-The script reads the environment variables below, though you don't need any of them for Lab 03.
+The script reads the environment variables below. You won't need any of them in Lab 03 unless
+something else on your laptop is already using port 80.
 
 | Variable | Default | What it changes |
 |----------|---------|-----------------|
@@ -54,9 +56,9 @@ On macOS and Linux you set them by putting them in front of the command, for exa
 
 ## The desktop in your browser
 
-noVNC serves a full Linux desktop in Chrome, Firefox or Edge. The password is `abc123` unless you
-set `VNC_PW`. From that desktop you can open terminals, XSchem, Magic and the other tools, so you
-never have to install an EDA package on your own operating system.
+noVNC serves a full Linux desktop in Chrome, Firefox or Edge, and the password is `abc123` unless
+you set `VNC_PW`. Terminals, XSchem, Magic and the rest of the tools all open from that desktop,
+and they run inside the container rather than on your laptop.
 
 Plain `Ctrl+V` doesn't paste text from your laptop into the desktop. To paste there, press
 **Ctrl+Shift+V**, or use the clipboard icon in the noVNC sidebar.
