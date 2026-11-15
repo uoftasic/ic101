@@ -1,2 +1,0 @@
-- [Guide](guide/getting-started.md)
-- [GitHub](https://github.com/uoftasic/ic101)
