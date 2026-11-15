@@ -3,7 +3,7 @@
 IC101 is the first course in the UofT ASIC Team's Internal Education Initiative, and it has no
 prerequisites. By the end of it, the team's open-source EDA toolchain runs in a browser tab on
 your own laptop, and a smoke test has confirmed that the tools and the SKY130 PDK work. Every
-later course that uses tools starts from this setup.
+later course that uses the tools starts from this same setup.
 
 ## What you need
 
@@ -11,10 +11,10 @@ later course that uses tools starts from this setup.
   RAM.
 - Permission to install software: Docker Desktop, and git if you don't already have it. On a
   school- or work-managed laptop this may need admin or IT permission.
-- A stable network connection. The toolchain image is several GB.
+- A stable network connection, because the toolchain image you download is several GB.
 
-You don't need to have used a terminal before. [Lab 01](../labs/lab-01-terminal-and-git-overview.md)
-starts by opening one.
+You don't need to have used a terminal before, since
+[Lab 01](../labs/lab-01-terminal-and-git-overview.md) starts by opening one.
 
 ## What you'll set up
 
@@ -22,9 +22,9 @@ The setup has three layers, and each lab adds one:
 
 1. git (Lab 01), to copy the team's `workspace` repo onto your laptop.
 2. Docker (Lab 02), to download and run the toolchain container.
-3. The `workspace` repo (Lab 03). Its launch script starts the IIC-OSIC-TOOLS container with
-   your `workspace` folder mounted inside it, and shows the container's Linux desktop in your
-   browser.
+3. The `workspace` repo (Lab 03), whose launch script starts the IIC-OSIC-TOOLS container with
+   your `workspace` folder mounted inside it and then shows the container's Linux desktop in
+   your browser.
 
 [Why a containerized toolchain](../guide/why-containers.md) explains why the team ships the tools
 this way instead of asking you to install each one.
@@ -40,11 +40,12 @@ once in Lab 03 and keep the same clone for every later course.
 
 The [home page](../index.md) has a Course path table. Work down it in order:
 
-- A **Read** row is one or two guide pages: concepts and explanations, with nothing to run.
+- A **Read** row is one or two guide pages, which explain the concepts and give you nothing to
+  run.
 - A **Do** row is one lab. Labs hold every hands-on step, in numbered parts, and each part ends
   with a "You should see" check so you know it worked before you move on.
 
-When a step fails, look it up in [Troubleshooting](../reference/troubleshooting.md). It's organized
-by the error you see.
+When a step fails, look it up in [Troubleshooting](../reference/troubleshooting.md), which is
+organized by the error you see.
 
 Next: [Terminal and git](../guide/prerequisites.md).
