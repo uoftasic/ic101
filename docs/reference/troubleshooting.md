@@ -135,10 +135,17 @@ If that prints `No such file or directory`, see
 **Symptom:** `smoke_test.sh` prints `FAIL` for a command (for example `ngspice` or `magic`) or for
 one of the module helper lines (`mod`, `add_module.sh`, `ic101_setup`) instead of `OK`.
 
-**Cause:** The environment variables, `PATH` entries and `mod` command from `.designinit` haven't
-been loaded into this terminal, or the workspace isn't mounted at `/foss/designs`.
+**Cause:** The smoke test loads `common/.designinit` itself before it checks anything, so a
+terminal that hasn't loaded the file can't make a check fail. The most it can cause is the
+`WARN  your shell started on PDK ...` line described in
+[Smoke test: PDK is not sky130A](../reference/troubleshooting.md#smoke-test-pdk-is-not-sky130a).
+A `FAIL` on a module helper line means the script couldn't find your workspace at
+`/foss/designs`, where those checks look for `scripts/add_module.sh` and `modules/ic101_setup`.
+A `FAIL` on a tool means the tool isn't on the `PATH`, which the image sets up in every
+terminal, so the container is probably not running the image the scripts expect.
 
-**Fix:**
+**Fix:** Loading the environment by hand is still a quick first check, because it fails with
+`No such file or directory` when the workspace isn't mounted:
 
 ```bash
 . /foss/designs/common/.designinit
