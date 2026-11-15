@@ -1,9 +1,9 @@
 # What Docker needs
 
 **Docker** is the program that downloads and runs the container described in
-[Why a containerized toolchain](guide/why-containers.md). Nothing else in this course works
+[Why a containerized toolchain](../guide/why-containers.md). Nothing else in this course works
 until Docker is installed and running. You'll install it in
-[Lab 02](labs/lab-02-install-docker-overview.md). This page explains what the installer asks of
+[Lab 02](../labs/lab-02-install-docker-overview.md). This page explains what the installer asks of
 your computer, and why.
 
 ## Disk, memory and permission
@@ -45,4 +45,4 @@ page lists the tags.
 Lab 02 ends with `docker run --rm hello-world`. When Docker is working, that command prints a
 message starting with `Hello from Docker!`.
 
-Next: [Lab 02: Install Docker](labs/lab-02-install-docker-overview.md).
+Next: [Lab 02: Install Docker](../labs/lab-02-install-docker-overview.md).

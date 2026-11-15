@@ -2,7 +2,7 @@
 
 The **smoke test** is a script in the workspace, `scripts/smoke_test.sh`. It checks that the EDA
 tools and the SKY130 PDK resolve inside the container. You'll run it in
-[Lab 03, Part 4](labs/lab-03-launch-the-workbench-overview.md#part-4-run-the-smoke-test). This
+[Lab 03, Part 4](../labs/lab-03-launch-the-workbench-overview.md#part-4-run-the-smoke-test). This
 page explains what it checks and what a failure usually means.
 
 ## Two terms
@@ -43,7 +43,7 @@ heading, ending with `=== All checks passed ===`.
 The cause is almost never a missing PDK. SKY130 ships inside the image at `/foss/pdks/sky130A`.
 The image starts on a different PDK, `ihp-sg13g2`, so the tools look in the wrong place until
 the workspace environment switches everything over to SKY130. Loading `.designinit` does that
-switch. [Troubleshooting](reference/troubleshooting.md#smoke-test-pdk-is-not-sky130a) has the
+switch. [Troubleshooting](../reference/troubleshooting.md#smoke-test-pdk-is-not-sky130a) has the
 exact messages and the fix.
 
 ## Course modules and `mod`
@@ -73,6 +73,6 @@ cwd: /foss/designs/modules/<course>
 
 The `cwd:` line means `mod add` has already moved you into the new folder. If it stops and asks
 for a GitHub username instead, see
-[Troubleshooting](reference/troubleshooting.md#mod-add-asks-for-a-github-username).
+[Troubleshooting](../reference/troubleshooting.md#mod-add-asks-for-a-github-username).
 
-Next: [Lab 03: Launch the workbench](labs/lab-03-launch-the-workbench-overview.md).
+Next: [Lab 03: Launch the workbench](../labs/lab-03-launch-the-workbench-overview.md).

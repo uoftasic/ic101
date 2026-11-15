@@ -2,7 +2,7 @@
 
 Every later step in IC101 assumes two things: a way to type commands, and git. This page covers
 just enough of both to get you through this course. It isn't a full tutorial. You'll open a
-terminal and install git in [Lab 01](labs/lab-01-terminal-and-git-overview.md).
+terminal and install git in [Lab 01](../labs/lab-01-terminal-and-git-overview.md).
 
 ## The terminal
 
@@ -32,4 +32,4 @@ In IC101, git has one job. In Lab 03 you run one command, `git clone`, to copy t
 `workspace` repo onto your laptop. You don't need to learn any more git than that for this
 course.
 
-Next: [Lab 01: Terminal and git](labs/lab-01-terminal-and-git-overview.md).
+Next: [Lab 01: Terminal and git](../labs/lab-01-terminal-and-git-overview.md).

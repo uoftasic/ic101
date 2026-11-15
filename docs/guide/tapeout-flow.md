@@ -68,7 +68,7 @@ workspace. Early courses that run in a web browser don't need Docker until their
 
 Keep these to hand:
 
-- Re-run the smoke test ([Lab 03, Part 4](labs/lab-03-launch-the-workbench-overview.md#part-4-run-the-smoke-test))
+- Re-run the smoke test ([Lab 03, Part 4](../labs/lab-03-launch-the-workbench-overview.md#part-4-run-the-smoke-test))
   if you change the Docker tag or the PDK pin.
-- When something breaks: [Troubleshooting](reference/troubleshooting.md).
+- When something breaks: [Troubleshooting](../reference/troubleshooting.md).
 - Every course, in one place: [edu.uoftasic.com](https://edu.uoftasic.com/).
