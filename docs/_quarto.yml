@@ -1,0 +1,114 @@
+# Quarto build of the IC101 docs (replacing Docsify's index.html,
+# _sidebar.md and _navbar.md).
+#
+#   quarto preview docs          # live site at http://localhost:4200
+#   quarto render docs           # site in docs/_site, with a PDF of every page
+#   quarto render docs --profile pdf --to typst
+#                                # the whole course as one PDF in docs/_book
+#
+# The sidebar follows the Course path order on the home page.
+
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "IC101 - Introduction to IC Tools & Workspace"
+  description: "Learn how to setup IC tools and workspace on your device"
+  site-url: https://uoftasic.com/ic101/
+  repo-url: https://github.com/uoftasic/ic101
+  repo-subdir: docs
+  repo-actions: [issue]
+  favicon: favicon.svg
+  search: true
+  page-navigation: true
+  navbar:
+    left:
+      - text: "Guide"
+        href: guide/getting-started.md
+    right:
+      - text: Course PDF
+        icon: file-pdf
+        href: ic101-course.pdf
+      - icon: github
+        href: https://github.com/uoftasic/ic101
+        aria-label: GitHub
+  sidebar:
+    style: docked
+    contents:
+      - text: "Home"
+        href: index.md
+      - section: "1–2. Terminal and git"
+        contents:
+          - text: "Getting started"
+            href: guide/getting-started.md
+          - text: "Terminal and git"
+            href: guide/prerequisites.md
+          - text: "Lab 01: Terminal and git"
+            href: labs/lab-01-terminal-and-git-overview.md
+      - section: "3–4. Docker"
+        contents:
+          - text: "Why a containerized toolchain"
+            href: guide/why-containers.md
+          - text: "What Docker needs"
+            href: guide/install-docker.md
+          - text: "Lab 02: Install Docker"
+            href: labs/lab-02-install-docker-overview.md
+      - section: "5–6. The workbench"
+        contents:
+          - text: "The workbench desktop"
+            href: guide/launch-novnc.md
+          - text: "What the smoke test checks"
+            href: guide/smoke-test.md
+          - text: "Lab 03: Launch the workbench"
+            href: labs/lab-03-launch-the-workbench-overview.md
+      - section: "7. Wrap-up"
+        contents:
+          - text: "The tapeout flow"
+            href: guide/tapeout-flow.md
+      - section: "Reference"
+        contents:
+          - text: "Troubleshooting"
+            href: reference/troubleshooting.md
+      - section: "Repo"
+        contents:
+          - text: "Workspace repo"
+            href: https://github.com/uoftasic/workspace
+          - text: "Scripts"
+            href: https://github.com/uoftasic/ic101/tree/main/scripts
+
+filters:
+  - _filters/course.lua
+
+# Collapsed answers move to the end of each page in PDFs; set this to
+# "inline" to print them where they sit instead.
+answers-in-pdf: end
+
+format:
+  html:
+    theme:
+      light: [cosmo, _light.scss]
+      dark: [darkly, _dark.scss]
+    css: _styles.css
+    # Keeps old Docsify links (.../ic101/#/labs/...) working.
+    include-in-header: _docsify-redirect.html
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    lightbox: auto
+    html-math-method:
+      method: mathjax
+      url: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"
+    # Listing html first stops Quarto adding a second "Typst" link.
+    format-links:
+      - html
+      - format: typst
+        text: PDF
+        icon: file-pdf
+  typst:
+    papersize: us-letter
+    margin:
+      x: 0.9in
+      y: 0.9in
+    fontsize: 10.5pt
+    toc: false
