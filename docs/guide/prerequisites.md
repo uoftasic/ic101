@@ -14,7 +14,7 @@ commands instead of clicking buttons. Every operating system comes with one:
 |----|--------------|
 | macOS | Terminal |
 | Windows | Windows Terminal, or PowerShell |
-| Linux | Varies by distro, for example GNOME Terminal or Konsole |
+| Linux | Varies by Linux distribution (distro), for example GNOME Terminal or Konsole |
 
 When the terminal opens, it shows a **prompt**, which often ends in `$` or `>`, and waits for you
 to type. When a page in this course says "run this command", it means you click into the terminal

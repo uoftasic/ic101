@@ -1,6 +1,6 @@
 # IC101 — Onboarding onto Tools
 
-In IC101 you set up the containerized open-source toolchain that every later course builds on. By
+In IC101 you set up the containerized open-source toolchain that later courses build on. By
 the end you'll have a Linux desktop with the team's chip design (EDA) tools running in a browser
 tab on your laptop, a setup the course calls the workbench. A short check script called
 the smoke test then confirms that the tools and the SKY130 PDK work. The PDK (process design kit)

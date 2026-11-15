@@ -1,10 +1,10 @@
 # What Docker needs
 
-**Docker** is the program that downloads and runs the container described in
-[Why a containerized toolchain](../guide/why-containers.md). The rest of the course runs inside
-that container, so none of it works until Docker is installed and running. You'll install it in
-[Lab 02](../labs/lab-02-install-docker-overview.md). This page explains what the installer asks of
-your computer, and why.
+**Docker** is the program that downloads the toolchain image described in
+[Why a containerized toolchain](../guide/why-containers.md) and runs it as a container. The rest of
+the course runs inside that container, so none of it works until Docker is installed and running.
+You'll install it in [Lab 02](../labs/lab-02-install-docker-overview.md). This page explains what
+the installer asks of your computer, and why.
 
 ## Disk, memory and permission
 
