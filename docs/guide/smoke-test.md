@@ -18,8 +18,9 @@ page explains what each check looks at and what a failure usually means.
 
 Inside the container, your `workspace` folder appears as `/foss/designs`. The file
 `/foss/designs/common/.designinit` sets up the shell for the courses: it sets the environment
-variables and `PATH` entries the tools read, points the PDK paths at SKY130, and defines the
-`mod` command. Lab 03 has you load it with `. /foss/designs/common/.designinit` before you run
+variables the tools read, points the PDK paths at SKY130, and defines the `mod` command. It
+leaves your `PATH` alone, because the image's own setup already puts the tools on it in every
+terminal. Lab 03 has you load it with `. /foss/designs/common/.designinit` before you run
 the smoke test. The leading `.` tells the shell to run the file in your current shell rather
 than in a new one, so its settings stay in the terminal you're using.
 
