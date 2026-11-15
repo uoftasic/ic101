@@ -8,7 +8,6 @@ Utilities for **IC101 - Introduction to IC Tools & Workspace** under the UofT AS
 |--------|---------|
 | `init-template.py` | Fill `ic101` / title / description after using the template |
 | `check_site.py` | Check that every local link and `#anchor` in the rendered site resolves. `.github/workflows/site.yml` runs it on `docs/_site` |
-| `check_docs_links.py` | Checks the old Docsify link conventions (page links from the `docs/` root, images relative to the page). Quarto links are relative to the page they are written in, so it reports every `../` page link in a guide or lab as an error even though Quarto needs it. Don't use it on the Quarto site |
 
 ## Usage
 
