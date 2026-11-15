@@ -59,7 +59,7 @@ Do not paste long HDL into site pages. Reference the files under `labs/` instead
 1. Add kebab-case Markdown under `docs/guide/` (e.g. `yosys-synth.md`).
 2. Add it to a Read row of the Course path table in `docs/index.md`, and add it to the sidebar in `docs/_quarto.yml` and the chapters in `docs/_quarto-pdf.yml` in the same position.
 3. Keep it reading only. When it needs the student to run something, put the steps in the matching lab writeup and leave a one-line pointer on the guide page.
-4. Images under `docs/assets/img/` with paths relative to `docs/`.
+4. Images under `docs/assets/img/`, linked with paths relative to the page you are writing in (`../assets/img/x.png` from a guide or lab page).
 5. Link between pages with paths relative to the page you are writing in (`../guide/x.md` from a lab), as Quarto resolves them; use GitHub URLs for `labs/` and `scripts/`.
 
 ## Pedagogy checklist (use when authoring)
