@@ -23,22 +23,32 @@ not in this course repo.
    smoke test (Lab 03)
 4. See where each tool sits in a tapeout flow
 
-The course home page, [`docs/README.md`](docs/README.md), has a numbered Course path that
+The course home page, [`docs/index.md`](docs/index.md), has a numbered Course path that
 alternates guide pages (`docs/guide/`, reading only) with labs (`docs/labs/`, where all the
-hands-on steps are). `docs/_sidebar.md` lists the pages in the same order. IC101's labs have no
-packages under `labs/`: everything they run comes from the `workspace` repo.
+hands-on steps are). The sidebar in `docs/_quarto.yml` lists the pages in the same order. IC101's
+labs have no packages under `labs/`, because everything they run comes from the `workspace` repo.
 
 ## Quick links
 
 | What | Where |
 |------|-------|
-| Course home and Course path | [docs/README.md](docs/README.md) |
+| Course home and Course path | [docs/index.md](docs/index.md) |
 | Workspace (tools) | a sibling `workspace/` folder locally; GitHub: [uoftasic/workspace](https://github.com/uoftasic/workspace) |
 | Portal hub | [edu.uoftasic.com](https://edu.uoftasic.com/) |
 
 ## Local preview
 
+The site is built with [Quarto](https://quarto.org/docs/get-started/) 1.11:
+
 ```bash
-npx docsify-cli serve docs
-# → http://localhost:3000
+quarto preview docs                            # -> http://localhost:4200
+quarto render docs --profile pdf --to typst    # whole course as one PDF in docs/_book/
 ```
+
+## GitHub Pages
+
+| Setting | Value |
+|---------|--------|
+| Source | GitHub Actions |
+
+`.github/workflows/site.yml` renders `docs/` with Quarto on every push to `main` that touches `docs/`, checks the rendered links with `scripts/check_site.py`, and deploys `docs/_site`, which includes a PDF of every page and the whole-course PDF.
