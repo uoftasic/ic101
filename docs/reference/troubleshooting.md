@@ -9,7 +9,7 @@ the workspace's `mod` command. Each entry gives the symptom, the cause, and the 
 
 **Cause:** Every lab assumes you have a terminal window open.
 
-**Fix:** [Lab 01, Part 1](labs/lab-01-terminal-and-git-overview.md#part-1-open-a-terminal) has the
+**Fix:** [Lab 01, Part 1](../labs/lab-01-terminal-and-git-overview.md#part-1-open-a-terminal) has the
 steps for each OS.
 
 ## git: command not found
@@ -20,7 +20,7 @@ steps for each OS.
 **Cause:** git isn't installed yet, or, on Windows, the terminal was already open when you
 installed it.
 
-**Fix:** Follow [Lab 01, Part 2](labs/lab-01-terminal-and-git-overview.md#part-2-install-git), then
+**Fix:** Follow [Lab 01, Part 2](../labs/lab-01-terminal-and-git-overview.md#part-2-install-git), then
 open a new terminal window and try again. A terminal that was already open won't pick up a program
 you just installed.
 
@@ -37,7 +37,7 @@ Windows, or `docker` group membership on Linux.
 - Wait until Docker Desktop shows **Engine running** before you run any `docker` command. Give it
   a minute after you open it.
 - On Windows, make sure WSL2 is installed and selected as Docker's backend. See
-  [What Docker needs](guide/install-docker.md#windows-wsl2-and-virtualization).
+  [What Docker needs](../guide/install-docker.md#windows-wsl2-and-virtualization).
 - On Linux, check that your user is in the `docker` group: run `groups` and look for `docker` in
   the output. If you just added it, log out and back in.
 - Free up disk space. Large image pulls fail without a clear error when the disk is full.
@@ -105,9 +105,9 @@ empty folder there. This happens when the container wasn't started with `start_v
    `common`, `modules` and `scripts`, among others. If it lists nothing, the workspace isn't
    mounted.
 2. If you haven't cloned the `workspace` repo yet, do
-   [Lab 03](labs/lab-03-launch-the-workbench-overview.md) from the start. If you have, start the
+   [Lab 03](../labs/lab-03-launch-the-workbench-overview.md) from the start. If you have, start the
    workbench again from your clone, as in
-   [Lab 03, Part 2](labs/lab-03-launch-the-workbench-overview.md#part-2-start-the-container):
+   [Lab 03, Part 2](../labs/lab-03-launch-the-workbench-overview.md#part-2-start-the-container):
    `./scripts/start_vnc.sh` on macOS or Linux, `scripts\start_vnc.bat` on Windows.
 
 ## mod: command not found
@@ -123,7 +123,7 @@ empty folder there. This happens when the container wasn't started with `start_v
 ```
 
 If that prints `No such file or directory`, see
-[.designinit: No such file or directory](reference/troubleshooting.md#designinit-no-such-file-or-directory).
+[.designinit: No such file or directory](../reference/troubleshooting.md#designinit-no-such-file-or-directory).
 
 ## Smoke test: tool or helper not found
 
@@ -141,7 +141,7 @@ been loaded into this terminal, or the workspace isn't mounted at `/foss/designs
 
 Then check that the workspace is mounted (`ls /foss/designs/scripts` should list files) and run
 `/foss/designs/scripts/smoke_test.sh` again. If the folder is empty or missing, see
-[.designinit: No such file or directory](reference/troubleshooting.md#designinit-no-such-file-or-directory).
+[.designinit: No such file or directory](../reference/troubleshooting.md#designinit-no-such-file-or-directory).
 If tools are still missing, re-pull the image tag the scripts expect (`DOCKER_TAG`, default
 `2026.08`).
 

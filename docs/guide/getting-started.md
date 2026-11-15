@@ -13,7 +13,7 @@ later course that uses tools starts from this setup.
   school- or work-managed laptop this may need admin or IT permission.
 - A stable network connection. The toolchain image is several GB.
 
-You don't need to have used a terminal before. [Lab 01](labs/lab-01-terminal-and-git-overview.md)
+You don't need to have used a terminal before. [Lab 01](../labs/lab-01-terminal-and-git-overview.md)
 starts by opening one.
 
 ## What you'll set up
@@ -26,7 +26,7 @@ The setup has three layers, and each lab adds one:
    your `workspace` folder mounted inside it, and shows the container's Linux desktop in your
    browser.
 
-[Why a containerized toolchain](guide/why-containers.md) explains why the team ships the tools
+[Why a containerized toolchain](../guide/why-containers.md) explains why the team ships the tools
 this way instead of asking you to install each one.
 
 ## This repo and the workspace repo
@@ -38,13 +38,13 @@ once in Lab 03 and keep the same clone for every later course.
 
 ## How the course works
 
-The [home page](README.md) has a Course path table. Work down it in order:
+The [home page](../index.md) has a Course path table. Work down it in order:
 
 - A **Read** row is one or two guide pages: concepts and explanations, with nothing to run.
 - A **Do** row is one lab. Labs hold every hands-on step, in numbered parts, and each part ends
   with a "You should see" check so you know it worked before you move on.
 
-When a step fails, look it up in [Troubleshooting](reference/troubleshooting.md). It's organized
+When a step fails, look it up in [Troubleshooting](../reference/troubleshooting.md). It's organized
 by the error you see.
 
-Next: [Terminal and git](guide/prerequisites.md).
+Next: [Terminal and git](../guide/prerequisites.md).

@@ -5,9 +5,9 @@ Lab 03 needs Docker installed and running.
 
 ## Before you start
 
-- Finish [Lab 01](labs/lab-01-terminal-and-git-overview.md): you can open a terminal.
-- Read [Why a containerized toolchain](guide/why-containers.md) and
-  [What Docker needs](guide/install-docker.md).
+- Finish [Lab 01](../labs/lab-01-terminal-and-git-overview.md): you can open a terminal.
+- Read [Why a containerized toolchain](../guide/why-containers.md) and
+  [What Docker needs](../guide/install-docker.md).
 - Check that you have roughly 15 GB of free disk and permission to install software. On a
   school- or work-managed laptop you may need admin or IT permission.
 
@@ -68,7 +68,7 @@ section is missing or shows an error, the Docker engine isn't running yet: wait 
 `docker` group change from Part 1 hasn't applied yet, so log out and back in.
 
 If `hello-world` fails, fix Docker before you go on, because every later step depends on it. Start
-with [Troubleshooting](reference/troubleshooting.md#docker-wont-start-or-hello-world-fails).
+with [Troubleshooting](../reference/troubleshooting.md#docker-wont-start-or-hello-world-fails).
 
 ## Finishing
 
@@ -80,6 +80,6 @@ of RAM.
 
 Nothing to submit.
 
-Next on the Course path: read [The workbench desktop](guide/launch-novnc.md) and
-[What the smoke test checks](guide/smoke-test.md), then do
-[Lab 03: Launch the workbench](labs/lab-03-launch-the-workbench-overview.md).
+Next on the Course path: read [The workbench desktop](../guide/launch-novnc.md) and
+[What the smoke test checks](../guide/smoke-test.md), then do
+[Lab 03: Launch the workbench](../labs/lab-03-launch-the-workbench-overview.md).

@@ -18,16 +18,16 @@ back to that course.
   ```
 
   The first should print a version number, and the second a paragraph starting with
-  `Hello from Docker!`. If git is missing, do [Lab 01](labs/lab-01-terminal-and-git-overview.md)
-  first. If Docker isn't installed, do [Lab 02](labs/lab-02-install-docker-overview.md). If it's
+  `Hello from Docker!`. If git is missing, do [Lab 01](../labs/lab-01-terminal-and-git-overview.md)
+  first. If Docker isn't installed, do [Lab 02](../labs/lab-02-install-docker-overview.md). If it's
   installed but the command fails, Docker may still be starting: wait until Docker Desktop shows
   **Engine running** and try again. If it still fails, or you run Docker Engine on Linux without
   Docker Desktop, see
-  [Troubleshooting](reference/troubleshooting.md#docker-wont-start-or-hello-world-fails).
+  [Troubleshooting](../reference/troubleshooting.md#docker-wont-start-or-hello-world-fails).
 - On a Mac, give Docker Desktop at least 4 GB of RAM under **Settings → Resources**
-  ([Lab 02](labs/lab-02-install-docker-overview.md), Part 1).
-- Read [The workbench desktop](guide/launch-novnc.md) and
-  [What the smoke test checks](guide/smoke-test.md).
+  ([Lab 02](../labs/lab-02-install-docker-overview.md), Part 1).
+- Read [The workbench desktop](../guide/launch-novnc.md) and
+  [What the smoke test checks](../guide/smoke-test.md).
 - Have roughly 15 GB of free disk and a stable network connection. The first launch downloads an
   image of several GB.
 
@@ -49,7 +49,7 @@ Time: 30 minutes to 1 hour, most of it waiting for the first download.
    and 5 from inside `workspace`, and later courses start the workbench from it too.
 
 You should see git print `Cloning into 'workspace'...` and finish without an error. If you get
-`git: command not found`, go back to [Lab 01](labs/lab-01-terminal-and-git-overview.md). If git
+`git: command not found`, go back to [Lab 01](../labs/lab-01-terminal-and-git-overview.md). If git
 says `fatal: destination path 'workspace' already exists`, you've cloned it in this folder before:
 run `cd workspace` and use that clone.
 
@@ -80,7 +80,7 @@ the desktop's address and password.
 
 If the script fails because port 80 is in use, start it on another port (on macOS or Linux,
 `HOST_PORT=8080 ./scripts/start_vnc.sh`) and use `http://localhost:8080/` in Part 3. Other
-failures are in [Troubleshooting](reference/troubleshooting.md).
+failures are in [Troubleshooting](../reference/troubleshooting.md).
 
 ## Part 3: Open the desktop
 
@@ -92,7 +92,7 @@ failures are in [Troubleshooting](reference/troubleshooting.md).
    show `localhost:8080`.*
 
 2. Enter the password the script printed: `abc123`, unless you changed it with `VNC_PW`
-   ([Settings you can change](guide/launch-novnc.md#settings-you-can-change)).
+   ([Settings you can change](../guide/launch-novnc.md#settings-you-can-change)).
 
 You should see a Linux desktop with a column of icons down the left, including **Terminal**,
 **XSchem** and **Magic**.
@@ -102,7 +102,7 @@ You should see a Linux desktop with a column of icons down the left, including *
 session is live. This is the machine every later course runs on.*
 
 If the page is blank or won't load, wait 30–60 s and reload. If it's still blank, see
-[Troubleshooting](reference/troubleshooting.md#container-starts-but-the-browser-page-is-blank).
+[Troubleshooting](../reference/troubleshooting.md#container-starts-but-the-browser-page-is-blank).
 
 ## Part 4: Run the smoke test
 
@@ -160,8 +160,8 @@ Inside the container, your `workspace` folder is `/foss/designs`.
    ```
 
    The indented `ngspice-47` line is the ngspice version. If any line says `FAIL` or `WARN`, see
-   [Smoke test: tool or helper not found](reference/troubleshooting.md#smoke-test-tool-or-helper-not-found)
-   or [Smoke test: PDK is not sky130A](reference/troubleshooting.md#smoke-test-pdk-is-not-sky130a).
+   [Smoke test: tool or helper not found](../reference/troubleshooting.md#smoke-test-tool-or-helper-not-found)
+   or [Smoke test: PDK is not sky130A](../reference/troubleshooting.md#smoke-test-pdk-is-not-sky130a).
 
 4. List the course modules:
 
@@ -256,7 +256,7 @@ You're done when, after the restart in Part 5, the smoke test ends with
 
 Nothing to submit. Keep the `workspace` clone: every later course that uses the tools runs in it.
 
-Next on the Course path: read [Where each tool sits in the tapeout flow](guide/tapeout-flow.md).
+Next on the Course path: read [Where each tool sits in the tapeout flow](../guide/tapeout-flow.md).
 If another course sent you here, go back to the page that sent you. Courses that use the tools
 add their own files to your workspace with `mod add <course>`, which
-[What the smoke test checks](guide/smoke-test.md#course-modules-and-mod) describes.
+[What the smoke test checks](../guide/smoke-test.md#course-modules-and-mod) describes.

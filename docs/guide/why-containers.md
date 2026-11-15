@@ -22,7 +22,7 @@ You install only Docker. Everything else runs inside one container, and your `wo
 on your laptop appears inside the container at `/foss/designs`. noVNC shows the container's
 desktop in Chrome, Firefox or Edge, so you can open terminals, XSchem, Magic and the other tools
 without installing any EDA package on your own operating system.
-[The workbench desktop](guide/launch-novnc.md) covers how it starts.
+[The workbench desktop](../guide/launch-novnc.md) covers how it starts.
 
 ## What IC101 doesn't cover
 
@@ -30,4 +30,4 @@ without installing any EDA package on your own operating system.
 - It isn't a substitute for the ECE curriculum.
 - It doesn't give each course its own Docker image. One workspace serves every tool-heavy course.
 
-Next: [What Docker needs](guide/install-docker.md).
+Next: [What Docker needs](../guide/install-docker.md).

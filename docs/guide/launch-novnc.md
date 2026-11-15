@@ -1,8 +1,8 @@
 # The workbench desktop (noVNC)
 
-> To launch the desktop, follow [Lab 03](labs/lab-03-launch-the-workbench-overview.md), Parts 1–3.
+> To launch the desktop, follow [Lab 03](../labs/lab-03-launch-the-workbench-overview.md), Parts 1–3.
 > This page explains what those steps do. If the page is blank or port 80 is taken, see
-> [Troubleshooting](reference/troubleshooting.md).
+> [Troubleshooting](../reference/troubleshooting.md).
 
 The workbench is the [IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS) container, the
 toolchain image maintained by IIC-JKU. A script from the team's `workspace` repo starts it, and
@@ -22,7 +22,7 @@ every later course. These are the parts IC101 uses:
 | `pdk/` | `volare.lock`, which records the PDK version the team uses. The PDK itself ships inside the image, at `/foss/pdks/sky130A`. |
 
 Later courses add their own folders under `modules/` with `mod add <course>`, described in
-[What the smoke test checks](guide/smoke-test.md#course-modules-and-mod).
+[What the smoke test checks](../guide/smoke-test.md#course-modules-and-mod).
 
 ## What `start_vnc` does
 
@@ -68,4 +68,4 @@ On Linux, or on macOS with XQuartz, `./scripts/start_x.sh` shows the tools in wi
 desktop over X11, which can be faster than streaming a whole desktop to the browser. IC101 uses
 noVNC so that everyone has the same interface.
 
-Next: [What the smoke test checks](guide/smoke-test.md).
+Next: [What the smoke test checks](../guide/smoke-test.md).

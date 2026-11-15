@@ -5,7 +5,7 @@ runs. Every later lab starts by typing commands into this terminal.
 
 ## Before you start
 
-- Read [Getting started](guide/getting-started.md) and [Terminal and git](guide/prerequisites.md).
+- Read [Getting started](../guide/getting-started.md) and [Terminal and git](../guide/prerequisites.md).
 - You need permission to install software on this computer.
 
 Time: about 15 minutes, less if git is already installed.
@@ -71,7 +71,7 @@ Follow the steps for your OS.
 On every OS, you should see `git --version` print a version number, in a line like
 `git version 2.34.1`. Your number may differ, and some systems add more text after it. If you see
 `command not found` (on Windows, `'git' is not recognized...`), see
-[Troubleshooting](reference/troubleshooting.md#git-command-not-found).
+[Troubleshooting](../reference/troubleshooting.md#git-command-not-found).
 
 ## Finishing
 
@@ -82,6 +82,6 @@ on your own computer.
 
 Nothing to submit.
 
-Next on the Course path: read [Why a containerized toolchain](guide/why-containers.md) and
-[What Docker needs](guide/install-docker.md), then do
-[Lab 02: Install Docker](labs/lab-02-install-docker-overview.md).
+Next on the Course path: read [Why a containerized toolchain](../guide/why-containers.md) and
+[What Docker needs](../guide/install-docker.md), then do
+[Lab 02: Install Docker](../labs/lab-02-install-docker-overview.md).
