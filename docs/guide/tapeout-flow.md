@@ -8,15 +8,7 @@ file, the format that describes the final layout.
 
 ## Analog and mixed-signal flow
 
-```text
-Idea → XSchem (schematic) → ngspice (simulate)
-         ↓
-      Magic / KLayout (layout) → DRC
-         ↓
-      Netgen (LVS) → PEX → iterate
-         ↓
-      GDSII for tapeout
-```
+![From an idea to the GDSII file for tapeout.](../assets/img/ic101-analog-flow.svg){width=490 fig-alt="A flow chart in four rows. Row one: Idea, an arrow to XSchem (schematic), and an arrow from XSchem to ngspice (simulate). An arrow runs down from XSchem to row two: Magic / KLayout (layout), with an arrow to DRC. An arrow runs down from Magic / KLayout to row three: Netgen (LVS), an arrow to PEX, and an arrow from PEX to iterate. An arrow runs down from Netgen to the last row, GDSII for tapeout."}
 
 | Tool | Stage |
 |------|-------|
@@ -27,13 +19,7 @@ Idea → XSchem (schematic) → ngspice (simulate)
 
 ## Digital flow (open-source ASIC)
 
-```text
-SystemVerilog RTL → Yosys (synthesis)
-         ↓
-   LibreLane / OpenROAD-style flow (P&R, signoff)
-         ↓
-      GDSII for tapeout
-```
+![From SystemVerilog RTL to the GDSII file for tapeout.](../assets/img/ic101-digital-flow.svg){width=455 fig-alt="A flow chart in three rows. Row one: SystemVerilog RTL, with an arrow to Yosys (synthesis). An arrow runs down from SystemVerilog RTL to row two: LibreLane / OpenROAD-style flow (P&R, signoff). An arrow runs down from that box to the last row, GDSII for tapeout."}
 
 | Tool | Stage |
 |------|-------|
