@@ -13,7 +13,7 @@ To start a course or lab-notes repo from this template, create it under **`uofta
 |-------|---------|---------|
 | `ic101` | Repo slug / course id | `dd103`, `ic101`, `serdes-lab` |
 | `IC101 - Introduction to IC Tools & Workspace` | Display name | `DD103 — RTL on FPGAs & ASICs` |
-| `Learn how to setup IC tools and workspace on your device` | One-line blurb | `RTL synthesis intro with Yosys` |
+| `Learn how to set up IC tools and workspace on your device.` | One-line blurb | `RTL synthesis intro with Yosys` |
 
 ## Init script
 

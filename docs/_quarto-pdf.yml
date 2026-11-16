@@ -8,7 +8,7 @@ project:
 
 book:
   title: "IC101 - Introduction to IC Tools & Workspace"
-  subtitle: "Learn how to setup IC tools and workspace on your device"
+  subtitle: "Learn how to set up IC tools and workspace on your device."
   author: "UofT ASIC Team"
   output-file: ic101-course
   chapters:

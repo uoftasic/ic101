@@ -48,8 +48,8 @@ built. You can take them in either order, or take both.
 
 | Track | Start with | What you do first |
 |---|---|---|
-| Analog | [AD101: Signals](https://uoftasic.com/ad101/) | Waveforms, spectra and Bode plots, before any circuit |
-| Digital | [DD101: Intro to Digital Logic](https://uoftasic.com/dd101/) | Logic from first principles, down to gates |
+| Analog | [AD101: Signals](https://uoftasic.com/ad101/) | Use notes and chords to learn to read signals in time and in frequency, and to see what a filter does to them |
+| Digital | [DD101: Intro to Digital Logic](https://uoftasic.com/dd101/) | Build logic circuits in browser simulators, from a single NAND gate up to a full adder |
 
 Each track then runs in order, AD101 → AD102 → AD103 → AD104 and DD101 → DD102 → DD103 → DD104,
 and the end of every course links to the next one. Every course that uses the tools reuses this
