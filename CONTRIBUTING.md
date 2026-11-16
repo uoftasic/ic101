@@ -18,7 +18,7 @@ Only these three are fillable:
 |-------|---------|
 | `ic101` | `dd103` |
 | `IC101 - Introduction to IC Tools & Workspace` | `DD103 — RTL on FPGAs & ASICs` |
-| `Learn how to setup IC tools and workspace on your device` | `RTL synthesis intro with Yosys` |
+| `Learn how to set up IC tools and workspace on your device.` | `RTL synthesis intro with Yosys` |
 
 ## Conventions
 

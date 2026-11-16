@@ -1,6 +1,6 @@
 # IC101 — Onboarding onto Tools
 
-Set up the containerized open-source toolchain that every later course builds on.
+Learn how to set up IC tools and workspace on your device.
 
 Part of the UofT ASIC Team education materials, published at <https://uoftasic.com/ic101/>. The
 runnable tooling lives in the shared [`workspace`](https://github.com/uoftasic/workspace) repo,

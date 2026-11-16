@@ -18,7 +18,7 @@ project:
 
 website:
   title: "IC101 - Introduction to IC Tools & Workspace"
-  description: "Learn how to setup IC tools and workspace on your device"
+  description: "Learn how to set up IC tools and workspace on your device."
   site-url: https://uoftasic.com/ic101/
   repo-url: https://github.com/uoftasic/ic101
   repo-subdir: docs
