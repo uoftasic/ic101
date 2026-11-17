@@ -3,8 +3,8 @@
 Learn how to set up IC tools and workspace on your device.
 
 Part of the UofT ASIC Team education materials, published at <https://uoftasic.com/ic101/>. The
-runnable tooling lives in the shared [`workspace`](https://github.com/uoftasic/workspace) repo,
-not in this course repo.
+scripts the labs run are in the shared [`workspace`](https://github.com/uoftasic/workspace) repo,
+not in this one.
 
 ## At a glance
 
@@ -26,7 +26,7 @@ not in this course repo.
 The course home page, [`docs/index.md`](docs/index.md), has a numbered Course path that
 alternates guide pages (`docs/guide/`, reading only) with labs (`docs/labs/`, where all the
 hands-on steps are). The sidebar in `docs/_quarto.yml` lists the pages in the same order. IC101's
-labs have no packages under `labs/`, because everything they run comes from the `workspace` repo.
+labs have no packages under `labs/`.
 
 ## Quick links
 

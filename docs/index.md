@@ -1,15 +1,15 @@
 # IC101 — Onboarding onto Tools
 
-In IC101 you set up the containerized open-source toolchain that later courses build on. You
-install git in Lab 01 and Docker in Lab 02. In Lab 03 you start the workbench, a Docker container
-that holds the team's chip-design (EDA) tools, and open its Linux desktop in a browser tab on your
-laptop. A script called the smoke test then checks that the tools and the SKY130 PDK work. The PDK
-(process design kit) is the set of files that describes how a chip fab's manufacturing process
-behaves.
+In IC101 you set up the workbench on your laptop. The workbench is a Docker container that holds
+the team's chip-design (EDA) tools and the SKY130 PDK. A PDK (process design kit) is the set of
+files that describes how a chip fab's manufacturing process behaves. You install git in Lab 01
+and Docker in Lab 02. In Lab 03 you start the workbench, open its Linux desktop in a browser tab,
+and run a script called the smoke test, which checks that the tools are installed and that SKY130
+is the PDK in use.
 
 IC101 is part of the UofT ASIC Team education materials, published at
-<https://uoftasic.com/ic101/>. The runnable tooling lives in the shared
-[`workspace`](https://github.com/uoftasic/workspace) repo rather than in this course repo.
+<https://uoftasic.com/ic101/>. The scripts the labs run are in the shared
+[`workspace`](https://github.com/uoftasic/workspace) repo, not in this course's repo.
 
 ## At a glance
 
