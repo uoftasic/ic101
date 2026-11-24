@@ -222,13 +222,16 @@ isn't published yet.
 
 ## Copy and paste into noVNC
 
-**Symptom:** `Ctrl+V` on your laptop's keyboard doesn't paste into the noVNC desktop.
+**Symptom:** Text you copied on your laptop doesn't paste into the noVNC desktop.
 
-**Cause:** noVNC streams a remote desktop into your browser, and your laptop's clipboard isn't
-shared with that desktop automatically.
+**Cause:** The desktop has its own clipboard. noVNC copies your laptop's text onto it only through
+the clipboard panel in its sidebar, so pressing a paste key in the desktop pastes whatever was last
+copied there.
 
-**Fix:** Press **Ctrl+Shift+V** instead of `Ctrl+V` to paste into the desktop, or use the
-clipboard icon in the noVNC sidebar.
+**Fix:** Click the clipboard icon in the noVNC sidebar, paste your text into the box that opens,
+and click back in the desktop. Then press **Ctrl+Shift+V** in a terminal, or **Ctrl+V** in gedit.
+[The desktop in your browser](../guide/launch-novnc.md#the-desktop-in-your-browser) has the
+steps.
 
 ## Still stuck
 

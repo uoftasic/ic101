@@ -85,8 +85,18 @@ noVNC serves a full Linux desktop in Chrome, Firefox or Edge, and the password i
 you set `VNC_PW`. Terminals, XSchem, Magic and the rest of the tools all open from that desktop,
 and they run inside the container rather than on your laptop.
 
-Plain `Ctrl+V` doesn't paste text from your laptop into the desktop. To paste there, press
-**Ctrl+Shift+V**, or use the clipboard icon in the noVNC sidebar.
+The desktop has its own clipboard, and noVNC copies text from your laptop onto it only through
+the clipboard panel in the noVNC sidebar. To paste text from your laptop into the desktop:
+
+1. Copy the text on your laptop.
+2. Click the clipboard icon in the noVNC sidebar, and paste the text into the box that opens with
+   Ctrl+V (Cmd+V on a Mac).
+3. Click back in the desktop, which sends the text to the desktop's clipboard. Then press
+   **Ctrl+Shift+V** to paste it in a terminal, or **Ctrl+V** to paste it in gedit. Plain Ctrl+V
+   doesn't paste in a terminal, and Ctrl+Shift+V doesn't paste in gedit.
+
+Text you copy in the desktop goes the other way: it appears in the clipboard panel's box, and you
+can copy it from there on your laptop.
 
 ## X11 instead of noVNC
 

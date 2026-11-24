@@ -111,8 +111,10 @@ Every command in this part runs in a terminal inside the noVNC desktop, not on y
 Inside the container, your `workspace` folder is `/foss/designs`.
 
 1. Open **Terminal** from the icons on the left of the desktop. To paste a command from this page
-   into it, press **Ctrl+Shift+V**, or use the clipboard icon in the noVNC sidebar. Plain
-   `Ctrl+V` doesn't paste into the desktop.
+   into it, copy the command, paste it into the box under the clipboard icon in the noVNC sidebar,
+   click back in the terminal, and press **Ctrl+Shift+V**. Plain `Ctrl+V` doesn't paste in the
+   terminal. [The desktop in your browser](../guide/launch-novnc.md#the-desktop-in-your-browser)
+   explains the clipboard panel. You can also type the commands.
 
 2. Load the workspace environment:
 
