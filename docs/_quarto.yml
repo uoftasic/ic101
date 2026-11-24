@@ -77,6 +77,8 @@ website:
         contents:
           - text: "Troubleshooting"
             href: reference/troubleshooting.md
+          - text: "Apple silicon Macs: Apple's container"
+            href: reference/apple-container.md
       - section: "Repo"
         contents:
           - text: "Workspace repo"

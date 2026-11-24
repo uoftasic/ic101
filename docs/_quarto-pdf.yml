@@ -33,6 +33,7 @@ book:
         - guide/tapeout-flow.md
   appendices:
     - reference/troubleshooting.md
+    - reference/apple-container.md
 
 format:
   typst:
