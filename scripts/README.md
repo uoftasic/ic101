@@ -7,7 +7,7 @@ Utilities for **IC101 - Introduction to IC Tools & Workspace** under the UofT AS
 | Script | Purpose |
 |--------|---------|
 | `init-template.py` | Fill `ic101` / title / description after using the template |
-| `check_site.py` | Check that every local link and `#anchor` in the rendered site resolves. `.github/workflows/site.yml` runs it on `docs/_site` |
+| `check_site.py` | Check that every local link and `#anchor` in the rendered site resolves, and that every page has the navbar's link to https://edu.uoftasic.com/. `.github/workflows/site.yml` runs it on `docs/_site` |
 | `figures/` | The scripts that draw the diagrams in `docs/assets/img/` with schemdraw. `pip install -r scripts/figures/requirements.txt`, then `python3 scripts/figures/<name>.py` rewrites that figure's SVG |
 
 ## Usage
