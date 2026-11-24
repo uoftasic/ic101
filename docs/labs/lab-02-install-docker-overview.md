@@ -21,6 +21,10 @@ Follow the steps for your operating system.
 
 ### macOS
 
+On an Apple silicon Mac with macOS 26 or later, you can follow
+[Apple silicon Macs: Apple's container and the TigerVNC viewer](../reference/apple-container.md)
+instead of this lab.
+
 1. Download [Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/).
 2. Open the downloaded file, drag Docker into Applications, then launch it.
 3. Wait until the Docker icon in the menu bar stops animating, then click the icon. Its status

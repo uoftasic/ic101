@@ -14,6 +14,9 @@ the installer asks of your computer, and why.
 - On a Mac, Docker Desktop needs at least 4 GB of RAM, which you set under
   **Settings → Resources**. Apple Silicon Macs (M1/M2/M3) work too, because the IIC-OSIC-TOOLS
   image is multi-arch, which means it's built for their processors as well as for Intel ones.
+  On an Apple silicon Mac with macOS 26 or later, you can use Apple's `container` and the
+  TigerVNC viewer instead of Docker Desktop; see
+  [Apple silicon Macs: Apple's container and the TigerVNC viewer](../reference/apple-container.md).
 
 ## Windows: WSL2 and virtualization
 
