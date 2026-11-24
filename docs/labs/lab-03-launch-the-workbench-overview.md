@@ -1,9 +1,10 @@
 # Lab 03: Launch the workbench
 
 You'll clone the team's `workspace` repo, start the IIC-OSIC-TOOLS container, open its desktop in
-your browser, and run the smoke test. Then you'll restart the container and check which of your
-files survived. When the smoke test prints `=== All checks passed ===` after that restart, your
-setup is ready for every later course.
+your browser, and run the smoke test. Then you'll restart the container, check which of your
+files survived, and edit one of them from your laptop while the desktop stays open. When the smoke
+test prints `=== All checks passed ===` after that restart, your setup is ready for every later
+course.
 
 Other courses link here for their workbench setup, so if one of them sent you, do this whole lab
 and then go back to that course.
@@ -243,14 +244,61 @@ first file is on your own disk and survives. `/tmp` exists only inside the conta
 
 Keep your course work under `/foss/designs`. Even if you skip step 3, `start_vnc` removes any old
 `asic-edu-osic` container before it starts a new one, so every launch gives you a fresh container
-and anything you saved outside `/foss/designs` is lost. You can leave `restart-test.txt` where it
-is, since `ic101_setup` is IC101's scratch folder.
+and anything you saved outside `/foss/designs` is lost. Leave `restart-test.txt` where it is, since
+`ic101_setup` is IC101's scratch folder and you'll edit the file in Part 6.
+
+## Part 6: Edit a file from your laptop
+
+Because `/foss/designs` is your `workspace` folder
+([Your files on your laptop and in the desktop](../guide/launch-novnc.md#your-files-on-your-laptop-and-in-the-desktop)),
+you can edit course files in an editor on your laptop and keep the desktop open for its terminal
+and GUI tools. In this part you'll open `workspace` in VS Code, edit `restart-test.txt` there, and
+read the change in the desktop. If you'd rather use another editor on your laptop, open the same
+file in it and save it.
+
+1. In the laptop terminal you used in Part 5, which is still in `workspace`, run:
+
+   ```bash
+   pwd
+   ```
+
+   It prints the full path of your `workspace` folder on your laptop, which is the folder you'll
+   open in VS Code in step 3.
+
+2. If you don't have VS Code, install it from [code.visualstudio.com](https://code.visualstudio.com/).
+3. In VS Code, choose **File → Open Folder...** and open your `workspace` folder. If VS Code asks
+   whether you trust the folder, choose to trust it: it's the team's `workspace` repo that you
+   cloned. If VS Code offers to reopen the folder in a container, dismiss the offer; the courses
+   use the desktop that `start_vnc` starts.
+4. In the Explorer on the left of VS Code, open `modules`, then `ic101_setup`, and click
+   `restart-test.txt`. It holds the line you saved from the desktop in Part 5,
+   `saved in the workspace`.
+5. Click on the empty second line, type `edited on my laptop`, and press Enter. Then press
+   **Ctrl+S** (**Cmd+S** on macOS) to save. VS Code doesn't save a file until you do this, unless
+   you've turned on **File → Auto Save**.
+6. In the desktop terminal, run:
+
+   ```bash
+   cat /foss/designs/modules/ic101_setup/restart-test.txt
+   ```
+
+You should see both lines:
+
+```text
+saved in the workspace
+edited on my laptop
+```
+
+If the second line is missing, go back to VS Code, press Ctrl+S, and run `cat` again.
+
+As you work through later courses, keep VS Code and the browser tab with the desktop open side by
+side: edit and save files in VS Code, then run them and use the GUI tools in the desktop.
 
 ## Finishing
 
 You're done when, after the restart in Part 5, the smoke test ends with
-`=== All checks passed ===` in a desktop terminal and `restart-test.txt` is still in
-`ic101_setup`.
+`=== All checks passed ===` in a desktop terminal, and `cat` in the desktop shows the line you
+added to `restart-test.txt` from your laptop in Part 6.
 
 ### Submit
 

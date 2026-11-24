@@ -39,6 +39,31 @@ Later courses add their own folders under `modules/` with `mod add <course>`, a 
 Running `docker rm -f asic-edu-osic` on your laptop stops and removes the container, and running
 `start_vnc` again brings it back. You'll try both in Lab 03, Part 5.
 
+## Your files on your laptop and in the desktop
+
+Mounting the folder means the container uses your `workspace` folder where it is, on your
+laptop's disk, and doesn't copy it. Each file exists once: a file you save in the desktop is in
+your `workspace` folder on your laptop, and a file you save in `workspace` on your laptop is under
+`/foss/designs` in the desktop. The table shows the same two folders from each side:
+
+| | Your `workspace` folder | AD101's Lab 01 folder, once you've added AD101 |
+|---|---|---|
+| On your laptop | Inside the folder where you ran `git clone` in Lab 03, Part 1 | `workspace/modules/ad101/labs/lab-01-signal-explorer` |
+| In the desktop | `/foss/designs` | `/foss/designs/modules/ad101/labs/lab-01-signal-explorer` |
+
+Each course you add with `mod add <course>` gets its own folder, `modules/<course>`, inside
+`workspace`, as AD101's does in the table.
+
+Since both sides work on the same files, you can edit course files in an editor on your laptop,
+such as VS Code, and keep the desktop open beside it for the terminal and the GUI tools. Lab 03,
+Part 6 sets this up, and shows you how to print the full path of `workspace` on your laptop.
+
+On Windows, VS Code saves new files with Windows line endings (CRLF) unless you change its
+`files.eol` setting. Python files run either way, but a shell script saved like that fails in the
+desktop with `/usr/bin/env: ‘bash\r’: No such file or directory`. To fix it, run
+`/foss/designs/scripts/fix_line_endings.sh` in a desktop terminal, which converts every `.sh`,
+`.designinit`, `.magicrc` and `xschemrc` file under `/foss/designs` to Linux line endings (LF).
+
 ## Settings you can change
 
 The script reads the environment variables below. You won't need any of them in Lab 03 unless

@@ -17,7 +17,8 @@ Parts 2 and 3 of [Lab 03](../labs/lab-03-launch-the-workbench-overview.md). The 
 5. Run the smoke test (Lab 03 Part 4), which is the same as in the lab.
 6. Restart the container (Lab 03 Part 5), using the commands under
    [Stopping and restarting](#stopping-and-restarting) on this page.
-7. Finish with Lab 03's Finishing section.
+7. Edit a file from your Mac (Lab 03 Part 6), which is the same as in the lab.
+8. Finish with Lab 03's Finishing section.
 
 ## Can your Mac use it?
 

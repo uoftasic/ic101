@@ -37,7 +37,7 @@ read.
 | 3 | Read | [Why a containerized toolchain](guide/why-containers.md) · [What Docker needs](guide/install-docker.md) | 10 min |
 | 4 | Do | [Lab 02: Install Docker](labs/lab-02-install-docker-overview.md). Install Docker and run its `hello-world` test. | 30 min–1 h |
 | 5 | Read | [The workbench desktop](guide/launch-novnc.md) · [What the smoke test checks](guide/smoke-test.md) | 15 min |
-| 6 | Do | [Lab 03: Launch the workbench](labs/lab-03-launch-the-workbench-overview.md). Clone `workspace`, open the desktop in your browser, pass the smoke test, then restart the container and check which of your files survived. | 30 min–1 h |
+| 6 | Do | [Lab 03: Launch the workbench](labs/lab-03-launch-the-workbench-overview.md). Clone `workspace`, open the desktop in your browser, pass the smoke test, restart the container to check which of your files survived, and edit one of them from your laptop. | 30 min–1 h |
 | 7 | Read | [Where each tool sits in the tapeout flow](guide/tapeout-flow.md) | 10 min |
 
 If a step fails, look it up in [Troubleshooting](reference/troubleshooting.md).
