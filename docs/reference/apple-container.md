@@ -117,12 +117,16 @@ back to [Stopping and restarting](#stopping-and-restarting) when you reach Part 
 
 ## Copy and paste
 
-TigerVNC passes text between your Mac's clipboard and the desktop's clipboard.
+TigerVNC passes text between your Mac's clipboard and the desktop's clipboard, so you don't need
+the noVNC clipboard panel that Lab 03 Part 4 describes.
 
-- To paste a command from a course page into the desktop, copy it on your Mac as usual, click in
-  the TigerVNC window, then press **Ctrl+Shift+V** in a desktop terminal, as Lab 03 Part 4 says.
-  Ignore Lab 03's mention of the noVNC sidebar, which TigerVNC doesn't have.
+- To paste a command from a course page into the desktop, copy it on your Mac, then click in a
+  terminal on the desktop and press **Ctrl+Shift+V**, or click in gedit and press **Ctrl+V**. Use
+  the Control key for these, not Command.
 - Text you copy on the desktop lands on your Mac's clipboard, ready for **Cmd+V**.
+- Selecting text on the desktop, with the mouse or the keyboard, copies it to your Mac's clipboard
+  and the desktop's, without Ctrl+C. After you copy a command on your Mac, paste it before you
+  select anything on the desktop, or the selection replaces it.
 
 ## Stopping and restarting
 

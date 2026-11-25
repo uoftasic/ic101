@@ -85,18 +85,24 @@ noVNC serves a full Linux desktop in Chrome, Firefox or Edge, and the password i
 you set `VNC_PW`. Terminals, XSchem, Magic and the rest of the tools all open from that desktop,
 and they run inside the container rather than on your laptop.
 
-The desktop has its own clipboard, and noVNC copies text from your laptop onto it only through
-the clipboard panel in the noVNC sidebar. To paste text from your laptop into the desktop:
+The desktop has its own clipboard, and noVNC can't read your laptop's, so a paste key pressed in
+the desktop doesn't paste what you copied on your laptop. You hand text to the desktop through the
+clipboard panel in the noVNC sidebar instead:
 
 1. Copy the text on your laptop.
-2. Click the clipboard icon in the noVNC sidebar, and paste the text into the box that opens with
-   Ctrl+V (Cmd+V on a Mac).
+2. Click the small tab with an arrow, halfway down the left edge of the noVNC page, to open the
+   sidebar, and click the clipboard icon. Click in the box that opens, press Ctrl+A to select any
+   text already in it, then press Ctrl+V to paste your text over it (Cmd+A and Cmd+V on a Mac).
+   The desktop gets everything in the box, so old text left in it would be pasted too.
 3. Click back in the desktop, which sends the text to the desktop's clipboard. Then press
    **Ctrl+Shift+V** to paste it in a terminal, or **Ctrl+V** to paste it in gedit. Plain Ctrl+V
-   doesn't paste in a terminal, and Ctrl+Shift+V doesn't paste in gedit.
+   doesn't paste in a terminal, and Ctrl+Shift+V doesn't paste in gedit. On a Mac, use the
+   Control key for these. Cmd+V doesn't paste in the desktop.
 
-Text you copy in the desktop goes the other way: it appears in the clipboard panel's box, and you
-can copy it from there on your laptop.
+Text you copy in the desktop appears in the panel's box, and you can copy it from there on your
+laptop. Selecting text in the desktop, with the mouse or the keyboard, also puts it on the
+desktop's clipboard and in the box in place of what was there. Once you've clicked back in the
+desktop in step 3, paste before you select anything there.
 
 ## X11 instead of noVNC
 

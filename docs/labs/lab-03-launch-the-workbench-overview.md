@@ -110,11 +110,20 @@ If the page is blank or won't load, wait 30–60 s and reload. If it's still bla
 Every command in this part runs in a terminal inside the noVNC desktop, not on your laptop.
 Inside the container, your `workspace` folder is `/foss/designs`.
 
-1. Open **Terminal** from the icons on the left of the desktop. To paste a command from this page
-   into it, copy the command, paste it into the box under the clipboard icon in the noVNC sidebar,
-   click back in the terminal, and press **Ctrl+Shift+V**. Plain `Ctrl+V` doesn't paste in the
-   terminal. [The desktop in your browser](../guide/launch-novnc.md#the-desktop-in-your-browser)
-   explains the clipboard panel. You can also type the commands.
+1. Open **Terminal** from the icons on the left of the desktop. To paste commands from this page
+   into it, you'll use the noVNC clipboard panel. Click the small tab with an arrow, halfway down
+   the left edge of the noVNC page, to open the sidebar, then click the clipboard icon. The panel
+   stays open when you click back in the desktop.
+
+   For each command, copy it, click in the panel's box, and press Ctrl+A, then Ctrl+V (Cmd+A, then
+   Cmd+V on a Mac), so the command replaces whatever the box already held. Then click in the
+   terminal and press **Ctrl+Shift+V** (Control, not Command, on a Mac). Plain **Ctrl+V** doesn't
+   paste in the terminal. You can also type the commands.
+
+   If your desktop is in the TigerVNC viewer instead of a browser tab, copy the command, click in
+   the terminal, and press **Ctrl+Shift+V** (Control, not Command, on a Mac).
+   [Copy and paste](../reference/apple-container.md#copy-and-paste) on the Apple silicon page has
+   the key that pastes in gedit and what selecting text does.
 
 2. Load the workspace environment:
 
